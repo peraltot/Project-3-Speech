@@ -456,7 +456,7 @@ export default React.createClass({
             </p>
 
           </div>
-          <div className="column">
+          {/* <div className="column">
 
             <p>Keywords to spot: <input
               value={this.state.keywords}
@@ -467,7 +467,7 @@ export default React.createClass({
               className="base--input"
             /></p>
 
-          </div>
+          </div> */}
         </div>
 
 
@@ -481,13 +481,13 @@ export default React.createClass({
             <Icon type={this.state.audioSource === 'upload' ? 'stop' : 'upload'} /> Upload Audio File
           </button>
 
-          <button className={buttonClass} onClick={this.handleSample1Click}>
+          {/* <button className={buttonClass} onClick={this.handleSample1Click}>
             <Icon type={this.state.audioSource === 'sample-1' ? 'stop' : 'play'} /> Play Sample 1
           </button>
 
           <button className={buttonClass} onClick={this.handleSample2Click}>
             <Icon type={this.state.audioSource === 'sample-2' ? 'stop' : 'play'} /> Play Sample 2
-          </button>
+          </button> */}
 
         </div>
 
@@ -502,13 +502,13 @@ export default React.createClass({
           <Pane label="Word Timings and Alternatives">
             <TimingView messages={messages} />
           </Pane>
-          <Pane label={`Keywords ${getKeywordsSummary(this.state.settingsAtStreamStart.keywords, messages)}`}>
+          {/* <Pane label={`Keywords ${getKeywordsSummary(this.state.settingsAtStreamStart.keywords, messages)}`}>
             <Keywords
               messages={messages}
               keywords={this.state.settingsAtStreamStart.keywords}
               isInProgress={!!this.state.audioSource}
             />
-          </Pane>
+          </Pane> */}
           <Pane label="JSON">
             <JSONView raw={this.state.rawMessages} formatted={this.state.formattedMessages} />
           </Pane>

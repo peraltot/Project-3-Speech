@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Header, Jumbotron } from 'watson-react-components';
 
+// import { Header, Jumbotron } from 'watson-react-components';
 // eslint-disable-mnext-lin =
-const DESCRIPTION = 'The IBM Watson Speech to Text service uses speech recognition capabilities to convert Arabic, English, Spanish, French, Brazilian Portuguese, Japanese, and Mandarin speech into text.';
-
+const DESCRIPTION = 'Using IBM API to provide speech into text.';
+ 
 export default function Layout(props) {
   return (
     <html lang="en">
@@ -18,24 +18,25 @@ export default function Layout(props) {
         <link rel="stylesheet" href="/css/style.css" />
       </head>
       <body>
-        <Header
+        {/* <Header
           mainBreadcrumbs="Speech to Text"
-          mainBreadcrumbsUrl="https://www.ibm.com/watson/services/speech-to-text/"
-          subBreadcrumbs="Speech to Text Demo"
-          subBreadcrumbsUrl="https://speech-to-text-demo.mybluemix.net"
+          // mainBreadcrumbsUrl="https://www.ibm.com/watson/services/speech-to-text/"
+          // subBreadcrumbs="Speech to Text Demo"
+          // subBreadcrumbsUrl="https://speech-to-text-demo.mybluemix.net"
 
-        />
-        <Jumbotron
+        /> */}
+        {/* <Jumbotron
           serviceName="Speech to Text"
-          repository="https://github.com/watson-developer-cloud/speech-to-text-nodejs"
-          documentation="https://console.bluemix.net/docs/services/speech-to-text/getting-started.html"
-          apiReference="http://www.ibm.com/watson/developercloud/speech-to-text/api"
-          version="GA"
-          serviceIcon="/images/stt.svg"
-          startInBluemix="https://console.bluemix.net/registration?target=%2Fdeveloper%2Fwatson%2Fcreate-project%3Fservices%3Dspeech_to_text%26action%3Dcreate%26hideTours%3Dtrue%26cm_mmc%3DOSocial_Tumblr-_-Watson%2BCore_Watson%2BCore%2B-%2BPlatform-_-WW_WW-_-wdc-ref%26cm_mmc%3DOSocial_Tumblr-_-Watson%2BCore_Watson%2BCore%2B-%2BPlatform-_-WW_WW-_-wdc-ref%26cm_mmca1%3D000000OF%26cm_mmca2%3D10000409"
+          // repository="https://github.com/watson-developer-cloud/speech-to-text-nodejs"
+          // documentation="https://console.bluemix.net/docs/services/speech-to-text/getting-started.html"
+          // apiReference="http://www.ibm.com/watson/developercloud/speech-to-text/api"
+          // version="GA"
+          // serviceIcon="/images/stt.svg"
+          // startInBluemix="https://console.bluemix.net/registration?target=%2Fdeveloper%2Fwatson%2Fcreate-project%3Fservices%3Dspeech_to_text%26action%3Dcreate%26hideTours%3Dtrue%26cm_mmc%3DOSocial_Tumblr-_-Watson%2BCore_Watson%2BCore%2B-%2BPlatform-_-WW_WW-_-wdc-ref%26cm_mmc%3DOSocial_Tumblr-_-Watson%2BCore_Watson%2BCore%2B-%2BPlatform-_-WW_WW-_-wdc-ref%26cm_mmca1%3D000000OF%26cm_mmca2%3D10000409"
           description={DESCRIPTION}
-        />
+        /> */}
         <div id="root">
+        
           {props.children}
         </div>
         <script type="text/javascript" src="scripts/bundle.js" />
