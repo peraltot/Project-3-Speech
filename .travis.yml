@@ -1,0 +1,27 @@
+language: node_js
+dist: trusty
+sudo: required
+node_js: 6
+script:
+- npm run test
+
+cache:
+  directories:
+  - node_modules
+env:
+  global:
+  - BX_APP=speech-to-text-demo
+  - BX_API=https://api.ng.bluemix.net
+  - BX_ORGANIZATION=WatsonPlatformServices
+  - BX_SPACE=demos
+before_deploy: npm install -g https://github.com/andresfvilla/bx-blue-green
+deploy:
+  skip_cleanup: true
+  provider: script
+  script:
+  - bx-blue-green-travis
+  on:
+    branch: master
+    repo: watson-developer-cloud/speech-to-text-nodejs
+notifications:
+  email: false
