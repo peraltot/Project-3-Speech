@@ -2,7 +2,7 @@
 /* eslint no-underscore-dangle: off, no-var: off, vars-on-top: off */
 
 function loadAnalytics() {
-  var SERVICE_NAME = 'speech-to-text-demo';
+  var SERVICE_NAME = 'Tell ME your STORY';
   var GOOGLE_ANALYTICS = 'UA-59827755-13';
 
   window._analytics = { segment_key: 'P1YMMnwSrsufGrHpg6uUzgVhaQXaP921', coremetrics: false };

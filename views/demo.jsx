@@ -155,9 +155,34 @@ export default React.createClass({
     if (this.state.audioSource === `sample-${which}`) {
       this.stopTranscription();
     } else {
+     
       const filename = samples[this.state.model] && samples[this.state.model][which - 1].filename;
+       // Trying google docs
+       // Create and open a document.
+      //  doc = DocumentApp.create('Document Name');
+       console.log("Send to google docs");
+// var layout = doc.getBody();
+       var doc = DocumentApp.create('Sample Document');         
+       var body = doc.getBody();
+        // Use editAsText to obtain a single text element containing
+ // all the characters in the document.
+ var text = body.editAsText();
+ 
+  // Insert text at the beginning of the document.
+  text.insertText(0, 'Inserted text.\n');
+ 
+  // Insert text at the end of the document.
+  text.appendText('\nAppended text.');
+      //  var rowsData = [['Plants', 'Animals'], ['Ficus', 'Goat'], ['Basil', 'Cat'], ['Moss', 'Frog']];
+      //  body.insertParagraph(0, doc.getName())
+      //      .setHeading(DocumentApp.ParagraphHeading.HEADING1);
+      //  table = body.appendTable(rowsData);
+      //  table.getRow(0).editAsText().setBold(true);
+      //  console.log("Sent to google docs");
+       // Trying google docs
       if (!filename) {
         this.handleError(`No sample ${which} available for model ${this.state.model}`, samples[this.state.model]);
+         
       }
       this.reset();
       this.setState({ audioSource: `sample-${which}` });
@@ -475,6 +500,10 @@ export default React.createClass({
 
           <button className={micButtonClass} onClick={this.handleMicClick}>
             <Icon type={this.state.audioSource === 'mic' ? 'stop' : 'microphone'} fill={micIconFill} /> Record Audio
+          </button>
+
+          <button className={buttonClass} onClick={this.handleSample1Click}>
+            <Icon type={this.state.audioSource === 'upload' ? 'stop' : 'upload'} /> Download to Google Docs
           </button>
 
           <button className={buttonClass} onClick={this.handleUploadClick}>
