@@ -10,7 +10,7 @@ cache:
   - node_modules
 env:
   global:
-  - BX_APP=Tell ME your STORY
+  - BX_APP=speech-to-text-demo
   - BX_API=https://api.ng.bluemix.net
   - BX_ORGANIZATION=WatsonPlatformServices
   - BX_SPACE=demos

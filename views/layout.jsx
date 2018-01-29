@@ -9,7 +9,7 @@ export default function Layout(props) {
   return (
     <html lang="en">
       <head>
-        <title>Speech to Text Demo</title>
+        <title>Tell Me Your Story</title>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,7 +22,7 @@ export default function Layout(props) {
           mainBreadcrumbs="Speech to Text"
           // mainBreadcrumbsUrl="https://www.ibm.com/watson/services/speech-to-text/"
           // subBreadcrumbs="Speech to Text Demo"
-          // subBreadcrumbsUrl="https://Tell ME your STORY.mybluemix.net"
+          // subBreadcrumbsUrl="https://speech-to-text-demo.mybluemix.net"
 
         /> */}
         {/* <Jumbotron
