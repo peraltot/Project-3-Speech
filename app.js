@@ -16,6 +16,7 @@
 
 
 const express = require('express');
+const DocumentApp = require('google-documents-api');
 
 const app = express();
 const watson = require('watson-developer-cloud');

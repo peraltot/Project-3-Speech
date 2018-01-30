@@ -16,6 +16,8 @@ import cachedModels from '../src/data/models.json';
 
 const ERR_MIC_NARROWBAND = 'Microphone transcription cannot accommodate narrowband voice models, please select a broadband one.';
 
+const DocumentApp = require('google-documents-api');
+
 export default React.createClass({
   displayName: 'Demo',
 
@@ -151,44 +153,95 @@ export default React.createClass({
     this.handleSampleClick(2);
   },
 
-  handleSampleClick(which) {
-    if (this.state.audioSource === `sample-${which}`) {
+  // handleSampleClick(which) {
+  //   if (this.state.audioSource === `Sample1`) {
+  //     console.log("Send to google docs");
+  //     this.stopTranscription();
+  //   } else {
+
+  //     const filename = samples[this.state.model] && samples[this.state.model][which - 1].filename;
+  //     if (!filename) {
+
+  handleSampleClick() {
+    if (this.state.audioSource === 'Sample1') {
       this.stopTranscription();
     } else {
-     
-      const filename = samples[this.state.model] && samples[this.state.model][which - 1].filename;
-       // Trying google docs
-       // Create and open a document.
-      //  doc = DocumentApp.create('Document Name');
-       console.log("Send to google docs");
-// var layout = doc.getBody();
-       var doc = DocumentApp.create('Sample Document');         
-       var body = doc.getBody();
-        // Use editAsText to obtain a single text element containing
- // all the characters in the document.
- var text = body.editAsText();
- 
-  // Insert text at the beginning of the document.
-  text.insertText(0, 'Inserted text.\n');
- 
-  // Insert text at the end of the document.
-  text.appendText('\nAppended text.');
-      //  var rowsData = [['Plants', 'Animals'], ['Ficus', 'Goat'], ['Basil', 'Cat'], ['Moss', 'Frog']];
-      //  body.insertParagraph(0, doc.getName())
-      //      .setHeading(DocumentApp.ParagraphHeading.HEADING1);
-      //  table = body.appendTable(rowsData);
-      //  table.getRow(0).editAsText().setBold(true);
-      //  console.log("Sent to google docs");
-       // Trying google docs
-      if (!filename) {
-        this.handleError(`No sample ${which} available for model ${this.state.model}`, samples[this.state.model]);
-         
+
+      console.log("Send to google docs");
+      createAndSendDocument();
+      function createAndSendDocument() {
+        // Create a new Google Doc named 'Hello, world!'
+        var doc = DocumentApp.create('Hello, world!');
+
+        // Access the body of the document, then add a paragraph.
+        doc.getBody().appendParagraph('This document was created by Google Apps Script.');
+
+        // Get the URL of the document.
+        var url = doc.getUrl();
+
+        // Get the email address of the active user - that's you.
+        var email = Session.getActiveUser().getEmail();
+
+        // Get the name of the document to use as an email subject line.
+        var subject = doc.getName();
+
+        // Append a new string to the "url" variable to use as an email body.
+        var body = 'Link to your doc: ' + url;
+
+        // Send yourself an email with a link to the document.
+        GmailApp.sendEmail(email, subject, body);
+        console.log("Send to google docs");
+        this.dropzone.open();
       }
-      this.reset();
-      this.setState({ audioSource: `sample-${which}` });
-      this.playFile(`audio/${filename}`);
     }
   },
+
+  handleUserFile(files) {
+    const file = files[0];
+    if (!file) {
+      return;
+    }
+
+    console.log("Send to google docs");
+    // this.handleError(`No sample ${which} available for model ${this.state.model}`, samples[this.state.model]);
+    //        // Trying google docs
+    //        // Create and open a document.
+    //       //  doc = DocumentApp.create('Document Name');
+    //        console.log("Send to google docs");
+    // // var layout = doc.getBody();
+    //        var doc = DocumentApp.create('Sample Document');         
+    //        var body = doc.getBody();
+    //         // Use editAsText to obtain a single text element containing
+    //  // all the characters in the document.
+    //  var text = body.editAsText();
+
+    //   // Insert text at the beginning of the document.
+    //   text.insertText(0, 'Inserted text.\n');
+
+    //   // Insert text at the end of the document.
+    //   text.appendText('\nAppended text.');
+    //       //  var rowsData = [['Plants', 'Animals'], ['Ficus', 'Goat'], ['Basil', 'Cat'], ['Moss', 'Frog']];
+    //       //  body.insertParagraph(0, doc.getName())
+    //       //      .setHeading(DocumentApp.ParagraphHeading.HEADING1);
+    //       //  table = body.appendTable(rowsData);
+    //       //  table.getRow(0).editAsText().setBold(true);
+    //       //  console.log("Sent to google docs");
+    //        // Trying google docs
+    this.reset();
+    this.setState({ audioSource: 'Sample1' });
+    this.playFile(file);
+  },
+
+  handleUserFileRejection() {
+    this.setState({ error: 'Sorry, that file does not appear to be compatible.' });
+  },
+
+  //     }
+  //     this.reset();
+  //     this.setState({ audioSource: `Sample-1` });
+  //     this.playFile(`audio/${filename}`);
+  //   }
+  // },
 
   /**
    * @param {File|Blob|String} file - url to an audio file or a File
@@ -302,9 +355,11 @@ export default React.createClass({
 
   handleModelChange(model) {
     this.reset();
-    this.setState({ model,
+    this.setState({
+      model,
       keywords: this.getKeywords(model),
-      speakerLabels: this.supportsSpeakerLabels(model) });
+      speakerLabels: this.supportsSpeakerLabels(model)
+    });
 
     // clear the microphone narrowband error if it's visible and a broadband model was just selected
     if (this.state.error === ERR_MIC_NARROWBAND && !this.isNarrowBand(model)) {
