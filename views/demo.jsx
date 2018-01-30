@@ -16,7 +16,7 @@ import cachedModels from '../src/data/models.json';
 
 const ERR_MIC_NARROWBAND = 'Microphone transcription cannot accommodate narrowband voice models, please select a broadband one.';
 
-const DocumentApp = require('google-documents-api');
+// const DocumentApp = require('google-documents-api');
 
 export default React.createClass({
   displayName: 'Demo',

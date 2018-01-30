@@ -52,7 +52,7 @@
     "express-rate-limit": "^2.11.0",
     "express-react-views": "^0.10.5",
     "express-secure-only": "^0.2.1",
-    "google-documents-api": "^0.3.0",
+    // "google-documents-api": "^0.3.0",
     "helmet": "^3.9.0",
     "prop-types": "^15.6.0",
     "react": "^15.6.2",
