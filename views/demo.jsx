@@ -111,6 +111,9 @@ export default React.createClass({
     this.reset();
     this.setState({ audioSource: 'mic' });
 
+let text_json_record = []
+
+
     // The recognizeMicrophone() method is a helper method provided by the watson-speech package
     // It sets up the microphone, converts and downsamples the audio, and then transcribes it
     // over a WebSocket connection
@@ -161,14 +164,30 @@ export default React.createClass({
 
   //     const filename = samples[this.state.model] && samples[this.state.model][which - 1].filename;
   //     if (!filename) {
-
   handleSampleClick() {
     if (this.state.audioSource === 'Sample1') {
       this.stopTranscription();
     } else {
 
       console.log("Send to google docs");
-      createAndSendDocument();
+      console.log(results);
+      // createAndSendDocument();
+      exportJson();
+      let text_json_record = results
+      // let results = []
+
+      function exportJson() {
+        downloadTextFile('google.txt', JSON.stringify(text_json_record))
+      }
+      function downloadTextFile(filename, text) {
+        var element = document.createElement('a');
+        element.setAttribute('hidden', '')
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+      }
       function createAndSendDocument() {
         // Create a new Google Doc named 'Hello, world!'
         var doc = DocumentApp.create('Hello, world!');
