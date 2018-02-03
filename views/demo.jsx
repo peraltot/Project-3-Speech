@@ -1,7 +1,7 @@
 /* eslint no-param-reassign: 0 */
 import React from 'react';
 import Dropzone from 'react-dropzone';
-import { Icon, Tabs, Pane, Alert } from 'watson-react-components';
+import { Icon, Tabs, Pane, Alert, JsonLink } from 'watson-react-components';
 import recognizeMicrophone from 'watson-speech/speech-to-text/recognize-microphone';
 import recognizeFile from 'watson-speech/speech-to-text/recognize-file';
 
@@ -170,10 +170,13 @@ let text_json_record = []
     } else {
 
       console.log("Send to google docs");
-      console.log(results);
+      console.log(Transcript);
+      console.log(JsonLink);
+      // console.log(result.alternatives[0].transcript);
+      // console.log(msg.results);
       // createAndSendDocument();
       exportJson();
-      let text_json_record = results
+      let text_json_record = Transcript;
       // let results = []
 
       function exportJson() {
