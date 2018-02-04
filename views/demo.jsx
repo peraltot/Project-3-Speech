@@ -168,19 +168,20 @@ let text_json_record = []
     if (this.state.audioSource === 'Sample1') {
       this.stopTranscription();
     } else {
-
+      console.log(this.state.formattedMessages[this.state.formattedMessages.length-1].results[0].alternatives[0].transcript);
+      let msg = this.state.formattedMessages[this.state.formattedMessages.length-1].results[0].alternatives[0].transcript;
       console.log("Send to google docs");
-      console.log(Transcript);
-      console.log(JsonLink);
+      // console.log(msg.results[0].alternatives[0].transcript);
+      // console.log(JsonLink);
       // console.log(result.alternatives[0].transcript);
       // console.log(msg.results);
       // createAndSendDocument();
       exportJson();
-      let text_json_record = Transcript;
+      // let text_json_record = msg;
       // let results = []
 
       function exportJson() {
-        downloadTextFile('google.txt', JSON.stringify(text_json_record))
+        downloadTextFile('google.txt', msg)
       }
       function downloadTextFile(filename, text) {
         var element = document.createElement('a');

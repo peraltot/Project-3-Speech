@@ -13,6 +13,7 @@ export default function SpeakersView(props) {
       // is set (for faster UI updates).
       msg.results.map((result, i) => (
         <div key={`result-${msg.result_index + i}`}>
+           
           <dt>{typeof result.speaker === 'number'
             ? `Speaker ${result.speaker}: `
             : '(Detecting speakers): '}</dt>
