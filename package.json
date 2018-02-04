@@ -53,6 +53,7 @@
     "express-react-views": "^0.10.5",
     "express-secure-only": "^0.2.1",
     "helmet": "^3.9.0",
+    "mongoose": "^5.0.3",
     "prop-types": "^15.6.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
