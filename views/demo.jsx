@@ -525,7 +525,7 @@ let text_json_record = []
           </div>
         </div>
 
-        <h2 className="base--h2">Transcribe Audio</h2>
+        <h2 className="base--h2">Tell ME your STORY!</h2>
 
         <ul className="base--ul">
           {micBullet}
