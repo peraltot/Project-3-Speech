@@ -156,32 +156,19 @@ let text_json_record = []
     this.handleSampleClick(2);
   },
 
-  // handleSampleClick(which) {
-  //   if (this.state.audioSource === `Sample1`) {
-  //     console.log("Send to google docs");
-  //     this.stopTranscription();
-  //   } else {
-
-  //     const filename = samples[this.state.model] && samples[this.state.model][which - 1].filename;
-  //     if (!filename) {
-  handleSampleClick() {
-    if (this.state.audioSource === 'Sample1') {
+  handleSample1Click() {
+    if (this.state.audioSource === 'sample-1') {
       this.stopTranscription();
-    } else {
+    }
+    else {
       console.log(this.state.formattedMessages[this.state.formattedMessages.length-1].results[0].alternatives[0].transcript);
       let msg = this.state.formattedMessages[this.state.formattedMessages.length-1].results[0].alternatives[0].transcript;
-      console.log("Send to google docs");
-      // console.log(msg.results[0].alternatives[0].transcript);
-      // console.log(JsonLink);
-      // console.log(result.alternatives[0].transcript);
-      // console.log(msg.results);
-      // createAndSendDocument();
+      console.log("Save locally");
+   
       exportJson();
-      // let text_json_record = msg;
-      // let results = []
 
       function exportJson() {
-        downloadTextFile('google.txt', msg)
+        downloadTextFile('Story.txt', msg)
       }
       function downloadTextFile(filename, text) {
         var element = document.createElement('a');
@@ -225,46 +212,75 @@ let text_json_record = []
       return;
     }
 
-    console.log("Send to google docs");
-    // this.handleError(`No sample ${which} available for model ${this.state.model}`, samples[this.state.model]);
-    //        // Trying google docs
-    //        // Create and open a document.
-    //       //  doc = DocumentApp.create('Document Name');
-    //        console.log("Send to google docs");
-    // // var layout = doc.getBody();
-    //        var doc = DocumentApp.create('Sample Document');         
-    //        var body = doc.getBody();
-    //         // Use editAsText to obtain a single text element containing
-    //  // all the characters in the document.
-    //  var text = body.editAsText();
-
-    //   // Insert text at the beginning of the document.
-    //   text.insertText(0, 'Inserted text.\n');
-
-    //   // Insert text at the end of the document.
-    //   text.appendText('\nAppended text.');
-    //       //  var rowsData = [['Plants', 'Animals'], ['Ficus', 'Goat'], ['Basil', 'Cat'], ['Moss', 'Frog']];
-    //       //  body.insertParagraph(0, doc.getName())
-    //       //      .setHeading(DocumentApp.ParagraphHeading.HEADING1);
-    //       //  table = body.appendTable(rowsData);
-    //       //  table.getRow(0).editAsText().setBold(true);
-    //       //  console.log("Sent to google docs");
-    //        // Trying google docs
     this.reset();
-    this.setState({ audioSource: 'Sample1' });
-    this.playFile(file);
+  
+  },
+
+  handleSample2Click() {
+   if (this.state.audioSource === 'sample-2') {
+      this.stopTranscription(); 
+    }
+    else {
+      console.log(this.state.formattedMessages[this.state.formattedMessages.length-1].results[0].alternatives[0].transcript);
+      let msg = this.state.formattedMessages[this.state.formattedMessages.length-1].results[0].alternatives[0].transcript;
+      console.log("Post to database");
+   
+      exportJson();
+
+      function exportJson() {
+        saveTextFile('Story.txt', msg)
+      }
+      function saveTextFile(filename, text) {
+        console.log("insert post here");
+        var element = document.createElement('a');
+        element.setAttribute('hidden', '')
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+      }
+      function createAndSendDocument() {
+        // Create a new Google Doc named 'Hello, world!'
+        var doc = DocumentApp.create('Hello, world!');
+
+        // Access the body of the document, then add a paragraph.
+        doc.getBody().appendParagraph('This document was created by Google Apps Script.');
+
+        // Get the URL of the document.
+        var url = doc.getUrl();
+
+        // Get the email address of the active user - that's you.
+        var email = Session.getActiveUser().getEmail();
+
+        // Get the name of the document to use as an email subject line.
+        var subject = doc.getName();
+
+        // Append a new string to the "url" variable to use as an email body.
+        var body = 'Link to your doc: ' + url;
+
+        // Send yourself an email with a link to the document.
+        GmailApp.sendEmail(email, subject, body);
+        console.log("Send to google docs");
+        this.dropzone.open();
+      }
+    }
+  },
+
+  handleUserFile(files) {
+    const file = files[0];
+    if (!file) {
+      return;
+    }
+
+    this.reset();
+  
   },
 
   handleUserFileRejection() {
     this.setState({ error: 'Sorry, that file does not appear to be compatible.' });
   },
 
-  //     }
-  //     this.reset();
-  //     this.setState({ audioSource: `Sample-1` });
-  //     this.playFile(`audio/${filename}`);
-  //   }
-  // },
 
   /**
    * @param {File|Blob|String} file - url to an audio file or a File
@@ -581,12 +597,17 @@ let text_json_record = []
           </button>
 
           <button className={buttonClass} onClick={this.handleSample1Click}>
-            <Icon type={this.state.audioSource === 'upload' ? 'stop' : 'upload'} /> Download to Google Docs
+            <Icon type={this.state.audioSource === 'sample-1' ? 'stop' : 'upload'} /> Download Story
+          </button>
+
+          <button className={buttonClass} onClick={this.handleSample2Click}>
+            <Icon type={this.state.audioSource === 'sample-2' ? 'stop' : 'upload'} /> Save Story
           </button>
 
           <button className={buttonClass} onClick={this.handleUploadClick}>
             <Icon type={this.state.audioSource === 'upload' ? 'stop' : 'upload'} /> Upload Audio File
           </button>
+
 
           {/* <button className={buttonClass} onClick={this.handleSample1Click}>
             <Icon type={this.state.audioSource === 'sample-1' ? 'stop' : 'play'} /> Play Sample 1
