@@ -13,6 +13,7 @@ import TimingView from './timing.jsx';
 import JSONView from './json-view.jsx';
 import samples from '../src/data/samples.json';
 import cachedModels from '../src/data/models.json';
+import { request } from 'https';
 
 const ERR_MIC_NARROWBAND = 'Microphone transcription cannot accommodate narrowband voice models, please select a broadband one.';
 
@@ -223,23 +224,50 @@ let text_json_record = []
     else {
       console.log(this.state.formattedMessages[this.state.formattedMessages.length-1].results[0].alternatives[0].transcript);
       let msg = this.state.formattedMessages[this.state.formattedMessages.length-1].results[0].alternatives[0].transcript;
-      console.log("Post to database");
+     
    
       exportJson();
 
-      function exportJson() {
-        saveTextFile('Story.txt', msg)
+      function exportJson(){
+        console.log("Post to database");
+        // request.post('/save', (req, res) => {
+        //   name: msg
+        // });
+        fetch('/save', {
+          method: 'POST',
+          data: {
+            'name':msg
+          }
+        }).then(res => console.log(res));
+        // $.ajax({
+        //   method: "POST",
+        //   url: "/save" ,
+        //   data:{
+        //   name: msg 
+        //  }
+        // })// Execute the above query
+        // .exec(function (err, doc) {
+        //     // Log any errors
+        //     if (err) {
+        //         console.log(err);
+        //     } else {
+        //         // Or send the document to the browser
+        //         console.log("saved the article");
+        //         res.send(doc);
+        //     }
+        // });
+        // saveTextFile('Story.txt', msg)
       }
-      function saveTextFile(filename, text) {
-        console.log("insert post here");
-        var element = document.createElement('a');
-        element.setAttribute('hidden', '')
-        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-        element.setAttribute('download', filename);
-        document.body.appendChild(element);
-        element.click();
-        document.body.removeChild(element);
-      }
+      // function saveTextFile(filename, text) {
+      //   console.log("insert post here");
+      //   var element = document.createElement('a');
+      //   element.setAttribute('hidden', '')
+      //   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+      //   element.setAttribute('download', filename);
+      //   document.body.appendChild(element);
+      //   element.click();
+      //   document.body.removeChild(element);
+      // }
       function createAndSendDocument() {
         // Create a new Google Doc named 'Hello, world!'
         var doc = DocumentApp.create('Hello, world!');
