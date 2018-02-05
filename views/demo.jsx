@@ -28,7 +28,7 @@ export default React.createClass({
       rawMessages: [],
       formattedMessages: [],
       audioSource: null,
-      speakerLabels: true,
+      speakerLabels: false,
       keywords: this.getKeywords('en-US_BroadbandModel'),
       // transcript model and keywords are the state that they were when the button was clicked.
       // Changing them during a transcription would cause a mismatch between the setting sent to the
@@ -228,7 +228,7 @@ let text_json_record = []
    
       exportJson();
 
-      function exportJson(){
+      function exportJson(doc){
         console.log("Post to database");
         // request.post('/save', (req, res) => {
         //   name: msg
@@ -238,7 +238,8 @@ let text_json_record = []
           data: {
             'name':msg
           }
-        }).then(res => console.log(res));
+        // }).then(res => console.log(res));
+         }).then(res=>res.json(doc));
         // $.ajax({
         //   method: "POST",
         //   url: "/save" ,
@@ -558,23 +559,22 @@ let text_json_record = []
         <ul className="base--ul">
           {micBullet}
           <li className="base--li">{'Upload pre-recorded audio (.mp3, .mpeg, .wav, .flac, or .opus only).'}</li>
-          <li className="base--li">Play one of the sample audio files.*</li>
+          {/* <li className="base--li">Play one of the sample audio files.*</li> */}
         </ul>
 
-        <div className="smalltext">
+        {/* <div className="smalltext">
           {'*Both US English broadband sample audio files are covered under the Creative Commons license.'}
-        </div>
+        </div> */}
 
-        <div style={{
+        {/* <div style={{
           paddingRight: '3em',
           paddingBottom: '2em',
-        }}
-        >
-          The returned result includes the recognized text, {' '}
+        }} */}
+          {/* The returned result includes the recognized text, {' '}
           <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#output">word alternatives</a>, {' '}
           and <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#output">spotted keywords</a>. {' '}
-          Some models can <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#output">detect multiple speakers</a>; this may slow down performance.
-        </div>
+          Some models can <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#output">detect multiple speakers</a>; this may slow down performance. */}
+        {/* </div> */}
 
 
         <div className="flex setup">
@@ -597,9 +597,9 @@ let text_json_record = []
                 disabled={!this.supportsSpeakerLabels()}
                 id="speaker-labels"
               />
-              <label className="base--inline-label" htmlFor="speaker-labels">
+              {/* <label className="base--inline-label" htmlFor="speaker-labels">
                 Detect multiple speakers {this.supportsSpeakerLabels() ? '' : ' (Not supported on current model)'}
-              </label>
+              </label> */}
             </p>
 
           </div>
