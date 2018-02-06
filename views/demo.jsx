@@ -233,13 +233,41 @@ let text_json_record = []
         // request.post('/save', (req, res) => {
         //   name: msg
         // });
-        fetch('/save', {
-          method: 'POST',
+        // fetch('/save', {
+        //   method: 'POST',
+        //   data: {
+        //     'name':msg
+        //   }
+        // }).then(res => console.log(res));
+        //  }).then(res=>res.json(doc));
+
+         fetch('/saved', {
+          method: 'post',
           data: {
             'name':msg
           }
-        // }).then(res => console.log(res));
-         }).then(res=>res.json(doc));
+        // }).then(function(response) {
+        }).then(function(response) {
+          return response.json();
+        // }).then(function(data) {
+        //   console.log(data);
+        // Using our Article model, create a new entry
+            // This effectively passes the result object to the entry (and the title and link)
+            // var entry = new Story(result);
+            
+            //             // Now, save that entry to the db
+            //             entry.save(function (err, doc) {
+            //                 // Log any errors
+            //                 if (err) {
+            //                     console.log(err // Or log the doc
+            //                     );
+            //                 } else {
+            
+            //                     console.log(doc);
+            
+            //                 }
+            //             });
+        });
         // $.ajax({
         //   method: "POST",
         //   url: "/save" ,

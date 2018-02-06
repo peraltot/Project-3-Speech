@@ -66,7 +66,7 @@ app.get("/stories", function(req, res) {
 });
 
 // Route for saving a new Note to the db and associating it with a User
-app.post("/save", function(req, res) {
+app.post("/saved", function(req, res) {
   // Create a new Note in the db
   db.Story
     .create(req.body)
@@ -75,7 +75,7 @@ app.post("/save", function(req, res) {
       // { new: true } tells the query that we want it to return the updated User -- it returns the original by default
       // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
       // return db.Story.create({ name: "Use JSON story variable here" });
-      return db.Story.create({ name: msg });
+      return db.Story.create({ name: "msg" });
     })
     .then(function(dbStory) {
       // If the User was updated successfully, send it back to the client

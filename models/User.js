@@ -9,7 +9,9 @@ var StorySchema = new Schema({
   // `name` must be unique and of type String
   name: {
     type: String,
-    unique: true
+    // type: String
+    // unique: true
+    required: true
   }
 });
 
