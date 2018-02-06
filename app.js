@@ -17,12 +17,20 @@
 
 const express = require('express');
 // const DocumentApp = require('google-documents-api');
+const bodyParser = require("body-parser");
 
 const app = express();
 const watson = require('watson-developer-cloud');
 
 // Bootstrap application settings
 require('./config/express')(app);
+
+// Sets up the Express app to handle data parsing
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+
+app.use(bodyParser.json());
 
 const stt = new watson.SpeechToTextV1({
   // if left undefined, username and password to fall back to the SPEECH_TO_TEXT_USERNAME and
