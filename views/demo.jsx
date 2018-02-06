@@ -112,7 +112,7 @@ export default React.createClass({
     this.reset();
     this.setState({ audioSource: 'mic' });
 
-let text_json_record = []
+    let text_json_record = []
 
 
     // The recognizeMicrophone() method is a helper method provided by the watson-speech package
@@ -161,16 +161,17 @@ let text_json_record = []
     if (this.state.audioSource === 'sample-1') {
       this.stopTranscription();
     }
-    else {
-      console.log(this.state.formattedMessages[this.state.formattedMessages.length-1].results[0].alternatives[0].transcript);
-      let msg = this.state.formattedMessages[this.state.formattedMessages.length-1].results[0].alternatives[0].transcript;
+    else {// LH to do : loop through the this.state.formattedMessages array to get all, currently gets last line of speech(length-1)
+      console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
+      let msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
       console.log("Save locally");
-   
+
       exportJson();
 
       function exportJson() {
         downloadTextFile('Story.txt', msg)
       }
+
       function downloadTextFile(filename, text) {
         var element = document.createElement('a');
         element.setAttribute('hidden', '')
@@ -214,66 +215,69 @@ let text_json_record = []
     }
 
     this.reset();
-  
+
   },
 
   handleSample2Click() {
-   if (this.state.audioSource === 'sample-2') {
-      this.stopTranscription(); 
+    if (this.state.audioSource === 'sample-2') {
+      this.stopTranscription();
     }
     else {
-      console.log(this.state.formattedMessages[this.state.formattedMessages.length-1].results[0].alternatives[0].transcript);
-      let msg = this.state.formattedMessages[this.state.formattedMessages.length-1].results[0].alternatives[0].transcript;
-     
-   
+      console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
+      let msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
+
+
       exportJson();
 
-      function exportJson(doc){
+      function exportJson() {
         console.log("Post to database");
-        // request.post('/save', (req, res) => {
-        //   name: msg
-        // });
-        // fetch('/save', {
-        //   method: 'POST',
-        //   data: {
-        //     'name':msg
-        //   }
-        // }).then(res => console.log(res));
-        //  }).then(res=>res.json(doc));
-
-         fetch('/saved', {
-          method: 'post',
-          data: {
-            'name':msg
-          }
-        // }).then(function(response) {
-        }).then(function(response) {
-          return response.json();
-        // }).then(function(data) {
-        //   console.log(data);
-        // Using our Article model, create a new entry
-            // This effectively passes the result object to the entry (and the title and link)
-            // var entry = new Story(result);
-            
-            //             // Now, save that entry to the db
-            //             entry.save(function (err, doc) {
-            //                 // Log any errors
-            //                 if (err) {
-            //                     console.log(err // Or log the doc
-            //                     );
-            //                 } else {
-            
-            //                     console.log(doc);
-            
-            //                 }
-            //             });
+        console.log(msg);
+        let message = {
+          name: msg
+        };
+        $.ajax({
+          method: 'POST',
+          url: "/saved",
+          contentType: "application/json",
+          data: JSON.stringify(message)
+        }).done(function (data) {
+          console.log(data + "saving");
+          // location.reload();
         });
-        // $.ajax({
-        //   method: "POST",
-        //   url: "/save" ,
-        //   data:{
-        //   name: msg 
-        //  }
+
+        // if (!data.errors) {
+        //   location.reload(); //show user
+        // } else {
+        //   // handle db validation errors
+        //   location.render(data.errors[0].message, 4000);
+        // };
+        // //catch block to ensure if invalid data input the app does not crash
+
+
+        // Using our Article model, create a new entry
+        // This effectively passes the result object to the entry (and the title and link)
+        // var entry = new Story(result);
+
+        //             // Now, save that entry to the db
+        //             entry.save(function (err, doc) {
+        //                 // Log any errors
+        //                 if (err) {
+        //                     console.log(err // Or log the doc
+        //                     );
+        //                 } else {
+
+        //                     console.log(doc);
+
+        //                 }
+        //             });
+        // }).catch(function (err) {
+        //   console.log(err);
+        // return response.json();
+        // res.json(err);
+
+
+
+        // 
         // })// Execute the above query
         // .exec(function (err, doc) {
         //     // Log any errors
@@ -331,7 +335,7 @@ let text_json_record = []
     }
 
     this.reset();
-  
+
   },
 
   handleUserFileRejection() {
@@ -598,7 +602,7 @@ let text_json_record = []
           paddingRight: '3em',
           paddingBottom: '2em',
         }} */}
-          {/* The returned result includes the recognized text, {' '}
+        {/* The returned result includes the recognized text, {' '}
           <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#output">word alternatives</a>, {' '}
           and <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#output">spotted keywords</a>. {' '}
           Some models can <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#output">detect multiple speakers</a>; this may slow down performance. */}
