@@ -118,27 +118,6 @@ export default React.createClass({
     this.handleStream(recognizeMicrophone(this.getRecognizeOptions()));
   },
 
-  handleUploadClick() {
-    if (this.state.audioSource === 'upload') {
-      this.stopTranscription();
-    } else {
-      this.dropzone.open();
-    }
-  },
-
-  // handleUserFile(files) {
-  //   const file = files[0];
-  //   if (!file) {
-  //     return;
-  //   }
-  //   this.reset();
-  //   this.setState({ audioSource: 'upload' });
-  //   this.playFile(file);
-  // },
-
-  // handleUserFileRejection() {
-  //   this.setState({ error: 'Sorry, that file does not appear to be compatible.' });
-  // },
   handleSample1Click() {
     this.handleSampleClick(1);
   },
@@ -197,16 +176,6 @@ export default React.createClass({
       }
     }
   },
-
-  // handleUserFile(files) {
-  //   const file = files[0];
-  //   if (!file) {
-  //     return;
-  //   }
-
-  //   this.reset();
-
-  // },
 
   handleSample2Click() {
     if (this.state.audioSource === 'sample-2') {
@@ -283,38 +252,6 @@ export default React.createClass({
 
   },
 
-  // handleUserFileRejection() {
-  //   this.setState({ error: 'Sorry, that file does not appear to be compatible.' });
-  // },
-
-
-  /**
-   * @param {File|Blob|String} file - url to an audio file or a File
-   * instance fro user-provided files.
-   */
-  playFile(file) {
-    // The recognizeFile() method is a helper method provided by the watson-speach package
-    // It accepts a file input and transcribes the contents over a WebSocket connection
-    // It also provides a number of optional features, some of which are enabled by default:
-    //  * enables object mode by default (options.objectMode)
-    //  * plays the file in the browser if possible (options.play)
-    //  * formats results (Capitals, periods, etc.) (options.format)
-    //  * slows results down to realtime speed if received faster than realtime -
-    // this causes extra interim `data` events to be emitted (options.realtime)
-    //  * combines speaker_labels with results (options.resultsBySpeaker)
-    //  * outputs the text to a DOM element - not used in this demo because it doesn't play
-    //  nice with react (options.outputElement)
-    //  * a few other things for backwards compatibility and sane defaults
-    // In addition to this, it passes other service-level options along to the RecognizeStream
-    // that manages the actual WebSocket connection.
-    this.handleStream(recognizeFile(this.getRecognizeOptions({
-      file,
-      play: true, // play the audio out loud
-      // use a helper stream to slow down the transcript output to match the audio speed
-      realtime: true,
-    })));
-  },
-
   handleStream(stream) {
     console.log(stream);
     // cleanup old stream if appropriate
@@ -346,10 +283,6 @@ export default React.createClass({
       }))
       .on('close', (code, message) => this.handleRawMessage({ close: true, code, message }));
 
-    // ['open','close','finish','end','error', 'pipe'].forEach(e => {
-    //     stream.recognizeStream.on(e, console.log.bind(console, 'rs event: ', e));
-    //     stream.on(e, console.log.bind(console, 'stream event: ', e));
-    // });
   },
 
   handleRawMessage(msg) {
@@ -518,8 +451,6 @@ export default React.createClass({
 
         <ul className="base--ul">
           {micBullet}
-          {/* <li className="base--li">{'Upload pre-recorded audio (.mp3, .mpeg, .wav, .flac, or .opus only).'}</li> */}
-          {/* <li className="base--li">Play one of the sample audio files.*</li> */}
         </ul>
 
         <div className="flex setup">
@@ -530,17 +461,6 @@ export default React.createClass({
                 model={this.state.model}
                 token={this.state.token}
                 onChange={this.handleModelChange}
-              />
-            </p>
-
-            <p className={this.supportsSpeakerLabels() ? 'base--p' : 'base--p_light'}>
-              <input
-                className="base--checkbox"
-                type="checkbox"
-                checked={this.state.speakerLabels}
-                onChange={this.handleSpeakerLabelsChange}
-                disabled={!this.supportsSpeakerLabels()}
-                id="speaker-labels"
               />
             </p>
 
