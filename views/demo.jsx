@@ -118,13 +118,13 @@ export default React.createClass({
     this.handleStream(recognizeMicrophone(this.getRecognizeOptions()));
   },
 
-  // handleUploadClick() {
-  //   if (this.state.audioSource === 'upload') {
-  //     this.stopTranscription();
-  //   } else {
-  //     this.dropzone.open();
-  //   }
-  // },
+  handleUploadClick() {
+    if (this.state.audioSource === 'upload') {
+      this.stopTranscription();
+    } else {
+      this.dropzone.open();
+    }
+  },
 
   // handleUserFile(files) {
   //   const file = files[0];
@@ -493,11 +493,11 @@ export default React.createClass({
     return (
 
       <Dropzone
-        // onDropAccepted={this.handleUserFile}
-        // onDropRejected={this.handleUserFileRejection}
-        // maxSize={200 * 1024 * 1024}
-        // accept="audio/wav, audio/mp3, audio/mpeg, audio/l16, audio/ogg, audio/flac, .mp3, .mpeg, .wav, .ogg, .opus, .flac" // eslint-disable-line
-        // disableClick
+        onDropAccepted={this.handleUserFile}
+        onDropRejected={this.handleUserFileRejection}
+        maxSize={200 * 1024 * 1024}
+        accept="audio/wav, audio/mp3, audio/mpeg, audio/l16, audio/ogg, audio/flac, .mp3, .mpeg, .wav, .ogg, .opus, .flac" // eslint-disable-line
+        disableClick
         className="dropzone _container _container_large"
         activeClassName="dropzone-active"
         rejectClassName="dropzone-reject"
@@ -515,11 +515,11 @@ export default React.createClass({
 
         <h2 className="base--h2">Tell ME your STORY!</h2>
 
-        {/* <ul className="base--ul">
+        <ul className="base--ul">
           {micBullet}
-          <li className="base--li">{'Upload pre-recorded audio (.mp3, .mpeg, .wav, .flac, or .opus only).'}</li>
+          {/* <li className="base--li">{'Upload pre-recorded audio (.mp3, .mpeg, .wav, .flac, or .opus only).'}</li> */}
           {/* <li className="base--li">Play one of the sample audio files.*</li> */}
-        {/* </ul> */} 
+        </ul>
 
         <div className="flex setup">
           <div className="column">
