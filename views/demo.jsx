@@ -7,17 +7,12 @@ import recognizeFile from 'watson-speech/speech-to-text/recognize-file';
 
 import ModelDropdown from './model-dropdown.jsx';
 import Transcript from './transcript.jsx';
-import { Keywords, getKeywordsSummary } from './keywords.jsx';
 import SpeakersView from './speaker.jsx';
-import TimingView from './timing.jsx';
 import JSONView from './json-view.jsx';
-import samples from '../src/data/samples.json';
 import cachedModels from '../src/data/models.json';
 import { request } from 'https';
 
 const ERR_MIC_NARROWBAND = 'Microphone transcription cannot accommodate narrowband voice models, please select a broadband one.';
-
-// const DocumentApp = require('google-documents-api');
 
 export default React.createClass({
   displayName: 'Demo',
@@ -29,8 +24,7 @@ export default React.createClass({
       formattedMessages: [],
       audioSource: null,
       speakerLabels: false,
-      keywords: this.getKeywords('en-US_BroadbandModel'),
-      // transcript model and keywords are the state that they were when the button was clicked.
+           // transcript model and keywords are the state that they were when the button was clicked.
       // Changing them during a transcription would cause a mismatch between the setting sent to the
       // service and what is displayed on the demo, and could cause bugs.
       settingsAtStreamStart: {
@@ -57,7 +51,7 @@ export default React.createClass({
     this.setState({
       settingsAtStreamStart: {
         model: this.state.model,
-        keywords: this.getKeywordsArr(),
+        // keywords: this.getKeywordsArr(),
         speakerLabels: this.state.speakerLabels,
       },
     });
@@ -73,7 +67,7 @@ export default React.createClass({
   },
 
   getRecognizeOptions(extra) {
-    const keywords = this.getKeywordsArr();
+    // const keywords = this.getKeywordsArr();
     return Object.assign({
       // formats phone numbers, currency, etc. (server-side)
       token: this.state.token,
@@ -84,12 +78,7 @@ export default React.createClass({
       interim_results: true,
       // note: in normal usage, you'd probably set this a bit higher
       word_alternatives_threshold: 0.01,
-      keywords,
-      keywords_threshold: keywords.length
-        ? 0.01
-        : undefined, // note: in normal usage, you'd probably set this a bit higher
-      timestamps: true, // set timestamps for each word - automatically turned on by speaker_labels
-      // includes the speaker_labels in separate objects unless resultsBySpeaker is enabled
+    
       speaker_labels: this.state.speakerLabels,
       // combines speaker_labels and results together into single objects,
       // making for easier transcript outputting
@@ -245,51 +234,6 @@ export default React.createClass({
           // location.reload();
         });
 
-        // if (!data.errors) {
-        //   location.reload(); //show user
-        // } else {
-        //   // handle db validation errors
-        //   location.render(data.errors[0].message, 4000);
-        // };
-        // //catch block to ensure if invalid data input the app does not crash
-
-
-        // Using our Article model, create a new entry
-        // This effectively passes the result object to the entry (and the title and link)
-        // var entry = new Story(result);
-
-        //             // Now, save that entry to the db
-        //             entry.save(function (err, doc) {
-        //                 // Log any errors
-        //                 if (err) {
-        //                     console.log(err // Or log the doc
-        //                     );
-        //                 } else {
-
-        //                     console.log(doc);
-
-        //                 }
-        //             });
-        // }).catch(function (err) {
-        //   console.log(err);
-        // return response.json();
-        // res.json(err);
-
-
-
-        // 
-        // })// Execute the above query
-        // .exec(function (err, doc) {
-        //     // Log any errors
-        //     if (err) {
-        //         console.log(err);
-        //     } else {
-        //         // Or send the document to the browser
-        //         console.log("saved the article");
-        //         res.send(doc);
-        //     }
-        // });
-        // saveTextFile('Story.txt', msg)
       }
       // function saveTextFile(filename, text) {
       //   console.log("insert post here");
@@ -445,19 +389,11 @@ export default React.createClass({
       .then(token => this.setState({ token })).catch(this.handleError);
   },
 
-  getKeywords(model) {
-    // a few models have more than two sample files, but the demo can only handle
-    // two samples at the moment
-    // so this just takes the keywords from the first two samples
-    const files = samples[model];
-    return (files && files.length >= 2 && `${files[0].keywords}, ${files[1].keywords}`) || '';
-  },
-
   handleModelChange(model) {
     this.reset();
     this.setState({
       model,
-      keywords: this.getKeywords(model),
+      // keywords: this.getKeywords(model),
       speakerLabels: this.supportsSpeakerLabels(model)
     });
 
@@ -483,15 +419,6 @@ export default React.createClass({
     this.setState({
       speakerLabels: !this.state.speakerLabels,
     });
-  },
-
-  handleKeywordsChange(e) {
-    this.setState({ keywords: e.target.value });
-  },
-
-  // cleans up the keywords string into an array of individual, trimmed, non-empty keywords/phrases
-  getKeywordsArr() {
-    return this.state.keywords.split(',').map(k => k.trim()).filter(k => k);
   },
 
   getFinalResults() {
@@ -594,21 +521,6 @@ export default React.createClass({
           {/* <li className="base--li">Play one of the sample audio files.*</li> */}
         </ul>
 
-        {/* <div className="smalltext">
-          {'*Both US English broadband sample audio files are covered under the Creative Commons license.'}
-        </div> */}
-
-        {/* <div style={{
-          paddingRight: '3em',
-          paddingBottom: '2em',
-        }} */}
-        {/* The returned result includes the recognized text, {' '}
-          <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#output">word alternatives</a>, {' '}
-          and <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#output">spotted keywords</a>. {' '}
-          Some models can <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#output">detect multiple speakers</a>; this may slow down performance. */}
-        {/* </div> */}
-
-
         <div className="flex setup">
           <div className="column">
 
@@ -629,24 +541,10 @@ export default React.createClass({
                 disabled={!this.supportsSpeakerLabels()}
                 id="speaker-labels"
               />
-              {/* <label className="base--inline-label" htmlFor="speaker-labels">
-                Detect multiple speakers {this.supportsSpeakerLabels() ? '' : ' (Not supported on current model)'}
-              </label> */}
             </p>
 
           </div>
-          {/* <div className="column">
 
-            <p>Keywords to spot: <input
-              value={this.state.keywords}
-              onChange={this.handleKeywordsChange}
-              type="text"
-              id="keywords"
-              placeholder="Type comma separated keywords here (optional)"
-              className="base--input"
-            /></p>
-
-          </div> */}
         </div>
 
 
@@ -668,15 +566,6 @@ export default React.createClass({
             <Icon type={this.state.audioSource === 'upload' ? 'stop' : 'upload'} /> Upload Audio File
           </button>
 
-
-          {/* <button className={buttonClass} onClick={this.handleSample1Click}>
-            <Icon type={this.state.audioSource === 'sample-1' ? 'stop' : 'play'} /> Play Sample 1
-          </button>
-
-          <button className={buttonClass} onClick={this.handleSample2Click}>
-            <Icon type={this.state.audioSource === 'sample-2' ? 'stop' : 'play'} /> Play Sample 2
-          </button> */}
-
         </div>
 
         {err}
@@ -687,16 +576,6 @@ export default React.createClass({
               ? <SpeakersView messages={messages} />
               : <Transcript messages={messages} />}
           </Pane>
-          <Pane label="Word Timings and Alternatives">
-            <TimingView messages={messages} />
-          </Pane>
-          {/* <Pane label={`Keywords ${getKeywordsSummary(this.state.settingsAtStreamStart.keywords, messages)}`}>
-            <Keywords
-              messages={messages}
-              keywords={this.state.settingsAtStreamStart.keywords}
-              isInProgress={!!this.state.audioSource}
-            />
-          </Pane> */}
           <Pane label="JSON">
             <JSONView raw={this.state.rawMessages} formatted={this.state.formattedMessages} />
           </Pane>

@@ -49,11 +49,11 @@ casper.test.begin('Speech to Text', 24, function suite(test) {
       test.assertSelectorHasText('ul.tab-panels--tab-list li:nth-child(1)', 'Text');
       test.assertHttpStatus(200);
     });
-    casper.then(function () {
-      this.click('ul.tab-panels--tab-list li:nth-child(3)');
-      test.assertSelectorHasText('ul.tab-panels--tab-list li:nth-child(3)', 'Keywords (0/0)');
-      test.assertHttpStatus(200);
-    });
+    // casper.then(function () {
+    //   this.click('ul.tab-panels--tab-list li:nth-child(3)');
+    //   test.assertSelectorHasText('ul.tab-panels--tab-list li:nth-child(3)', 'Keywords (0/0)');
+    //   test.assertHttpStatus(200);
+    // });
     casper.then(function () {
       this.click('ul.tab-panels--tab-list li:nth-child(4)');
       test.assertSelectorHasText('ul.tab-panels--tab-list li:nth-child(4)', 'JSON');
