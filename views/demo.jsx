@@ -154,6 +154,7 @@ export default React.createClass({
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
       let msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
       console.log("Save locally");
+      confirm("User inputs title via modal!");
 
       exportJson();
 
@@ -214,7 +215,7 @@ export default React.createClass({
     else {
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
       let msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
-
+      confirm("User inputs title via modal!");
 
       exportJson();
 
