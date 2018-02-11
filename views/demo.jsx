@@ -24,7 +24,7 @@ export default React.createClass({
       formattedMessages: [],
       audioSource: null,
       speakerLabels: false,
-           // transcript model and keywords are the state that they were when the button was clicked.
+      // transcript model and keywords are the state that they were when the button was clicked.
       // Changing them during a transcription would cause a mismatch between the setting sent to the
       // service and what is displayed on the demo, and could cause bugs.
       settingsAtStreamStart: {
@@ -78,7 +78,7 @@ export default React.createClass({
       interim_results: true,
       // note: in normal usage, you'd probably set this a bit higher
       word_alternatives_threshold: 0.01,
-    
+
       speaker_labels: this.state.speakerLabels,
       // combines speaker_labels and results together into single objects,
       // making for easier transcript outputting
@@ -185,6 +185,7 @@ export default React.createClass({
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
       let msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
       confirm("User inputs title via modal!");
+      let usertitle="userinputtedtitle";
 
       exportJson();
 
@@ -192,7 +193,8 @@ export default React.createClass({
         console.log("Post to database");
         console.log(msg);
         let message = {
-          name: msg
+          title: usertitle,
+          words: msg
         };
         $.ajax({
           method: 'POST',
