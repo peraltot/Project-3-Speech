@@ -2,5 +2,5 @@
 
 module.exports = {
   // Note: require("./Note"),
-  Story: require("./User")
+  Story: require("./UserStories")
 };
