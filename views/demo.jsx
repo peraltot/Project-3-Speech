@@ -1,5 +1,6 @@
 /* eslint no-param-reassign: 0 */
 import React from 'react';
+import { Button, Modal, Card, Div, Row, Col, Input } from 'react-materialize';
 import Dropzone from 'react-dropzone';
 import { Icon, Tabs, Pane, Alert, JsonLink } from 'watson-react-components';
 import recognizeMicrophone from 'watson-speech/speech-to-text/recognize-microphone';
@@ -133,7 +134,8 @@ export default React.createClass({
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
       let msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
       console.log("Save locally");
-      confirm("User inputs title via modal!");
+      // confirm("User inputs title via modal!");
+      $('#foo').modal('open')
 
       exportJson();
 
@@ -185,7 +187,7 @@ export default React.createClass({
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
       let msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
       confirm("User inputs title via modal!");
-      let usertitle="userinputtedtitle";
+      let usertitle = "userinputtedtitle";
 
       exportJson();
 
@@ -457,7 +459,15 @@ export default React.createClass({
 
         <div className="flex setup">
           <div className="column">
-
+          <div>
+              <Modal
+                id='foo'>
+                <Row>
+                  <Input s={6} label="Title" validate defaultValue='Story title' />
+                </Row>
+              </Modal>
+            </div>
+            
             <p>Voice Model:
               <ModelDropdown
                 model={this.state.model}
@@ -469,7 +479,7 @@ export default React.createClass({
           </div>
 
         </div>
-
+        
 
         <div className="flex buttons">
 
@@ -489,6 +499,8 @@ export default React.createClass({
             <Icon type={this.state.audioSource === 'upload' ? 'stop' : 'upload'} /> Upload Audio File
           </button> */}
 
+
+
         </div>
 
         {err}
@@ -503,6 +515,7 @@ export default React.createClass({
             <JSONView raw={this.state.rawMessages} formatted={this.state.formattedMessages} />
           </Pane>
         </Tabs>
+
 
       </Dropzone>
     );
