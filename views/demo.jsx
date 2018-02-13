@@ -183,18 +183,39 @@ export default React.createClass({
     }
     else {
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
-      let msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
+
+      // data.Events.forEach(function (event, index) {
+      //   // console.log(index);
+      //   data.Events[index]['formattedStartDate'] = convertDate(data.Events[index]['start_date']);
+      //   data.Events[index]['formattedEndDate'] = convertDate(data.Events[index]['end_date']);
+
+      // });
+
+      var fullmsg = this.state.formattedMessages;
+      var msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
+      var finalmsg = '';
+      var phrase = [];
+      fullmsg.forEach(function (msg,index) {
+        // phrase.push(msg.) = fullmsg[index].results[0].alternatives[0].transcript;
+       if (index%3===0){
+        phrase.push(msg.results[0].alternatives[0].transcript);
+        
+          finalmsg = finalmsg + " " + msg.results[0].alternatives[0].transcript;
+       }
+      });
+
+
       confirm("User inputs title via modal!");
-      let usertitle="userinputtedtitle";
+      let usertitle = "userinputtedtitle";
 
       exportJson();
 
       function exportJson() {
         console.log("Post to database");
-        console.log(msg);
+        console.log(finalmsg);
         let message = {
           title: usertitle,
-          words: msg
+          words: finalmsg
         };
         $.ajax({
           method: 'POST',

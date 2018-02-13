@@ -14,14 +14,12 @@
  * limitations under the License.
  */
 
-
 const express = require('express');
 // const DocumentApp = require('google-documents-api');
 const bodyParser = require("body-parser");
-
 const app = express();
 const watson = require('watson-developer-cloud');
-
+const api = require('./routes/api');
 // Bootstrap application settings
 require('./config/express')(app);
 
@@ -29,9 +27,8 @@ require('./config/express')(app);
 app.use(bodyParser.urlencoded({
   extended: false
 }));
-
 app.use(bodyParser.json());
-
+app.use('/', api);
 const stt = new watson.SpeechToTextV1({
   // if left undefined, username and password to fall back to the SPEECH_TO_TEXT_USERNAME and
   // SPEECH_TO_TEXT_PASSWORD environment properties, and then to VCAP_SERVICES (on Bluemix)
