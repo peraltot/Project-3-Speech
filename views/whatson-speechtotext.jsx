@@ -131,14 +131,25 @@ export default React.createClass({
     }
     else {// LH to do : loop through the this.state.formattedMessages array to get all, currently gets last line of speech(length-1)
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
+      var finalmsg = "";
+      var phrase = [];
       let msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
+      var fullmsg = this.state.formattedMessages;
+      fullmsg.forEach(function (msg,index) {
+        // phrase.push(msg.) = fullmsg[index].results[0].alternatives[0].transcript;
+       if ( msg.results[0].final){
+        phrase.push(msg.results[0].alternatives[0].transcript);
+        
+          finalmsg = finalmsg + " " + msg.results[0].alternatives[0].transcript;
+       }
+      });
       console.log("Save locally");
       confirm("User inputs title via modal!");
 
       exportJson();
 
       function exportJson() {
-        downloadTextFile('Story.txt', msg)
+        downloadTextFile('Story.txt', finalmsg)
       }
 
       function downloadTextFile(filename, text) {
@@ -150,8 +161,10 @@ export default React.createClass({
         element.click();
         document.body.removeChild(element);
       }
+
       function createAndSendDocument() {
         // Create a new Google Doc named 'Hello, world!'
+
         var doc = DocumentApp.create('Hello, world!');
 
         // Access the body of the document, then add a paragraph.
@@ -197,7 +210,7 @@ export default React.createClass({
       var phrase = [];
       fullmsg.forEach(function (msg,index) {
         // phrase.push(msg.) = fullmsg[index].results[0].alternatives[0].transcript;
-       if (index%3===0){
+       if (msg.results[0].final) {
         phrase.push(msg.results[0].alternatives[0].transcript);
         
           finalmsg = finalmsg + " " + msg.results[0].alternatives[0].transcript;
@@ -470,7 +483,7 @@ export default React.createClass({
           </div>
         </div>
 
-        <h2 className="base--h2">Tell ME your STORY!</h2>
+        <h2 className="base--h2">ChatterDocs</h2>
 
         <ul className="base--ul">
           {micBullet}
