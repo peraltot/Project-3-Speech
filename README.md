@@ -10,6 +10,20 @@ Node.js is also used to provide the browser client's authentication token.
 
 ## Getting started
 
+#DB info
+in mongo terminal session clean db:
+use Stories
+switched to db Stories
+> db.dropDatabase();
+{ "dropped" : "Stories", "ok" : 1 }
+
+run mongod in another terminal session:
+mongod
+
+
+
+
+
 1. You need a Bluemix account. If you don't have one, [sign up][sign_up].
 
 2. Download and install the [Cloud-foundry CLI][cloud_foundry] tool if you haven't already.
