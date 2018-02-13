@@ -15,7 +15,7 @@ import { request } from 'https';
 const ERR_MIC_NARROWBAND = 'Microphone transcription cannot accommodate narrowband voice models, please select a broadband one.';
 
 export default React.createClass({
-  displayName: 'Demo',
+  displayName: 'WhatsonSpeechToText',
 
   getInitialState() {
     return {
@@ -26,7 +26,7 @@ export default React.createClass({
       speakerLabels: false,
       // transcript model and keywords are the state that they were when the button was clicked.
       // Changing them during a transcription would cause a mismatch between the setting sent to the
-      // service and what is displayed on the demo, and could cause bugs.
+      // service and what is displayed on the app, and could cause bugs.
       settingsAtStreamStart: {
         model: '',
         keywords: [],
@@ -110,7 +110,7 @@ export default React.createClass({
     // It also provides a number of optional features, some of which are enabled by default:
     //  * enables object mode by default (options.objectMode)
     //  * formats results (Capitals, periods, etc.) (options.format)
-    //  * outputs the text to a DOM element - not used in this demo because it doesn't play nice
+    //  * outputs the text to a DOM element - not used in this app because it doesn't play nice
     // with react (options.outputElement)
     //  * a few other things for backwards compatibility and sane defaults
     // In addition to this, it passes other service-level options along to the RecognizeStream that
