@@ -1,40 +1,39 @@
 # Speech to Text Browser Application
+Watson Speech to Text API converts audio voice into written text
 
 #run npm start after running mongo on terminal session
 
 #DB info
-run mongod in another terminal session:
+run mongod in another Terminal session:
 mongod
-run mongo in seperate erminal session 
+run mongo in seperate Terminal session 
 
-first clean up db:
+first remove the db so it can be re-created auto within our app:
+from within mongo running in terminal session
 
-use Stories (switched to db Stories)
-db.dropDatabase(); --> { "dropped" : "Stories", "ok" : 1 }
+use Stories = will display (switched to db Stories)
+db.dropDatabase(); = { "dropped" : "Stories", "ok" : 1 }
 
 npm start
 
-
-
-
 #File System Overview
-Server.js -> app.js
+/Server.js -> /app.js
 
-app.js -> api.js
-renders 'index'
+/app.js ->  routes/api.js ->  renders 'index' (which redirects to /views/index.jsx)
 
 views/index.jsx -> imports layout.jsx
 
-views/layout.jsx -> this is the main html lfile - include cdn libraries, stylesheets, javascript files here
-layout.jsx incudes /scripts/bundle.js
+views/layout.jsx -> The main html file - includes cdn libraries, stylesheets, javascript files here. This is where we include materialize library links
+
+layout.jsx directs to /scripts/bundle.js which contains the main component "whatson-speechtotext"
 
 /scripts/bundle.js -> imports /views/whason-speechtotext.jsx
 
 /views/whatson-speechtotext.jsx -> imports all other views and handles the whaston functionality
   /views/json-view.jsx
-  /views/model-dropdown.jsx
+  /views/model-dropdown.jsx (implements language drop down choices on homescreen)
   /views/speaker.jsx
-  /views/transcript.jsx
+  /views/transcript.jsx 
   
 
 [![Build Status](https://travis-ci.org/watson-developer-cloud/speech-to-text-nodejs.svg?branch=master)](https://travis-ci.org/watson-developer-cloud/speech-to-text-nodejs)
