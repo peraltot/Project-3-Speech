@@ -35,6 +35,23 @@ layout.jsx directs to /scripts/bundle.js which contains the main component "what
   /views/speaker.jsx
   /views/transcript.jsx 
   
+  To do: create componenets folder for our app componenets such as :
+
+/components/stories
+/components/login
+/components/googledocs
+/components/email
+
+clean out app.js to use as our react componenets starter file
+
+
+const listitem props
+list container
+  list item
+  list item
+  list item
+
+import react from react
 
 [![Build Status](https://travis-ci.org/watson-developer-cloud/speech-to-text-nodejs.svg?branch=master)](https://travis-ci.org/watson-developer-cloud/speech-to-text-nodejs)
 
