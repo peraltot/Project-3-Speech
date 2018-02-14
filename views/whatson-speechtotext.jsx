@@ -141,6 +141,7 @@ export default React.createClass({
         phrase.push(msg.results[0].alternatives[0].transcript);
         
           finalmsg = finalmsg + " " + msg.results[0].alternatives[0].transcript;
+      
        }
       });
       console.log("Save locally");

@@ -1,3 +1,20 @@
+/**
+ * Copyright 2015 IBM Corp. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
 const express = require("express");
 const api = express.Router();
 const db = require('../models/')
@@ -5,6 +22,17 @@ const db = require('../models/')
 // It works on the client and on the server
 var axios = require("axios");
 // Route for retrieving all stories from the db
+
+
+
+api.get('/', (req, res) => {
+  res.render('index', {
+    bluemixAnalytics: !!process.env.BLUEMIX_ANALYTICS,
+  });
+});
+
+
+
 api.get("/stories", function(req, res) {
     // Find all Notes
     db.Story
@@ -12,6 +40,8 @@ api.get("/stories", function(req, res) {
       .then(function(dbStory) {
         // If all Notes are successfully found, send them back to the client
         res.json(dbStory);
+        // res.render('stories', dbStory);
+
       })
       .catch(function(err) {
         // If an error occurs, send the error back to the client
