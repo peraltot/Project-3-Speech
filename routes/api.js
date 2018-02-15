@@ -33,14 +33,14 @@ api.get('/', (req, res) => {
 
 //sample: to test search to external api if we need this later
 
-const BASEURL = "https://www.omdbapi.com/?t=";
-const APIKEY = "&apikey=trilogy";
+// const BASEURL = "https://www.omdbapi.com/?t=";
+// const APIKEY = "&apikey=trilogy";
 
-export default {
-  search: function(query) {
-    return axios.get(BASEURL + query + APIKEY);
-  }
-};
+// export default {
+//   search: function(query) {
+//     return axios.get(BASEURL + query + APIKEY);
+//   }
+// };
 
 
 

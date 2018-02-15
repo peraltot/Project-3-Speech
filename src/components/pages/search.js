@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import { Link, Route } from "react-router-dom";
 // import Learn from "./Learn";
-import DogDetail from "../StoryDetail";
+import StoryDetail from "../StoryDetail";
 
 import API from "../../../routes/api";
 import SearchForm from "../Search";
