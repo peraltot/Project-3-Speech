@@ -3,7 +3,23 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // define import paths
 
+<<<<<<< Updated upstream
 import Navpills from "./components/Navpills";
+=======
+
+// Sets up the Express app to handle data parsing
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+app.use(bodyParser.json());
+app.use('/', api);
+const stt = new watson.SpeechToTextV1({
+  // if left undefined, username and password to fall back to the SPEECH_TO_TEXT_USERNAME and
+  // SPEECH_TO_TEXT_PASSWORD environment properties, and then to VCAP_SERVICES (on Bluemix)
+  // username: '',
+  // password: ''
+});
+>>>>>>> Stashed changes
 
 
 import Home from "./components/pages/Home";
