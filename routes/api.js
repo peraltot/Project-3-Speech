@@ -57,6 +57,7 @@ api.get("/stories", function(req, res) {
       .catch(function(err) {
         // If an error occurs, send the error back to the client
         res.json(err);
+        //SEND BACK HERE
       });
   });
   

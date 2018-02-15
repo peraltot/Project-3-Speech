@@ -27,7 +27,7 @@ views/layout.jsx -> The main html file - includes cdn libraries, stylesheets, ja
 
 layout.jsx directs to /scripts/bundle.js which contains the main component "whatson-speechtotext"
 
-/scripts/bundle.js -> imports /views/whason-speechtotext.jsx
+/scripts/bundle.js -> imports /views/watson-speechtotext.jsx
 
 /views/whatson-speechtotext.jsx -> imports all other views and handles the whaston functionality
   /views/json-view.jsx
