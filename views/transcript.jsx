@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 export default function Transcript(props) {
   try {
     // When resultsBySpeaker is enabled, each msg.results array may contain multiple results.
-    // The result_index is for the first result in the message,
-    // so we need to count up from there to calculate the key.
     const results = props.messages.map(msg =>
       msg.results.map((result, i) => (
         <span key={`result-${msg.result_index + i}`}>{result.alternatives[0].transcript}</span>       
