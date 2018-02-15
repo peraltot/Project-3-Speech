@@ -18,6 +18,8 @@ export default function Layout(props) {
 
         <link rel="stylesheet" href="/css/watson-react-components.min.css" />
         <link rel="stylesheet" href="/css/style.css" />
+
+        //INCLUDE MATERIALIZE LIBRARIRES HERE
       </head>
       <body>
         {/* <Header
