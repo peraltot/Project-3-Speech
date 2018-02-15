@@ -10,6 +10,7 @@ import Transcript from './transcript.jsx';
 import SpeakersView from './speaker.jsx';
 import JSONView from './json-view.jsx';
 import cachedModels from '../src/data/models.json';
+
 import { request } from 'https';
 
 const ERR_MIC_NARROWBAND = 'Microphone transcription cannot accommodate narrowband voice models, please select a broadband one.';

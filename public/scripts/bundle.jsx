@@ -1,6 +1,6 @@
 import './polyfills';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import WhatsonSpeechToText from '../../views/whatson-speechtotext.jsx'
+import App from '../../app.js'
 
-ReactDOM.render(<WhatsonSpeechToText/>, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));
