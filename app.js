@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 const express = require('express');
@@ -45,3 +46,30 @@ app.get('/api/token', (req, res, next) => {
 
 module.exports = app;
 >>>>>>> Stashed changes
+=======
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+// define import paths
+
+import Navpills from "./components/Navpills";
+
+
+import Home from "./components/pages/Home";
+// import About from "./components/pages/About";
+// import Blog from "./components/pages/Blog";
+// import Contact from "./components/pages/Contact";
+
+const App = () =>
+  <Router>
+    <div>
+      <Navpills />
+      <Route exact path="/" component={Home} />
+      {/* <Route exact path="/about" component={About} />
+      <Route exact path="/blog" component={Blog} />
+      <Route path="/contact" component={Contact} /> */}
+    </div>
+  </Router>;
+
+export default App;
+>>>>>>> 8a44a99d5ba22a1a8b71ea969536bcc1c6ce114b
