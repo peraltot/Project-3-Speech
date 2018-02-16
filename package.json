@@ -60,7 +60,11 @@
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-dropzone": "^4.2.5",
+<<<<<<< Updated upstream
     "react-router-dom": "^4.2.2",
+=======
+    "react-materialize": "^1.1.2",
+>>>>>>> Stashed changes
     "uglifyify": "^4.0.5",
     "watson-developer-cloud": "^2.42.0",
     "watson-react-components": "^0.6.16",

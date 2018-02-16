@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button, Card, Row, Col } from 'react-materialize';
+
 
 // import { Header, Jumbotron } from 'watson-react-components';
 // eslint-disable-mnext-lin =
@@ -44,7 +46,7 @@ export default function Layout(props) {
         /> */}
         <div id="root">
         
-          {props.children}
+        {props.children}
         </div>
         <script type="text/javascript" src="scripts/bundle.js" />
         { props.bluemixAnalytics ? <script type="text/javascript" src="scripts/analytics.js" /> : null }
