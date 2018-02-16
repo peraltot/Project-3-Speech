@@ -12,16 +12,16 @@ const Navbar = () =>
         {/* Link is componenet router-dom gives you */}
         {/* when you click it shos it active */}
         <li className={window.location.pathname === "/about" ? "active" : ""}>About</li>
-        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
       </ul>
-      <ul className="side-nav" id="mobile-demo">
+      {/* <ul className="side-nav" id="mobile-demo">
         <li className={window.location.pathname === "/" ? "active" : ""}>Home</li>
         <Link to="/">Home</Link>
         {/* Link is componenet router-dom gives you */}
         {/* when you click it shos it active */}
-        <li className={window.location.pathname === "/about" ? "active" : ""}>About</li>
-        <Link to="/">Home</Link>
-      </ul>
+        {/* <li className={window.location.pathname === "/about" ? "active" : ""}>About</li>
+        <Link to="/">Home</Link> */}
+      {/* </ul> */} */}
     </div>
   </nav>;
 

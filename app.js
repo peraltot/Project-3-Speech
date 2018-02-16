@@ -7,7 +7,7 @@ import Navbar from "./src/components/Navbar";
 
 
 import Home from "./src/components/pages/Home";
-// import About from "./components/pages/About";
+import About from "./src/components/pages/About";
 // import Blog from "./components/pages/Blog";
 // import Contact from "./components/pages/Contact";
 
@@ -16,6 +16,7 @@ const App = () =>
     <div>
       <Navbar />
       <Route exact path="/" component={Home} />
+      <Route exact path="/about" component={About} />
       {/* <Route exact path="/about" component={About} />
       <Route exact path="/blog" component={Blog} />
       <Route path="/contact" component={Contact} /> */}
