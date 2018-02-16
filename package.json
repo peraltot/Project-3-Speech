@@ -38,6 +38,7 @@
     "codecov": "npm run test && (codecov || true)"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "babel-eslint": "^7.2.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",

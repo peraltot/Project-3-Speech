@@ -13,6 +13,9 @@ import cachedModels from '../src/data/models.json';
 
 import { request } from 'https';
 
+// Native components
+import Stories from './stories.js';
+
 const ERR_MIC_NARROWBAND = 'Microphone transcription cannot accommodate narrowband voice models, please select a broadband one.';
 
 export default React.createClass({
