@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () =>
   <nav>
     <div className="nav-wrapper">
-      <a href="#!" className="brand-logo">Logo</a>
+      {/* <a href="#!" className="brand-logo">Logo</a> */}
       <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
       <ul className="left hide-on-med-and-down">
         <li className={window.location.pathname === "/" ? "active" : ""}>Home</li>
