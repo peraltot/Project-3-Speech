@@ -17,10 +17,10 @@ const Navpills = () =>
     {/* <li className={window.location.pathname === "/discover" ? "active" : ""}>
       <Link to="/discover">Discover</Link>
     </li> */}
-    <li className={window.location.pathname === "/search" ? "active" : ""}>
+    {/* <li className={window.location.pathname === "/search" ? "active" : ""}>
       <Link to="/search">Search</Link>
     </li>
-    
+     */}
   </ul>;
 
 export default Navpills;
