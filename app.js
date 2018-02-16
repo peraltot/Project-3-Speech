@@ -8,6 +8,7 @@ import Navpills from "./src/components/Navpills";
 import Home from "./src/components/pages/Home";
 
 import About from "./src/components/pages/About";
+
 // import Search from "./components/pages/search";
 // import Contact from "./components/pages/Contact";
 
