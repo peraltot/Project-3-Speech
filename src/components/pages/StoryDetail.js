@@ -1,5 +1,5 @@
 import React from "react";
-import StoryPanel from "../../components/StoryPanel";
+import StoryPanel from "../../components/StoryPanel/StoryPanel";
 
 const StoryDetail = () =>
 <div>
