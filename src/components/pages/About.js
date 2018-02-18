@@ -2,14 +2,9 @@ import React from "react";
 
 const About = () =>
   <div>
-    <h1>About Page</h1>
+    <h1>About ChatterDox</h1>
     <p>
-      Nunc pharetra finibus est at efficitur. Praesent sed congue diam. Integer
-      gravida dui mauris, ut interdum nunc egestas sed. Aenean sed mollis diam.
-      Nunc aliquet risus ac finibus porta. Nam quis arcu non lectus tincidunt
-      fermentum. Suspendisse aliquet orci porta quam semper imperdiet. Praesent
-      euismod mi justo, faucibus scelerisque risus cursus in. Sed rhoncus mollis
-      diam, sit amet facilisis lectus blandit at.
+      ChatterDox is enabled by IBM's WATSON API for speech to text, it also provides an story management system and allows for export to various tools for editing.  The [IBM Bluemix](https://www.bluemix.net/) service site uses IBM's speech recognition capabilities to convert speech in multiple languages into text. The transcription of incoming audio is continuously sent back to the client with minimal delay, and it is corrected as more speech is heard.
     </p>
   </div>;
 
