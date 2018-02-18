@@ -1,69 +1,57 @@
-import React from "react";
 import React, { Component } from "react";
-import API from "../../utils/API";
-import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { StoryPanel } from "../../components/StoryPanel";
+// import StoryPanel from '../../components/StoryPanel';
+import {Row, Col, CardPanel} from "react-materialize";
+import API from "../../utils/api-axios";
 
-class Stories extends Component {
-  // Setting our component's initial state
-  state = {
-    stories: [],
-    title: "",
-    words: ""
-  };
 
-  // When the component mounts, get all books and save them to this.state.stories
-  componentDidMount() {
-    this.loadStories();
+// const list = [
+//   {title:"one"},
+//   {title:"two"}
+// ]
+class StoryDetail extends Component {
+
+  constructor(props) {
+
+
+    super(props)
+    this.state = {stories:[], title:"", words:""}
+    this.loadStories = this.loadStories.bind(this);
   }
 
-  // Loads all stories  and sets them to this.state.stories
-  loadStories = () => {
+  // componentDidMount() {
+  //   this.loadStories();
+  // };
+
+  
+  
+   loadStories (){
+    console.log('blah');
     API.getStories()
       .then(res =>
-        this.setState({ stories: res.data, title: "", words: "" })
+        this.setState({ stories: res.data })
       )
       .catch(err => console.log(err));
   };
-
-  // Deletes a story from the database with a given id, then reloads stories from the db
-  deleteStory = id => {
-    API.deleteStory(id)
-      .then(res => this.loadStories())
-      .catch(err => console.log(err));
-  };
-
-  render() {
-    return (
-      <Container>
-        <Row>
-          <Col size="lg12">
-            <StoryPanel>
-              {this.state.stories.length ? (
-                <List>
-                  {this.state.stories.map(story => {
-                    return (
-                      <ListItem key={story._id}>
-                        <a href={"/story/" + story._id}>
-                          <strong>
-                            {story.title}
-                          </strong>
-                        </a>
-                        <DeleteBtn onClick={() => this.deleteStory(story._id)} />
-                      </ListItem>
-                    );
-                  })}
-                </List>
-              ) : (
-                  <h3>No Results to Display</h3>
-                )}
-            </StoryPanel>
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
+render() {
+  return (
+   <Row>
+      <Col s={20} m={10}>
+          <CardPanel className="blue-grey darken-1">
+              <h1>View All Stories</h1>
+              <button
+                onClick={this.loadStories}
+                type="button"
+              >
+                View Stories
+              </button>
+            {this.state.stories.map(function(story) {
+            return <div>{story.title} and {story.words}</div>
+            })}
+          </CardPanel>
+      </Col>
+      </Row>
+);
 }
+}  
 
-export default Stories;
+export default StoryDetail;
