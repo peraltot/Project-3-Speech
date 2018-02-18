@@ -25,7 +25,7 @@ const Navbar = props =>
 <div>
 <nav>
   <div className="nav-wrapper">
-    <a href="/" className="brand-logo">ChatterDocs</a>
+    <a href="/" className="brand-logo">ChatterDoX</a>
     <ul id="nav-mobile" className="right hide-on-med-and-down">
 
 
