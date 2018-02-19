@@ -48,6 +48,7 @@ export default function Layout(props) {
         
         {props.children}
         </div>
+        <script type="text/javascript" src="node_modules/auth0-js/build/auth0.js"></script>
         <script type="text/javascript" src="scripts/bundle.js" />
         { props.bluemixAnalytics ? <script type="text/javascript" src="scripts/analytics.js" /> : null }
 
