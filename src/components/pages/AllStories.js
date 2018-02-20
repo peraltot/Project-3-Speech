@@ -3,17 +3,15 @@ import React, { Component } from "react";
 import {Button, Row, Col, CardPanel} from "react-materialize";
 import API from "../../utils/api-axios";
 
-// const list = [
-//   {title:"one"},
-//   {title:"two"}
-// ]
-class StoryDetail extends Component {
-
+class AllStories extends Component {
+  
   constructor(props) {
-
-
     super(props)
-    this.state = {stories:[], title:"", words:""}
+    this.state = {
+      stories:[],
+      title:"",
+      words:""
+    }
     this.loadStories = this.loadStories.bind(this);
     this.delStory = this.delStory.bind(this);
     this.gdUploadStory = this.gdUploadStory.bind(this);
@@ -27,7 +25,6 @@ class StoryDetail extends Component {
 
   
    loadStories (){
-    console.log('blah');
     API.getStories()
       .then(res =>
         this.setState({ stories: res.data })
@@ -84,4 +81,4 @@ render() {
 }
 }  
 
-export default StoryDetail;
+export default AllStories;
