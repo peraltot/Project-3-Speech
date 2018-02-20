@@ -8,7 +8,7 @@ import API from "../../utils/api-axios";
 //   {title:"one"},
 //   {title:"two"}
 // ]
-class StoryDetail extends Component {
+class AllStories extends Component {
 
   constructor(props) {
 
@@ -54,4 +54,4 @@ render() {
 }
 }  
 
-export default StoryDetail;
+export default AllStories;
