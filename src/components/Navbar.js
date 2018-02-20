@@ -33,8 +33,8 @@ const Navbar = props =>
       <Link to="/">Home</Link>
       <li className={window.location.pathname === "/about" ? "active" : ""}></li>
       <Link to="/about">About</Link><li className={window.location.pathname === "/" ? "active" : ""}></li>
-      <li className={window.location.pathname === "/StoryDetail" ? "active" : ""}></li>
-      <Link to="/StoryDetail">Stories</Link><li className={window.location.pathname === "/" ? "active" : ""}></li>
+      <li className={window.location.pathname === "/AllStories" ? "active" : ""}></li>
+      <Link to="/AllStories">Stories</Link><li className={window.location.pathname === "/" ? "active" : ""}></li>
 
       {/* <li><a href="/">Home</a></li>
       <li><a href="/about">About</a></li>

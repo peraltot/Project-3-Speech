@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./src/components/Navbar";
 import Home from "./src/components/pages/Home";
 import About from "./src/components/pages/About";
-import StoryDetail from "./src/components/pages/StoryDetail";
+import AllStories from "./src/components/pages/AllStories";
 
 const App = () =>
   <Router>
@@ -14,7 +14,7 @@ const App = () =>
       <Navbar />
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
-      <Route exact path="/StoryDetail" component={StoryDetail} />
+      <Route exact path="/AllStories" component={AllStories} />
     </div>
   </Router>;
 
