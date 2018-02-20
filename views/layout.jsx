@@ -63,6 +63,6 @@ export default function Layout(props) {
 }
 
 Layout.propTypes = {
-  children: PropTypes.object.isRequired, // eslint-disable-line
+  // children: PropTypes.object.isRequired, // eslint-disable-line
   bluemixAnalytics: PropTypes.bool.isRequired,
 };

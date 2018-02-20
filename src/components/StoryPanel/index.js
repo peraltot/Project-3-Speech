@@ -1,2 +1,1 @@
-export * from "./StoryPanel";
-export * from "./StoryText";
+export { default } from "./StoryPanel";

@@ -1,10 +1,10 @@
 import React from "react";
 
-export const List = ({ children }) => {
+export const List = props => {
     return (
         <div>
             <ul className="collection">
-                {children}
+                {...props}
             </ul>
         </div>
     );

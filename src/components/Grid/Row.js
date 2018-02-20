@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Row = ({ children }) =>
+export const Row = props =>
   <div className="row">
-    {children}
+    {props.children}
   </div>;

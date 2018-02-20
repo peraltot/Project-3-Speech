@@ -1,6 +1,6 @@
-import React from "react";
+// import React from "react";
 
-export const StoryText = props =>
-  <p>
-    {props.children}
-  </p>;
+// export const StoryText = (props) =>
+//   <p>
+//     {props}
+//   </p>;
