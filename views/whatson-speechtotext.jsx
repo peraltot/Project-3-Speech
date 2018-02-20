@@ -488,7 +488,7 @@ export default React.createClass({
           </div>
         </div>
 
-        <h2 className="base--h2">ChatterDoX</h2>
+        {/* <h2 className="base--h2">ChatterDoX</h2> */}
 
         <ul className="base--ul">
           {micBullet}

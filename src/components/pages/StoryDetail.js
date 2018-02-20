@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 // import StoryPanel from '../../components/StoryPanel';
-import {Row, Col, CardPanel} from "react-materialize";
+import {Button, Row, Col, CardPanel} from "react-materialize";
 import API from "../../utils/api-axios";
-
 
 // const list = [
 //   {title:"one"},
@@ -16,13 +15,16 @@ class StoryDetail extends Component {
     super(props)
     this.state = {stories:[], title:"", words:""}
     this.loadStories = this.loadStories.bind(this);
+    this.delStory = this.delStory.bind(this);
+    this.gdUploadStory = this.gdUploadStory.bind(this);
+    
+    
   }
 
   // componentDidMount() {
   //   this.loadStories();
   // };
 
-  
   
    loadStories (){
     console.log('blah');
@@ -32,6 +34,21 @@ class StoryDetail extends Component {
       )
       .catch(err => console.log(err));
   };
+
+  delStory (id) {
+    console.log("del story");
+    API.deleteStory(id)
+    .then(res => this.loadStories())
+    .catch(err => console.log(err));
+  };
+ 
+  gdUploadStory (id, words) {
+    console.log("Google Drive Upload clicked");
+  //to do implement google upload html + javascript to react
+
+  };
+
+
 render() {
   return (
    <Row>
@@ -44,9 +61,22 @@ render() {
               >
                 View Stories
               </button>
-            {this.state.stories.map(function(story) {
-            return <div>{story.title} and {story.words}</div>
-            })}
+              <h2> Title </h2> 
+            {this.state.stories.map(story => 
+            <div key={story._id}>
+            {story.title} and {story.words}
+              <button onClick={() => this.delStory(story._id)} 
+              type = "button"
+              >
+              Delete
+              </button>
+              <button onClick={() => this.gdUploadStory(story._id, story.words)} 
+              type = "button"
+              >
+              Google Drive Upload
+              </button>
+            </div>
+            )}
           </CardPanel>
       </Col>
       </Row>
