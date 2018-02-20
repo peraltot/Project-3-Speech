@@ -3,35 +3,35 @@ import React, { Component } from "react";
 import {Row, Col, CardPanel} from "react-materialize";
 import API from "../../utils/api-axios";
 
-
-// const list = [
-//   {title:"one"},
-//   {title:"two"}
-// ]
 class AllStories extends Component {
-
+  
   constructor(props) {
-
-
     super(props)
-    this.state = {stories:[], title:"", words:""}
+    this.state = {
+      stories:[],
+      title:"",
+      words:""
+    }
     this.loadStories = this.loadStories.bind(this);
+    // this.deleteStory = this.deleteStory.bind(this)
   }
-
-  // componentDidMount() {
-  //   this.loadStories();
-  // };
-
-  
-  
+   
+   // Loads all stories
    loadStories (){
-    console.log('blah');
     API.getStories()
       .then(res =>
         this.setState({ stories: res.data })
       )
       .catch(err => console.log(err));
   };
+  
+    // Deletes a story from the database with a given id, then reloads stories from the db
+  // deleteStory(id) {
+    // API.deleteStory(id)
+    //   .then(res => this.loadStories())
+    //   .catch(err => console.log(err));
+  // };
+  
 render() {
   return (
    <Row>
