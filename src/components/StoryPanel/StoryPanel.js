@@ -11,13 +11,12 @@ const StoryPanel = (props) => {
         <Col s={20} m={10}>
           <CardPanel className="blue-grey darken-1">
             {/* <h1>View All Stories</h1>
-
             <button onClick={props.loadStories} type="button">View Story</button> */}
            
             {props.text}
             {props.words}
             {/* <button onClick={props.handleDeleteClick} type="button">Delete this Story</button> */}
-            {/* <button onClick={props.deleteStory(props._id)}>Delete this Story</button> */}
+            <button onClick={props.delStory(props._id)}>Delete this Story</button>
 
             {/* <div>
               <button onClick={() => props.handleClick(props._id)} 
@@ -25,7 +24,6 @@ const StoryPanel = (props) => {
               >
               Delete this Story
               </button>
-
               <button onClick={() => props.gdUploadStory(props._id, props.words)} 
               type = "button"
               >
