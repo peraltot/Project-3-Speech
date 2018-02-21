@@ -14,7 +14,11 @@ from within mongo running in terminal session
 use Stories = will display (switched to db Stories)
 db.dropDatabase(); = { "dropped" : "Stories", "ok" : 1 }
 
-npm start
+yarn start
+
+#When adding react / npm components
+yarn add react-bootstrap --save
+this saves to dependcies to package.json (and so does not break the app after you push you master and re-pull)
 
 #File System Overview
 /Server.js -> /app.js
@@ -42,7 +46,6 @@ layout.jsx directs to /scripts/bundle.js which contains the main component "what
 /components/googledocs
 /components/email
 
-clean out app.js to use as our react componenets starter file
 
 
 const listitem props
