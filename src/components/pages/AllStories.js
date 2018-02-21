@@ -4,6 +4,7 @@ import React, { Component } from "react";
 //Import the presentational component
 import StoryPanel from "../../components/StoryPanel";
 import API from "../../utils/api-axios";
+import Gd from "../googleDrive";
 
 class AllStories extends Component {
 
@@ -42,8 +43,9 @@ class AllStories extends Component {
 
     gdUploadStory(id, words) {
         console.log("Google Drive Upload clicked");
-        //to do implement google upload html + javascript to react
 
+        //to do somehow call the googleDrive.js component
+        
     };
 
     render() {
