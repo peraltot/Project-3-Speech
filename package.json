@@ -38,7 +38,7 @@
     "codecov": "npm run test && (codecov || true)"
   },
   "dependencies": {
-    "auth0-js": "^9.2.3",
+    "auth0-js": "^9.3.0",
     "axios": "^0.17.1",
     "babel-eslint": "^7.2.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
