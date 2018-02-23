@@ -23,22 +23,17 @@ import { Link } from "react-router-dom";
 // });
 
 const Navbar = props =>
+
 <nav  className="teal lighten-2">
-<div className="navigation">
+    <div className="navigation">
     <ul id="dropdown1"  className="dropdown-content font-size=36px">
-      {/* <li className={window.location.pathname === "/" ? "active" : ""}></li> */}
       <Link to="/">Home</Link>
-      {/* <li className={window.location.pathname === "/about" ? "active" : ""}></li> */}
-      <Link to="/about">About</Link>
-      {/* <li className={window.location.pathname === "/" ? "active" : ""}></li> */}
-      {/* <li className={window.location.pathname === "/StoryDetail" ? "active" : ""}></li> */}
+      <Link to="/About">About</Link>
       <Link to="/AllStories">Stories</Link>
-      {/* <li className={window.location.pathname === "/" ? "active" : ""}></li> */}
-    
     </ul>
   </div>
 
-<div className="nav-wrapper teal lighten-2" id="navigation-bar">
+    <div className="nav-wrapper teal lighten-2" id="navigation-bar">  
 			<a href="/" className="brand-logo center">
 				<p className="site-title">ChatterDox</p>
 			</a>
@@ -50,5 +45,5 @@ const Navbar = props =>
 				</li>
 			</ul>
 		</div>
-  </nav>
+</nav>
 export default Navbar;

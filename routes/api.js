@@ -27,7 +27,11 @@ var axios = require("axios");
 
 api.get('/', (req, res) => {
   res.render('index', {
-    bluemixAnalytics: !!process.env.BLUEMIX_ANALYTICS,
+  });
+});
+
+api.get('/googledrive', (req, res) => {
+  res.render('googledrive', {
   });
 });
 

@@ -4,7 +4,7 @@ import React, { Component } from "react";
 //Import the presentational component
 import StoryPanel from "../../components/StoryPanel";
 import API from "../../utils/api-axios";
-import Gd from "../googleDrive";
+import googleApi from "../../utils/googleApi";
 
 class AllStories extends Component {
 
@@ -28,6 +28,11 @@ class AllStories extends Component {
     loadStories() {
         API.getStories()
             .then(res =>
+              // to do add in error checking here if no stories display heading and no stories
+              // if (!res.data) {
+              //   console.log("no stories");
+
+              // }
                 this.setState({ stories: res.data })
             )
             .catch(err => console.log(err));
@@ -43,15 +48,24 @@ class AllStories extends Component {
 
     gdUploadStory(id, words) {
         console.log("Google Drive Upload clicked");
-
-        //to do somehow call the googleDrive.js component
-        
+        googleApi.init()
+        .then(() => {
+          googleApi.saveFile(id, words)
+          .then(() => {
+            alert('File uploaded');
+            console.log('File uploaded');
+          });
+        })
+        .catch(err => {
+          alert(err);
+          console.log('error uploading to google drive ' + err);
+        });
     };
 
     render() {
         const allStoryPanels = this.state.stories.map(story => {
             return (
-             
+          
                     <StoryPanel
                         key={story._id}
                         title={story.title}
@@ -78,11 +92,14 @@ class AllStories extends Component {
                   >
                   Delete
                   </button>
-                  <button onClick={() => this.gdUploadStory(storyBtns._id, storyBtns.words)} 
+                  
+                  <button onClick={() => 
+                    this.gdUploadStory(storyBtns._id, storyBtns.words)} 
                   type = "button"
                   >
                   Google Drive Upload
                   </button>
+                  
                 </div>
             )
         });
