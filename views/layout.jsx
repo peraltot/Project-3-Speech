@@ -45,8 +45,11 @@ export default function Layout(props) {
           description={DESCRIPTION}
         /> */}
         <div id="root">
+     
         
         {props.children}
+        </div>
+        <div id="googledrive">
         </div>
         <script type="text/javascript" src="node_modules/auth0-js/build/auth0.js"></script>
         <script type="text/javascript" src="scripts/bundle.js" />

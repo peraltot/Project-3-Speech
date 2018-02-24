@@ -10,9 +10,9 @@ const StoryPanel = (props) => {
       <Row>
         <Col s={20} m={10}>
           <CardPanel className="blue-grey darken-1">
-            {/* <h1>View All Stories</h1>
+            <h1>View All Stories</h1>
 
-            <button onClick={props.loadStories} type="button">View Story</button> */}
+            {/* <button onClick={props.loadStories} type="button">View Story</button> */} */}
            
             {props.text}
             {props.words}

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // define import paths
 
@@ -21,10 +21,12 @@ const handleAuthentication = ({ location }) => {
 }
 
 
+
 const App = () =>
   <Router history={history}>
     <div>
       <Navbar />
+<<<<<<< HEAD
       <Route path="/" render={(props) => <App auth={auth} {...props} />} />
       <Route exact path="/watson" component={Home} />
       <Route exact path="/about" component={About} />
@@ -33,7 +35,15 @@ const App = () =>
         handleAuthentication(props);
         return <Callback {...props} />
       }} />
+=======
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/About" component={About} />
+        <Route exact path="/AllStories" component={AllStories} />
+      </Switch>
+>>>>>>> 7f549519cc84369075afb584b47e999ffd50cd4f
     </div>
   </Router>;
 
 export default App;
+
