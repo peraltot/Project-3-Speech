@@ -25,24 +25,33 @@ import { Link } from "react-router-dom";
 const Navbar = props =>
 
 <nav  className="teal lighten-2">
-    <div className="navigation">
+    {/* <div className="navigation">
     <ul id="dropdown1"  className="dropdown-content font-size=36px">
       <Link to="/">Home</Link>
       <Link to="/About">About</Link>
       <Link to="/AllStories">Stories</Link>
     </ul>
-  </div>
+  </div> */}
 
     <div className="nav-wrapper teal lighten-2" id="navigation-bar">  
-			<a href="/" className="brand-logo center">
+			<a href="/" className="brand-logo right">
 				<p className="site-title">ChatterDox</p>
 			</a>
-			<ul className="right">
-				<li>
-					<a className="dropdown-button" href="#!" data-activates="dropdown1">
-						<i className="material-icons right" id="nav-icon">account_circle</i>
+			{/* <ul className="right"> */}
+			<ul id="nav-mobile" class="left hide-on-med-and-down">
+
+				{/* <li> */}
+				<a>
+					{/* <a className="dropdown-button" href="#!" data-activates="dropdown1"> */}
+					<i className="material-icons left" id="nav-icon"><Link to="/">Home</Link>
+					</i>
+					<i className="material-icons left" id="nav-icon">
+					<Link to="/About">About</Link>
+					 </i>
+					<i className="material-icons left" id="nav-icon"> 
+					<Link to="/AllStories">Stories</Link></i>
 					</a>
-				</li>
+				{/* </li> */}
 			</ul>
 		</div>
 </nav>
