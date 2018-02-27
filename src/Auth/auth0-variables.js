@@ -1,5 +1,3 @@
-export const AUTH_CONFIG = {
-  domain: 'msherman83.auth0.com',
-  clientId: 'xR9nqQjHTD-eN4OufIFtGa1c-Q0as8LM',
-  callbackUrl: 'http://localhost:3000/callback'
-}
+var AUTH0_CLIENT_ID='lBSBehjiwfS3GUcbk2cWrMXJzy1v5Xzd';
+var AUTH0_DOMAIN='msherman83.auth0.com';
+var AUTH0_CALLBACK_URL=location.href;
