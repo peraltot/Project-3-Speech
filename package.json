@@ -38,6 +38,7 @@
     "codecov": "npm run test && (codecov || true)"
   },
   "dependencies": {
+    "@sendgrid/mail": "^6.2.1",
     "auth0-js": "^9.2.3",
     "axios": "^0.17.1",
     "babel-eslint": "^7.2.3",

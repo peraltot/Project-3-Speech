@@ -110,4 +110,10 @@ api.delete("/stories/:id", function (req, res) {
   }); //end findByIdAndRemove
 }); //endapp.delete
 
+api.put("/mail/:msg", function(req, res) {
+  console.log(req.params.msg);
+  console.log('mailed');
+
+});
+
 module.exports = api;
