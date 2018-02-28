@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import StoryPanel from "../../components/StoryPanel";
 import API from "../../utils/api-axios";
 import googleApi from "../../utils/googleApi";
-
+import {Button, Icon} from "react-materialize";
 class AllStories extends Component {
 
     constructor(props) {
@@ -92,18 +92,14 @@ class AllStories extends Component {
                     <h4>
                         {storyBtns.title}:
                     </h4>
-                    <button onClick={() => this.delStory(storyBtns._id)}
-                        type="button"
-                    >
-                        Delete
-                  </button>
+                    <Button onClick={() => this.delStory(storyBtns._id)}
+                    ><Icon>delete</Icon>
+                  </Button>
 
-                    <button onClick={() =>
+                    <Button onClick={() =>
                         this.gdUploadStory(storyBtns._id, storyBtns.words)}
-                        type="button"
-                    >
-                        Google Drive Upload
-                  </button>
+                    ><Icon>backup</Icon>
+                  </Button>
                   <p>
                    {storyBtns.words}
                    </p>
