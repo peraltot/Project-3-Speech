@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import StoryPanel from "../../components/StoryPanel";
 import API from "../../utils/api-axios";
 import googleApi from "../../utils/googleApi";
-import sgMail from '@sendgrid/mail';
+import MailModal from '../Mail-Modal';
 
 class AllStories extends Component {
 
@@ -72,7 +72,7 @@ class AllStories extends Component {
           };
 
         API.mail(msg)
-            .then(res => this.loadStories())
+            .then(res => console.log(res))
             .catch(err => console.log(err));
     };
 
@@ -114,12 +114,7 @@ class AllStories extends Component {
                         Google Drive Upload
                   </button>
 
-                    <button onClick={() =>
-                        this.mailStory("This is my story", "Title")}
-                        type="button"
-                    >
-                        Mail
-                  </button>
+                  <MailModal nickTest={this.mailStory}/>
 
                 </div>
             )

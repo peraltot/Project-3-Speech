@@ -19,7 +19,13 @@ export default {
   //   }
 
   mail: function (msg) {
-    return axios.put("/mail/" + msg);
+    return axios.post("/mail", {
+      msg: msg
+    });
+    
   }
 
 };
+
+
+

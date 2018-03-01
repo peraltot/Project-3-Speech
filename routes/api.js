@@ -18,6 +18,7 @@
 const express = require("express");
 const api = express.Router();
 const db = require('../models/')
+const sgMail = require('@sendgrid/mail');
 // Axios is a promised-based http library, similar to jQuery's Ajax method
 // It works on the client and on the server
 var axios = require("axios");
@@ -26,13 +27,11 @@ var axios = require("axios");
 
 
 api.get('/', (req, res) => {
-  res.render('index', {
-  });
+  res.render('index', {});
 });
 
 api.get('/googledrive', (req, res) => {
-  res.render('googledrive', {
-  });
+  res.render('googledrive', {});
 });
 
 //sample: to test search to external api if we need this later
@@ -110,9 +109,15 @@ api.delete("/stories/:id", function (req, res) {
   }); //end findByIdAndRemove
 }); //endapp.delete
 
-api.put("/mail/:msg", function(req, res) {
-  console.log(req.params.msg);
-  console.log('mailed');
+api.post("/mail", function (req, res) {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  sgMail.send(req.body.msg, (error, result) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(result);
+    }
+  });
 
 });
 
