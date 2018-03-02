@@ -6,7 +6,7 @@ import StoryPanel from "../../components/StoryPanel";
 import API from "../../utils/api-axios";
 import googleApi from "../../utils/googleApi";
 import MailModal from '../Mail-Modal';
-
+import {Button, Icon} from "react-materialize";
 class AllStories extends Component {
 
     constructor(props) {
@@ -61,6 +61,7 @@ class AllStories extends Component {
                 alert(err);
                 console.log('error uploading to google drive ' + err);
             });
+
     };
 
     mailStory() {
@@ -89,9 +90,12 @@ class AllStories extends Component {
             );
         });
 
+
         return (
             <div>
-                {allStoryPanels}
+                {/* {allStoryPanels} */}
+                My Stories:
+                {StoryPanel}
             </div>
         )
     }
@@ -99,22 +103,23 @@ class AllStories extends Component {
     render() {
         const theButtons = this.state.stories.map(storyBtns => {
             return (
+                
                 <div key={storyBtns._id}>
-                    {storyBtns.title} and {storyBtns.words}
-                    <button onClick={() => this.delStory(storyBtns._id)}
-                        type="button"
-                    >
-                        Delete
-                  </button>
+                    <h4>
+                        {storyBtns.title}:
+                    </h4>
+                    <Button onClick={() => this.delStory(storyBtns._id)}
+                    ><Icon>delete</Icon>
+                  </Button>
 
-                    <button onClick={() =>
+                    <Button onClick={() =>
                         this.gdUploadStory(storyBtns._id, storyBtns.words)}
-                        type="button"
-                    >
-                        Google Drive Upload
-                  </button>
-
-                  <MailModal nickTest={this.mailStory}/>
+                    ><Icon>backup</Icon>
+                  </Button>
+   <MailModal nickTest={this.mailStory}/>
+                  <p>
+                   {storyBtns.words}
+                   </p>
 
                 </div>
             )
