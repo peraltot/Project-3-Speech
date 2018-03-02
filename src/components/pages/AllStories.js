@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import StoryPanel from "../../components/StoryPanel";
 import API from "../../utils/api-axios";
 import googleApi from "../../utils/googleApi";
+import MailModal from '../Mail-Modal';
 import {Button, Icon} from "react-materialize";
 class AllStories extends Component {
 
@@ -60,20 +61,35 @@ class AllStories extends Component {
                 alert(err);
                 console.log('error uploading to google drive ' + err);
             });
+
+    };
+
+    mailStory() {
+        const msg = {
+            to: 'connorjohnmelnick@gmail.com',
+            from: 'test@example.com',
+            subject: 'Sending with SendGrid is Fun',
+            text: 'and easy to do anywhere, even with Node.js',
+          };
+
+        API.mail(msg)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
     };
 
     render() {
-        // const allStoryPanels = this.state.stories.map(story => {
-        return (
+        const allStoryPanels = this.state.stories.map(story => {
+            return (
 
-            <StoryPanel
-                key={story._id}
-                title={story.title}
-                words={story.words}
+                <StoryPanel
+                    key={story._id}
+                    title={story.title}
+                    words={story.words}
 
-            />
-        );
-        // });
+                />
+            );
+        });
+
 
         return (
             <div>
@@ -100,11 +116,10 @@ class AllStories extends Component {
                         this.gdUploadStory(storyBtns._id, storyBtns.words)}
                     ><Icon>backup</Icon>
                   </Button>
+   <MailModal nickTest={this.mailStory}/>
                   <p>
                    {storyBtns.words}
                    </p>
-
-
 
                 </div>
             )
