@@ -1,7 +1,9 @@
 // load environment properties from a .env file for local development
-require('dotenv').load({
-  silent: true
-});
+// require('dotenv').load({
+//   silent: true
+// });
+require('dotenv').config()
+
 const express = require('express');
 const api = require('./routes/api.js');
 const db = require("./models");
