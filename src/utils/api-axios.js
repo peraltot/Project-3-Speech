@@ -9,6 +9,9 @@ export default {
 //   getStory: function(id) {
 //     return axios.get("/stories/" + id);
 //   },
+
+
+
   // Deletes the story with the given id
   deleteStory: function(id) {
     return axios.delete("/stories/" + id);
