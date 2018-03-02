@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import StoryPanel from "../../components/StoryPanel";
 import API from "../../utils/api-axios";
 import googleApi from "../../utils/googleApi";
-
+import {Button, Icon} from "react-materialize";
 class AllStories extends Component {
 
     constructor(props) {
@@ -28,11 +28,11 @@ class AllStories extends Component {
     loadStories() {
         API.getStories()
             .then(res =>
-              // to do add in error checking here if no stories display heading and no stories
-              // if (!res.data) {
-              //   console.log("no stories");
+                // to do add in error checking here if no stories display heading and no stories
+                // if (!res.data) {
+                //   console.log("no stories");
 
-              // }
+                // }
                 this.setState({ stories: res.data })
             )
             .catch(err => console.log(err));
@@ -49,35 +49,37 @@ class AllStories extends Component {
     gdUploadStory(id, words) {
         console.log("Google Drive Upload clicked");
         googleApi.init()
-        .then(() => {
-          googleApi.saveFile(id, words)
-          .then(() => {
-            alert('File uploaded');
-            console.log('File uploaded');
-          });
-        })
-        .catch(err => {
-          alert(err);
-          console.log('error uploading to google drive ' + err);
-        });
+            .then(() => {
+                googleApi.saveFile(id, words)
+                    .then(() => {
+                        alert('File uploaded');
+                        console.log('File uploaded');
+                    });
+            })
+            .catch(err => {
+                alert(err);
+                console.log('error uploading to google drive ' + err);
+            });
     };
 
     render() {
-        const allStoryPanels = this.state.stories.map(story => {
-            return (
-          
-                    <StoryPanel
-                        key={story._id}
-                        title={story.title}
-                        words={story.words}
+        // const allStoryPanels = this.state.stories.map(story => {
+        return (
 
-                    />
-            );
-        });
+            <StoryPanel
+                key={story._id}
+                title={story.title}
+                words={story.words}
+
+            />
+        );
+        // });
 
         return (
             <div>
-                {allStoryPanels}
+                {/* {allStoryPanels} */}
+                My Stories:
+                {StoryPanel}
             </div>
         )
     }
@@ -85,21 +87,25 @@ class AllStories extends Component {
     render() {
         const theButtons = this.state.stories.map(storyBtns => {
             return (
+                
                 <div key={storyBtns._id}>
-                    {storyBtns.title} and {storyBtns.words}
-                  <button onClick={() => this.delStory(storyBtns._id)} 
-                  type = "button"
-                  >
-                  Delete
-                  </button>
-                  
-                  <button onClick={() => 
-                    this.gdUploadStory(storyBtns._id, storyBtns.words)} 
-                  type = "button"
-                  >
-                  Google Drive Upload
-                  </button>
-                  
+                    <h4>
+                        {storyBtns.title}:
+                    </h4>
+                    <Button onClick={() => this.delStory(storyBtns._id)}
+                    ><Icon>delete</Icon>
+                  </Button>
+
+                    <Button onClick={() =>
+                        this.gdUploadStory(storyBtns._id, storyBtns.words)}
+                    ><Icon>backup</Icon>
+                  </Button>
+                  <p>
+                   {storyBtns.words}
+                   </p>
+
+
+
                 </div>
             )
         });

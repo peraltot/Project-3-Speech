@@ -11,11 +11,19 @@ const StoryPanel = (props) => {
         <Col s={20} m={10}>
           <CardPanel className="blue-grey darken-1">
             <h1>View All Stories</h1>
+            <li className="list-group-item">
+              <h3>
+                <span><em>Title:</em></span>
+                {props.text}
+                <span><em>Story:</em></span>
+                {props.words}
+              </h3>
+            </li>
 
             {/* <button onClick={props.loadStories} type="button">View Story</button> */} */}
-           
-            {props.text}
-            {props.words}
+
+
+
             {/* <button onClick={props.handleDeleteClick} type="button">Delete this Story</button> */}
             {/* <button onClick={props.deleteStory(props._id)}>Delete this Story</button> */}
 
@@ -32,7 +40,7 @@ const StoryPanel = (props) => {
               Google Drive Upload
               </button>
             </div> */}
-        
+
 
           </CardPanel>
         </Col>

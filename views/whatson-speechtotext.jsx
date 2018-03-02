@@ -149,12 +149,26 @@ export default React.createClass({
        }
       });
       console.log("Save locally");
-      confirm("User inputs title via modal!");
+      // confirm("User inputs title via modal!");
+      let usertitle = "userinputtedtitle";
+      
+            // var txt;
+            var storytitle = prompt("Please enter your Story Title:", "My Story");
+            if (storytitle == null || storytitle == "") {
+                usertitle = "User cancelled the prompt.";
+            } else {
+                usertitle = storytitle ;
+            }
+    //   <Modal
+    //   id='sample-1'
+    //   header='Modal Header'>
+    //   <p>Input Title:</p>
+    // </Modal>
 
       exportJson();
 
       function exportJson() {
-        downloadTextFile('Story.txt', finalmsg)
+        downloadTextFile(usertitle + '.txt', finalmsg)
       }
 
       function downloadTextFile(filename, text) {
@@ -223,8 +237,16 @@ export default React.createClass({
       });
 
 
-      confirm("User inputs title via modal!");
+      // confirm("User inputs title via modal!");
       let usertitle = "userinputtedtitle";
+
+      // var txt;
+      var storytitle = prompt("Please enter your Story Title:", "My Story");
+      if (storytitle == null || storytitle == "") {
+          usertitle = "User cancelled the prompt.";
+      } else {
+          usertitle = storytitle ;
+      }
 
       exportJson();
 
