@@ -3,8 +3,11 @@
     margin-bottom: 3rem;
 }
 
-.title_1 {
-margin-left: 20 px;
+nav #title_1 {
+margin-left: 25%;
+/* text-align: center; */
+border:none;
+font-size: 36px;
 }
 
 .base--hr {

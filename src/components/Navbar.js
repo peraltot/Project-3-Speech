@@ -78,7 +78,7 @@ const Navbar = props =>
 				{/* <a className="nav navbar-nav navbar-left"><Link to="/">Home__  </Link></a> */}
 				{/* <a className="nav navbar-nav navbar-left"><Link to="/About">About__  </Link></a> */}
 				{/* <a className="nav navbar-nav navbar-left"><Link to="/AllStories">Stories</Link></a> */}
-				<a className="nav navbar-nav navbar-center" id="title_1" href="#">ChatterDoX</a>
+				<a id="title_1" className="nav navbar-nav navbar-center" href="#">ChatterDoX</a>
 				{/* </ul> */}
 			{/* </div> */}
 
