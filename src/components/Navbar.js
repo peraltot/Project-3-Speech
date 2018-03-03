@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {Button, Icon} from "react-materialize";
 
 
 // Navbar = React.createClass({
@@ -63,13 +64,13 @@ const Navbar = props =>
 						{/* <span className="sr-only">Toggle navigation</span> */}
 						{/* <span className="icon-bar"><a className="nav navbar-nav navbar-left"><Link to="/">Home</Link></a></span> */}
 						{/* <span className="icon-bar"><Link to="/">Home</Link></span> */}
-						<Link to="/">Home</Link>
+						<Link to="/"><Icon>home</Icon></Link>
 					</button>
 					<button className="base--button_clear">
-						<span className="nav navbar-nav navbar-left"></span><Link to="/About">About</Link>
+						<span className="nav navbar-nav navbar-left"></span><Link to="/About"><Icon>group</Icon></Link>
 					</button>
 					<button className="base--button_clear">
-						<span className="nav navbar-nav navbar-left"></span><Link to="/AllStories">Stories</Link>
+						<span className="nav navbar-nav navbar-left"></span><Link to="/AllStories"><Icon>assignment</Icon></Link>
 					</button>
 					<span className="icon-bar"></span>
 			{/* </button> */}
@@ -77,7 +78,7 @@ const Navbar = props =>
 				{/* <a className="nav navbar-nav navbar-left"><Link to="/">Home__  </Link></a> */}
 				{/* <a className="nav navbar-nav navbar-left"><Link to="/About">About__  </Link></a> */}
 				{/* <a className="nav navbar-nav navbar-left"><Link to="/AllStories">Stories</Link></a> */}
-				<a className="nav navbar-nav navbar-right" href="#">ChatterDoX</a>
+				<a className="nav navbar-nav navbar-center" id="title_1" href="#">ChatterDoX</a>
 				{/* </ul> */}
 			{/* </div> */}
 
