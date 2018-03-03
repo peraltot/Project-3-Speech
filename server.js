@@ -72,7 +72,11 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'public')));
+
+// Let Express use static content
+// app.use(express.static(path.join(__dirname, 'public')));
+// Static directory
+app.use(express.static("public"));
 
 app.use(flash());
 
@@ -96,10 +100,11 @@ app.use(function(req, res, next) {
    next();
  });
  
+//  Use routes for login
 //  app.use('/', routes);
- app.use('/user', user);
+//  app.use('/user', user);
  
- module.exports = app;
+//  module.exports = app;
 
  // =======================================
 

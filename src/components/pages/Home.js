@@ -3,7 +3,7 @@ import WhatsonSpeechToText from '../../../views/whatson-speechtotext.jsx';
 
 const Home = () =>
     <div>
-      <Navbar/>
+  <Navbar/>
   <WhatsonSpeechToText/>
   </div>;
 
