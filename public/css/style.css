@@ -3,6 +3,13 @@
     margin-bottom: 3rem;
 }
 
+nav #title_1 {
+margin-left: 25%;
+/* text-align: center; */
+border:none;
+font-size: 36px;
+}
+
 .base--hr {
     margin-top: 1em;
 }
@@ -13,6 +20,10 @@
 
 .arrow-box-container {
     position: relative;
+} 
+
+html {
+    box-sizing: border-box
 }
 
 sup {
@@ -158,4 +169,15 @@ dialog, dd, dt {
 }
 .navigation {
     background-color: teal;
+} 
+
+
+/* Navigation Styling */
+   
+.dope-nav-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #eee;
+    padding: 20px;
 }

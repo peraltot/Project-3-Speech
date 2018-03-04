@@ -8,7 +8,7 @@ import recognizeFile from 'watson-speech/speech-to-text/recognize-file';
 import ModelDropdown from './model-dropdown.jsx';
 import Transcript from './transcript.jsx';
 import SpeakersView from './speaker.jsx';
-import JSONView from './json-view.jsx';
+// import JSONView from './json-view.jsx';
 import cachedModels from '../src/data/models.json';
 
 import { request } from 'https';
@@ -555,14 +555,14 @@ export default React.createClass({
         {err}
 
         <Tabs selected={0}>
-          <Pane label="Text">
+          <Pane label="My Story">
             {this.state.settingsAtStreamStart.speakerLabels
               ? <SpeakersView messages={messages} />
               : <Transcript messages={messages} />}
           </Pane>
-          <Pane label="JSON">
+          {/* <Pane label="JSON">
             <JSONView raw={this.state.rawMessages} formatted={this.state.formattedMessages} />
-          </Pane>
+          </Pane> */}
         </Tabs>
 
       </Dropzone>
