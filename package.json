@@ -63,6 +63,7 @@
     "flash": "^1.1.0",
     "google-client-api": "^1.0.4",
     "helmet": "^3.9.0",
+    "material-ui": "^0.20.0",
     "mongoose": "^5.0.3",
     "passport": "^0.4.0",
     "passport-auth0": "^0.6.1",
