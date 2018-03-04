@@ -30,7 +30,7 @@ class MailButton extends Component {
 
     render() {
         return (
-            <Button onClick={()=>this.promptForEmail()}>Test</Button>
+            <Button onClick={()=>this.promptForEmail()}>Send</Button>
         )
     }
 }
