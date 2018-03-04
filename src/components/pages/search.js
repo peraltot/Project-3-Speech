@@ -41,22 +41,24 @@ class Search extends Component {
 
   render() {
     return (
+      <div>
+        <Navbar />
+        <div heading={this.state.result.title || "Search for a Story to Begin"}>
+          <StoryDetail
+            title={this.state.result.title}
+            words={this.state.result.words}
+          />
 
-<div heading={this.state.result.title || "Search for a Story to Begin"}>
-                <StoryDetail
-                    title={this.state.result.title}
-                    words={this.state.result.words}
-                  />
-  
-              <SearchForm
-                value={this.state.search}
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
-              />
-              </div>
-            );
-          }
-        
-        }
+          <SearchForm
+            value={this.state.search}
+            handleInputChange={this.handleInputChange}
+            handleFormSubmit={this.handleFormSubmit}
+          />
+        </div>
+      </div>
+    );
+  }
+
+}
 
 export default Search;

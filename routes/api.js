@@ -22,9 +22,20 @@ const sgMail = require('@sendgrid/mail');
 // Axios is a promised-based http library, similar to jQuery's Ajax method
 // It works on the client and on the server
 var axios = require("axios");
-// Route for retrieving all stories from the db
+var bodyParser = require("body-parser");
+
+var path = require('path');
 
 
+
+// api.get('/', (req, res) => {
+//   var filePath = "./public/auth/auth.html"
+//   var resolvedPath = path.resolve(filePath);
+//   console.log(resolvedPath);
+//   return res.sendFile(resolvedPath);
+
+//   // res.sendFile('auth.html', {root: '/public/auth'});
+// });
 
 api.get('/', (req, res) => {
   res.render('index', {});

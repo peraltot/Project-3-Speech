@@ -101,6 +101,7 @@ class AllStories extends Component {
     }
 
     render() {
+        <Navbar/>
         const theButtons = this.state.stories.map(storyBtns => {
             return (
                 
