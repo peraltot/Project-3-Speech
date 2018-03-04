@@ -6,7 +6,7 @@ import { Button, Card, Row, Col } from 'react-materialize';
 // import { Header, Jumbotron } from 'watson-react-components';
 // eslint-disable-mnext-lin =
 const DESCRIPTION = 'Using IBM API to provide speech into text.';
- 
+
 export default function Layout(props) {
   return (
     <html lang="en">
@@ -22,9 +22,9 @@ export default function Layout(props) {
         <link rel="stylesheet" href="/css/style.css" />
 
         {/* Import Google Icon Font */}
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         {/* Import materialize.css */}
-	      <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet" />
       </head>
       <body>
         {/* <Header
@@ -44,23 +44,52 @@ export default function Layout(props) {
           // startInBluemix="https://console.bluemix.net/registration?target=%2Fdeveloper%2Fwatson%2Fcreate-project%3Fservices%3Dspeech_to_text%26action%3Dcreate%26hideTours%3Dtrue%26cm_mmc%3DOSocial_Tumblr-_-Watson%2BCore_Watson%2BCore%2B-%2BPlatform-_-WW_WW-_-wdc-ref%26cm_mmc%3DOSocial_Tumblr-_-Watson%2BCore_Watson%2BCore%2B-%2BPlatform-_-WW_WW-_-wdc-ref%26cm_mmca1%3D000000OF%26cm_mmca2%3D10000409"
           description={DESCRIPTION}
         /> */}
-        HI MOM
+
+
+
+
+        <div class="content">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Auth0 - JavaScript</a>
+
+                <button id="btn-home-view" class="btn btn-primary btn-margin">
+                  Home
+          </button>
+
+                <button id="qsLoginBtn" class="btn btn-primary btn-margin">
+                  Log In
+          </button>
+
+                <button id="qsLogoutBtn" class="btn btn-primary btn-margin">
+                  Log Out
+          </button>
+
+
+
+              </div>
+            </div>
+          </nav>
+        </div>
         <div id="root">
-     
-        
-        {props.children}
+
+
+          {props.children}
         </div>
         <div id="googledrive">
         </div>
+        <script type="text/javascript" src="/auth/auth0-variables.js"></script>
+        <script type="text/javascript" src="/auth/app.js"></script>
         <script type="text/javascript" src="node_modules/auth0-js/build/auth0.js"></script>
         <script type="text/javascript" src="scripts/bundle.js" />
-        { props.bluemixAnalytics ? <script type="text/javascript" src="scripts/analytics.js" /> : null }
+        {props.bluemixAnalytics ? <script type="text/javascript" src="scripts/analytics.js" /> : null}
 
         {/* Import jQuery before materialize.js */}
-	      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-	      {/* And then your bundled jsx */}
-	      <script src="../public/scripts/bundle.jsx"></script>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+        {/* And then your bundled jsx */}
+        <script src="../public/scripts/bundle.jsx"></script>
       </body>
     </html>
   );
