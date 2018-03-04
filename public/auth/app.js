@@ -1,8 +1,8 @@
 window.addEventListener('load', function() {
     var content = document.querySelector('.content');
     var loadingSpinner = document.getElementById('loading');
-    content.style.display = 'block';
-    loadingSpinner.style.display = 'none';
+    // content.style.display = 'block';
+    // loadingSpinner.style.display = 'none';
   
     var webAuth = new auth0.WebAuth({
       domain: AUTH0_DOMAIN,

@@ -45,51 +45,31 @@ export default function Layout(props) {
           description={DESCRIPTION}
         /> */}
 
-        
-          <script src="https://cdn.auth0.com/js/lock/11.2/lock.min.js"></script>
-          
-    <script>
-    // Decode utf8 characters properly
-    var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
-    config.extraParams = config.extraParams || {};
-    var connection = config.connection;
-    var prompt = config.prompt;
-    var languageDictionary;
-    var language;
-    
-    if (config.dict && config.dict.signin && config.dict.signin.title) {
-      languageDictionary = { title: config.dict.signin.title };
-    } else if (typeof config.dict === 'string') {
-      language = config.dict;
-    }
-    var loginHint = config.extraParams.login_hint;
-    
-    var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
-      auth: {
-        redirectUrl: config.callbackURL,
-        responseType: (config.internalOptions || {}).response_type ||
-          config.callbackOnLocationHash ? 'token' : 'code',
-        params: config.internalOptions
-      },
-      assetsUrl:  config.assetsUrl,
-      allowedConnections: connection ? [connection] : null,
-      rememberLastLogin: !prompt,
-      language: language,
-      languageDictionary: languageDictionary,
-      theme: {
-        //logo:            'YOUR LOGO HERE',
-        //primaryColor:    'green'
-      },
-      prefill: loginHint ? { email: loginHint, username: loginHint } : null,
-      closable: false,
-      // uncomment if you want small buttons for social providers
-      // socialButtonStyle: 'small'
-    });
 
-    lock.show();
-  
-  </script>
-    
+
+        <div class="content">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Auth0 - JavaScript</a>
+
+                <button id="btn-home-view" class="btn btn-primary btn-margin">
+                  Home
+          </button>
+
+                <button id="qsLoginBtn" class="btn btn-primary btn-margin">
+                  Log In
+          </button>
+
+                <button id="qsLogoutBtn" class="btn btn-primary btn-margin">
+                  Log Out
+          </button>
+
+              </div>
+            </div>
+          </nav>
+        </div>
+
 
 
         <div id="root">
@@ -99,8 +79,10 @@ export default function Layout(props) {
         </div>
         <div id="googledrive">
         </div>
-
+        <script src="https://cdn.auth0.com/js/auth0/9.3.1/auth0.min.js"></script>
         <script type="text/javascript" src="/scripts/bundle.js" />
+        <script type="text/javascript" src="/auth/auth0-variables.js"></script>
+        <script type="text/javascript" src="/auth/app.js"></script>
         {props.bluemixAnalytics ? <script type="text/javascript" src="scripts/analytics.js" /> : null}
 
         {/* Import jQuery before materialize.js */}
