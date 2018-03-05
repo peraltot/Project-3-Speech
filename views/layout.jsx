@@ -47,21 +47,21 @@ export default function Layout(props) {
 
 
 
-        <div class="content">
-          <nav class="navbar navbar-default">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <a class="navbar-brand" href="#">Auth0 - JavaScript</a>
+        <div className="content">
+          <nav className="navbar navbar-default">
+            <div className="container-fluid">
+              <div className="navbar-header">
+                <a className="navbar-brand" href="#">Auth0 - JavaScript</a>
 
-                <button id="btn-home-view" class="btn btn-primary btn-margin">
+                <button id="btn-home-view" className="btn btn-primary btn-margin">
                   Home
           </button>
 
-                <button id="qsLoginBtn" class="btn btn-primary btn-margin">
+                <button id="qsLoginBtn" className="btn btn-primary btn-margin">
                   Log In
           </button>
 
-                <button id="qsLogoutBtn" class="btn btn-primary btn-margin">
+                <button id="qsLogoutBtn" className="btn btn-primary btn-margin">
                   Log Out
           </button>
 
