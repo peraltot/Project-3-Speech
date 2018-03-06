@@ -1,13 +1,9 @@
-.content {
-  display: none;
+.container {
+  margin: 0 auto;
 }
 
-.btn-margin {
-  margin-top: 7px
-}
-
-#login-view {
-  display: none;
+.card .card-content {
+  text-align: center;
 }
 
 #loading {

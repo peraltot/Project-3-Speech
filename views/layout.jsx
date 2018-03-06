@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, Row, Col } from 'react-materialize';
 
-
 // import { Header, Jumbotron } from 'watson-react-components';
 // eslint-disable-mnext-lin =
 const DESCRIPTION = 'Using IBM API to provide speech into text.';
@@ -20,6 +19,8 @@ export default function Layout(props) {
 
         <link rel="stylesheet" href="/css/watson-react-components.min.css" />
         <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/authStyle.css" />
+
 
         {/* Import Google Icon Font */}
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -27,35 +28,10 @@ export default function Layout(props) {
         <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet" />
       </head>
       <body>
-        {/* <Header
-          mainBreadcrumbs="Speech to Text"
-          // mainBreadcrumbsUrl="https://www.ibm.com/watson/services/speech-to-text/"
-          // subBreadcrumbs="Speech to Text Demo"
-          // subBreadcrumbsUrl="https://speech-to-text-demo.mybluemix.net"
 
-        /> */}
-        {/* <Jumbotron
-          serviceName="Speech to Text"
-          // repository="https://github.com/watson-developer-cloud/speech-to-text-nodejs"
-          // documentation="https://console.bluemix.net/docs/services/speech-to-text/getting-started.html"
-          // apiReference="http://www.ibm.com/watson/developercloud/speech-to-text/api"
-          // version="GA"
-          // serviceIcon="/images/stt.svg"
-          // startInBluemix="https://console.bluemix.net/registration?target=%2Fdeveloper%2Fwatson%2Fcreate-project%3Fservices%3Dspeech_to_text%26action%3Dcreate%26hideTours%3Dtrue%26cm_mmc%3DOSocial_Tumblr-_-Watson%2BCore_Watson%2BCore%2B-%2BPlatform-_-WW_WW-_-wdc-ref%26cm_mmc%3DOSocial_Tumblr-_-Watson%2BCore_Watson%2BCore%2B-%2BPlatform-_-WW_WW-_-wdc-ref%26cm_mmca1%3D000000OF%26cm_mmca2%3D10000409"
-          description={DESCRIPTION}
-        /> */}
-
-
-
-        <div className="content">
-          <nav className="navbar navbar-default">
+        {/* <div className="content">
+         
             <div className="container-fluid">
-              <div className="navbar-header">
-                <a className="navbar-brand" href="#">Auth0 - JavaScript</a>
-
-                <button id="btn-home-view" className="btn btn-primary btn-margin">
-                  Home
-          </button>
 
                 <button id="qsLoginBtn" className="btn btn-primary btn-margin">
                   Log In
@@ -66,8 +42,22 @@ export default function Layout(props) {
           </button>
 
               </div>
+        </div> */}
+
+        <div className="container">
+        <div className="row valign-wrapper">
+        <div className="col l4 valign">
+            <div className="card">
+              <div className="card-image waves-effect waves-block waves-light">
+                <img className="activator" src="../images/owl.jpg" alt="bird with scroll" />
+              </div>
+              <div className="card-content">
+                <a id="qsLoginBtn" className="waves-effect waves-light btn"><i className="material-icons left">verified_user</i>Login</a>
+                <a id="qsLogoutBtn" className="waves-effect waves-light btn"><i className="material-icons left">exit_to_app</i>Logout</a>
+              </div>
             </div>
-          </nav>
+          </div>
+        </div>
         </div>
 
 
@@ -88,7 +78,6 @@ export default function Layout(props) {
         {/* Import jQuery before materialize.js */}
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-        {/* And then your bundled jsx */}
       </body>
     </html>
   );
