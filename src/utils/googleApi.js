@@ -3,7 +3,6 @@
 export default {
 
   isSignedIn: false,
-  // Gets all stories
   isLoggedIn: function () {
     //   check islsigned in if not.... show a button to sign in.
 
