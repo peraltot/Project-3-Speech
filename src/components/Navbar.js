@@ -59,17 +59,17 @@ const Navbar = props =>
 		< nav className="navbar navbar-default" role="navigation" >
 			{/* <div className="container-fluid"> */}
 				{/* <div className="navbar-header"> */}
-					<button className="base--button_clear">
+					<button id="title_2" className="base--button_clear">
 					<span className="nav navbar-nav navbar-left"></span>
 						{/* <span className="sr-only">Toggle navigation</span> */}
 						{/* <span className="icon-bar"><a className="nav navbar-nav navbar-left"><Link to="/">Home</Link></a></span> */}
 						{/* <span className="icon-bar"><Link to="/">Home</Link></span> */}
 						<Link to="/"><Icon>home</Icon></Link>
 					</button>
-					<button className="base--button_clear">
-						<span className="nav navbar-nav navbar-left"></span><Link to="/About"><Icon>group</Icon></Link>
+					<button id="title_2" className="base--button_clear">
+						<span className="nav navbar-nav navbar-left"></span><Link to="/About"><Icon>info</Icon></Link>
 					</button>
-					<button className="base--button_clear">
+					<button id="title_2" className="base--button_clear">
 						<span className="nav navbar-nav navbar-left"></span><Link to="/AllStories"><Icon>assignment</Icon></Link>
 					</button>
 					<span className="icon-bar"></span>

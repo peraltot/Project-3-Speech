@@ -10,6 +10,10 @@ border:none;
 font-size: 36px;
 }
 
+.base--button_clear, button #title_2 {
+    border:none;
+    }
+
 .base--hr {
     margin-top: 1em;
 }
