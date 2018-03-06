@@ -2,7 +2,7 @@
 // import { Button } from 'react-bootstrap';
 // import './App.css';
 
-// class App extends Component {
+// className App extends Component {
 //   goTo(route) {
 //     this.props.history.replace(`/${route}`)
 //   }

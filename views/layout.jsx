@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Row, Col } from 'react-materialize';
 
 // import { Header, Jumbotron } from 'watson-react-components';
 // eslint-disable-mnext-lin =
 const DESCRIPTION = 'Using IBM API to provide speech into text.';
 
 export default function Layout(props) {
+
   return (
     <html lang="en">
       <head>
@@ -21,7 +21,6 @@ export default function Layout(props) {
         <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="/css/authStyle.css" />
 
-
         {/* Import Google Icon Font */}
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         {/* Import materialize.css */}
@@ -29,22 +28,8 @@ export default function Layout(props) {
       </head>
       <body>
 
-        {/* <div className="content">
-         
-            <div className="container-fluid">
-
-                <button id="qsLoginBtn" className="btn btn-primary btn-margin">
-                  Log In
-          </button>
-
-                <button id="qsLogoutBtn" className="btn btn-primary btn-margin">
-                  Log Out
-          </button>
-
-              </div>
-        </div> */}
-
-        <div className="container">
+      {/* The BELOW JSX HAS BEEN MOVED TO THE LOGIN PAGE COMPONENT */}
+        {/* <div className="container">
         <div className="row valign-wrapper">
         <div className="col l4 valign">
             <div className="card">
@@ -58,12 +43,14 @@ export default function Layout(props) {
             </div>
           </div>
         </div>
-        </div>
+        </div> */}
 
 
 
         <div id="root">
 
+        <div id="app">
+          </div>
 
           {props.children}
         </div>

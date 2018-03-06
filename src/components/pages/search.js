@@ -8,7 +8,7 @@ import SearchForm from "../Search";
 
 // const Search = props =>
 
-class Search extends Component {
+className Search extends Component {
   state = {
     result: {},
     search: ""
@@ -42,7 +42,7 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        {/* <Navbar /> */}
         <div heading={this.state.result.title || "Search for a Story to Begin"}>
           <StoryDetail
             title={this.state.result.title}
