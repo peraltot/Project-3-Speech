@@ -24,10 +24,6 @@ font-size: 36px;
 
 .arrow-box-container {
     position: relative;
-} 
-
-html {
-    box-sizing: border-box
 }
 
 sup {
@@ -173,15 +169,4 @@ dialog, dd, dt {
 }
 .navigation {
     background-color: teal;
-} 
-
-
-/* Navigation Styling */
-   
-.dope-nav-bar {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    background: #eee;
-    padding: 20px;
 }
