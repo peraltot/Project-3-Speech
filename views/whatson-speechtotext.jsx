@@ -2,6 +2,7 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import { Icon, Tabs, Pane, Alert, JsonLink } from 'watson-react-components';
+// import {Button, Icon} from "react-materialize";
 import recognizeMicrophone from 'watson-speech/speech-to-text/recognize-microphone';
 import recognizeFile from 'watson-speech/speech-to-text/recognize-file';
 
@@ -547,11 +548,12 @@ export default React.createClass({
           </button>
 
           <button className={buttonClass} onClick={this.handleSample1Click}>
-            <Icon type={this.state.audioSource === 'sample-1' ? 'stop' : 'upload'} /> Download Story
+            <Icon type={this.state.audioSource === 'sample-1' ? 'stop' : 'link-out'} /> Download Story
           </button>
 
           <button className={buttonClass} onClick={this.handleSample2Click}>
-            <Icon type={this.state.audioSource === 'sample-2' ? 'stop' : 'upload'} /> Save Story
+            <Icon type={this.state.audioSource === 'sample-2' ? 'stop' : 'plus'} /> Save Story
+            {/* <Icon type={this.state.audioSource === 'sample-2' } /> Save Story */}
           </button>
 
           {/* <button className={buttonClass} onClick={this.handleUploadClick}>
