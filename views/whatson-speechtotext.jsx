@@ -10,6 +10,7 @@ import Transcript from './transcript.jsx';
 import SpeakersView from './speaker.jsx';
 // import JSONView from './json-view.jsx';
 import cachedModels from '../src/data/models.json';
+import googleApi from "../src/utils/googleApi";
 
 import { request } from 'https';
 
@@ -214,6 +215,12 @@ export default React.createClass({
       this.stopTranscription();
     }
     else {
+
+      console.log("Google Drive Upload clicked");
+      googleApi.init()
+          .then(() => {
+            console.log("user logged in");
+                  });
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
 
       // data.Events.forEach(function (event, index) {
@@ -221,7 +228,8 @@ export default React.createClass({
       //   data.Events[index]['formattedStartDate'] = convertDate(data.Events[index]['start_date']);
       //   data.Events[index]['formattedEndDate'] = convertDate(data.Events[index]['end_date']);
 
-      // });
+      // })
+      
 
       var fullmsg = this.state.formattedMessages;
       var msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
