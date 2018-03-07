@@ -56,10 +56,12 @@ export default function Layout(props) {
         </div>
         <div id="googledrive">
         </div>
+
+        {/* auth0 CDN */}
         <script src="https://cdn.auth0.com/js/auth0/9.3.1/auth0.min.js"></script>
         <script type="text/javascript" src="/scripts/bundle.js" />
-        <script type="text/javascript" src="/auth/auth0-variables.js"></script>
-        <script type="text/javascript" src="/auth/app.js"></script>
+        {/* <script type="text/javascript" src="/auth/auth0-variables.js"></script> */}
+        {/* <script type="text/javascript" src="/auth/app.js"></script> */}
         {props.bluemixAnalytics ? <script type="text/javascript" src="scripts/analytics.js" /> : null}
 
         {/* Import jQuery before materialize.js */}
