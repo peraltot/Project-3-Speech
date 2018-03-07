@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import StoryPanel from "../../components/StoryPanel";
 import API from "../../utils/api-axios";
 import googleApi from "../../utils/googleApi";
-import MailModal from '../Mail-Modal';
+import MailButton from '../Mail-Button';
 import {Button, Icon} from "react-materialize";
 class AllStories extends Component {
 
@@ -64,19 +64,6 @@ class AllStories extends Component {
 
     };
 
-    mailStory() {
-        const msg = {
-            to: 'connorjohnmelnick@gmail.com',
-            from: 'test@example.com',
-            subject: 'Sending with SendGrid is Fun',
-            text: 'and easy to do anywhere, even with Node.js',
-          };
-
-        API.mail(msg)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
-    };
-
     render() {
         const allStoryPanels = this.state.stories.map(story => {
             return (
@@ -116,7 +103,9 @@ class AllStories extends Component {
                         this.gdUploadStory(storyBtns._id, storyBtns.words)}
                     ><Icon>backup</Icon>
                   </Button>
-   <MailModal nickTest={this.mailStory}/>
+                    
+                    <MailButton subject={storyBtns.title} text={storyBtns.words}/>
+
                   <p>
                    {storyBtns.words}
                    </p>
