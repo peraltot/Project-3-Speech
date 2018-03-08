@@ -2,14 +2,16 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import { Icon, Tabs, Pane, Alert, JsonLink } from 'watson-react-components';
+// import {Button, Icon} from "react-materialize";
 import recognizeMicrophone from 'watson-speech/speech-to-text/recognize-microphone';
 import recognizeFile from 'watson-speech/speech-to-text/recognize-file';
 
 import ModelDropdown from './model-dropdown.jsx';
 import Transcript from './transcript.jsx';
 import SpeakersView from './speaker.jsx';
-import JSONView from './json-view.jsx';
+// import JSONView from './json-view.jsx';
 import cachedModels from '../src/data/models.json';
+import googleApi from "../src/utils/googleApi";
 
 import { request } from 'https';
 
@@ -214,6 +216,12 @@ export default React.createClass({
       this.stopTranscription();
     }
     else {
+
+      console.log("Google Drive Upload clicked");
+      googleApi.init()
+          .then(() => {
+            console.log("user logged in");
+                  });
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
 
       // data.Events.forEach(function (event, index) {
@@ -221,7 +229,8 @@ export default React.createClass({
       //   data.Events[index]['formattedStartDate'] = convertDate(data.Events[index]['start_date']);
       //   data.Events[index]['formattedEndDate'] = convertDate(data.Events[index]['end_date']);
 
-      // });
+      // })
+      
 
       var fullmsg = this.state.formattedMessages;
       var msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
@@ -539,11 +548,12 @@ export default React.createClass({
           </button>
 
           <button className={buttonClass} onClick={this.handleSample1Click}>
-            <Icon type={this.state.audioSource === 'sample-1' ? 'stop' : 'upload'} /> Download Story
+            <Icon type={this.state.audioSource === 'sample-1' ? 'stop' : 'link-out'} /> Download Story
           </button>
 
           <button className={buttonClass} onClick={this.handleSample2Click}>
-            <Icon type={this.state.audioSource === 'sample-2' ? 'stop' : 'upload'} /> Save Story
+            <Icon type={this.state.audioSource === 'sample-2' ? 'stop' : 'plus'} /> Save Story
+            {/* <Icon type={this.state.audioSource === 'sample-2' } /> Save Story */}
           </button>
 
           {/* <button className={buttonClass} onClick={this.handleUploadClick}>
@@ -555,14 +565,14 @@ export default React.createClass({
         {err}
 
         <Tabs selected={0}>
-          <Pane label="Text">
+          <Pane label="My Story">
             {this.state.settingsAtStreamStart.speakerLabels
               ? <SpeakersView messages={messages} />
               : <Transcript messages={messages} />}
           </Pane>
-          <Pane label="JSON">
+          {/* <Pane label="JSON">
             <JSONView raw={this.state.rawMessages} formatted={this.state.formattedMessages} />
-          </Pane>
+          </Pane> */}
         </Tabs>
 
       </Dropzone>

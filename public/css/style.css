@@ -3,6 +3,17 @@
     margin-bottom: 3rem;
 }
 
+nav #title_1 {
+margin-left: 15%;
+/* text-align: center; */
+border:none;
+font-size: 36px;
+}
+
+.base--button_clear, button #title_2 {
+    border:none;
+    }
+
 .base--hr {
     margin-top: 1em;
 }
