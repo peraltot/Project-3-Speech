@@ -1,10 +1,14 @@
-import React from "react";
+import React, { Component } from "react";
 import WhatsonSpeechToText from '../../../views/whatson-speechtotext.jsx';
 
-const Home = () =>
-    <div>
-      
-  <WhatsonSpeechToText/>
-  </div>;
+class Home extends Component {
+  render() {
+    return (
+      <div>
+        <WhatsonSpeechToText />
+      </div>
+    )
+  }
+}
 
 export default Home;
