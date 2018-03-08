@@ -1,18 +1,45 @@
-/* general styles */
+/* General Styles */
 #root {
     margin-bottom: 3rem;
 }
 
+/* Navbar */
+#chatterdoxNav {
+    background-color: #7BDFF2;
+    height: 100px;
+}
+
 nav #title_1 {
-margin-left: 15%;
-/* text-align: center; */
-border:none;
-font-size: 36px;
+margin-left: 45%;
+border: none;
+font-size: 50px;
+font-family: 'Gochi Hand', cursive;
+color: #FF9F1C;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    display: inline !important;
 }
 
 .base--button_clear, button #title_2 {
-    border:none;
-    }
+    border: none;
+    padding: .24em 1em;
+    margin-top: 15px;
+    font-size: 30px;
+    font-family: 'Gochi Hand', cursive;
+}
+
+.material-icons {
+    font-size: 2.5rem !important;
+}
+
+.base--a:focus, .base--a:hover, a:focus, a:hover {
+    color: #FF9F1C !important;
+    border-bottom: 2px solid #FF9F1C;
+}
+
+
+
 
 .base--hr {
     margin-top: 1em;
@@ -164,9 +191,3 @@ dialog, dd, dt {
 
 
 .material-icons.md-48 { font-size: 48px; }
-#nav {
-    background-color: teal;
-}
-.navigation {
-    background-color: teal;
-}
