@@ -1,9 +1,9 @@
 import React from "react";
 
-export const DownloadBtn = props =>
+const DriveBtn = props =>
     <a className="btn-floating btn-large waves-effect waves-light">
-        <i className="material-icons">cloud_download</i>
+        <i className="material-icons">cloud_upload</i>
         {...props}
     </a>
 
-export default DownloadBtn;
+export default DriveBtn;

@@ -6,4 +6,4 @@ export const DeleteBtn = props =>
         {...props}
     </a>
 
-export default DeleteBtn;
+

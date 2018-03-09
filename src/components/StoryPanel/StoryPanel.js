@@ -1,11 +1,11 @@
 import React from "react";
 
-// const StoryPanel = (props) =>
-//     <div className="card blue-grey darken-1">
-//         <div className="card-content white-text">
-//             {...props}
-//         </div>
-//     </div>
+const StoryPanel = (props) =>
+    <div className="card blue-grey darken-1">
+        <div className="card-content white-text">
+            {props.children}
+        </div>
+    </div>
 
 // import React from "react";
 // //for testing
@@ -58,11 +58,12 @@ import React from "react";
 
 // export default StoryPanel;
 
-const StoryPanel = ({children}) =>
-    <div className="card blue-grey darken-1">
-        <div className="card-content white-text">
-            {children}
-        </div>
-    </div>
+// const StoryPanel = ({props}) =>
+//     <div className="card blue-grey darken-1">
+//         <div className="card-content white-text">
+//             <p>{props.title}</p>
+//             <p>{props.key}</p>
+//         </div>
+//     </div>
 
 export default StoryPanel;

@@ -1,14 +1,12 @@
 import React, { Component } from "react";
+//Import the presentational component
+import StoryPanel from "../../components/StoryPanel";
 import API from "../../utils/api-axios";
 import googleApi from "../../utils/googleApi";
-import MailModal from '../Mail-Modal';
+import { MailBtn } from '../Buttons/MailBtn';
+// import DeleteBtn from '../Buttons';
 
-//Import componednts
-import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { StoryPanel } from "../../components/StoryPanel";
-import { DeleteBtn, MailBtn, DownloadBtn } from "../../components/Buttons";
-
+import { Button, Icon } from "react-materialize";
 class AllStories extends Component {
 
     constructor(props) {
@@ -40,7 +38,6 @@ class AllStories extends Component {
             )
             .catch(err => console.log(err));
     };
-
 
     // Deletes a story from the database with a given id, then reloads stories from the db
     delStory(id) {
@@ -80,98 +77,62 @@ class AllStories extends Component {
             .catch(err => console.log(err));
     };
 
-
-
-
-
-    // render() {
-    //     const allStoryPanels = this.state.stories.map(story => {
-    //         return (
-
-    //             <StoryPanel
-    //                 key={story._id}
-    //                 title={story.title}
-    //                 words={story.words}
-
-    //             />
-    //         );
-    //     });
-
-
     render() {
         const allStoryPanels = this.state.stories.map(story => {
             return (
-                <Container>
-                    <Row>
-                        <Col size="lg12">
-                            <StoryPanel>
-                                {this.state.stories.length ? (
-                                    <List>
-                                        <ListItem key={story._id}>
-                                            <a href={"/story/" + story._id}>
-                                                <strong>
-                                                    {story.title}
-                                                </strong>
-                                                <p>
-                                                    {story.words}
-                                                </p>
-                                            </a>
-                                            <DownloadBtn onClick={() => this.gdUploadStory(story._id, story_words)} />
-                                            <DeleteBtn onClick={() => this.delStory(story._id)} />
-                                            <MailBtn subject={story.title} text={story.words} />
-                                        </ListItem>
-                                        )}
-                                </List>
-                                ) : (
-                                        <h3>No Results to Display</h3>
-                                    )}
-                            </StoryPanel>
-                        </Col>
-                    </Row>
-                </Container>
+
+                <StoryPanel
+                    key={story._id}
+                    title={story.title}
+                    words={story.words}
+
+                />
+            );
+        });
+
+
+        return (
+            <div>
+                {/* {allStoryPanels} */}
+                My Stories:
+                {StoryPanel}
+            </div>
+        )
+    }
+
+    render() {
+        const theStories = this.state.stories.map(story => {
+            return (
+
+                <div key={story._id}>
+                    <h4>
+                        {story.title}:
+                    </h4>
+
+                    {/* <DeleteBtn onClick={() => this.delStory(story._id)} /> */}
+                    {/* <a className="btn-floating btn-large waves-effect waves-light" onClick={() => this.delStory(story._id)}>
+                        <i className="material-icons">delete</i>
+                    </a> */}
+
+                    <Button onClick={() =>
+                        this.gdUploadStory(story._id, story.words)}
+                    ><Icon>backup</Icon>
+                    </Button>
+                    <MailBtn subject={story.title} text={story.words} />
+                    <p>
+                        {story.words}
+                    </p>
+
+                </div>
             )
         });
         return (
             <div>
-                {allStoryPanels}
+                {theStories}
             </div>
         )
     }
-}
 
-// render() {
-//     const theButtons = this.state.stories.map(storyBtns => {
-//         return (
-
-//             <div key={storyBtns._id}>
-//                 <h4>
-//                     {storyBtns.title}:
-//                 </h4>
-//                 <Button onClick={() => this.delStory(storyBtns._id)}
-//                 ><Icon>delete</Icon>
-//               </Button>
-
-//                 <Button onClick={() =>
-//                     this.gdUploadStory(storyBtns._id, storyBtns.words)}
-//                 ><Icon>backup</Icon>
-//               </Button>
-// <MailModal nickTest={this.mailStory}/>
-//               <p>
-//                {storyBtns.words}
-//                </p>
-
-//             </div>
-//         )
-//     });
-//     return (
-//         <div>
-//             {theButtons}
-//         </div>
-//     )
-// }
-
-// };
-
-
+};
 
 export default AllStories;

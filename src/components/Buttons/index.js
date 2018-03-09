@@ -1,3 +1,2 @@
-export * from "./DeleteBtn";
-export * from "./MailBtn";
-export * from "./DownloadBtn";
+export { default } from "./DeleteBtn";
+// export { default } from "./DriveBtn";
