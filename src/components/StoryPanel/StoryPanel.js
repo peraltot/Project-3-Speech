@@ -1,8 +1,8 @@
 import React from "react";
 
 const StoryPanel = (props) =>
-    <div className="card blue-grey darken-1">
-        <div className="card-content white-text">
+    <div className="card" id="storyCards">
+        <div className="card-content black-text">
             {props.children}
         </div>
     </div>

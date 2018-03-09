@@ -22,6 +22,10 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     color: black;
 }
 
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons:hover {
+    color: #FF9F1C;
+}
+
 nav a {
     color: black !important;
 }
@@ -34,6 +38,10 @@ nav a {
     font-family: 'Gochi Hand', cursive;
 }
 
+.base--button_clear, button #title_2:hover {
+    color: #FF9F1C;
+}
+
 .material-icons {
     font-size: 2.5rem !important;
 }
@@ -42,6 +50,39 @@ nav a {
     color: #FF9F1C !important;
     border-bottom: 2px solid #FF9F1C;
 }
+
+/* Story Panels */
+
+/* #storyCards {
+    background-color: #BDFFFD !important;
+} */
+
+.btn-floating.btn-large {
+    width: 56px;
+    height: 56px;
+    margin-left: 20px;
+    background-color: #FDE74C;    
+}
+
+.btn-floating.btn-large:hover {
+    background-color: #7BDFF2;
+    border-bottom: 2px solid gray;
+}
+
+.btn-floating.btn-large i {
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

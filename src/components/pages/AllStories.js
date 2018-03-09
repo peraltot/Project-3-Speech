@@ -83,7 +83,7 @@ class AllStories extends Component {
         const theStories = this.state.stories.map(story => {
             return (
 
-                <div key={story._id}>
+                <StoryPanel key={story._id}>
                     <h4>
                         {story.title}:
                     </h4>
@@ -95,7 +95,7 @@ class AllStories extends Component {
                         {story.words}
                     </p>
 
-                </div>
+                </StoryPanel>
             )
         });
         return (
