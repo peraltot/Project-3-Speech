@@ -10,6 +10,10 @@ api.get('/', (req, res) => {
   res.render('index', {});
 });
 
+api.get('/home', (req, res) => {
+  res.render('watson', {});
+});
+
 
 api.get("/stories", function (req, res) {
   // Find all Notes
