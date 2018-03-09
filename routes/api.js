@@ -113,8 +113,11 @@ api.post("/mail", function (req, res) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   sgMail.send(req.body.msg, (error, result) => {
     if (error) {
+      console.log("---------------------Fail----------------------")
       console.log(error);
     } else {
+      console.log("---------------------Success----------------------")
+
       console.log(result);
     }
   });
