@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import API from '../../utils/api-axios'
-// import Modal from "react-materialize";
  
 class MailBtn extends Component {
     constructor(props) {

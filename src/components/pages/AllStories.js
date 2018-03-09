@@ -3,10 +3,11 @@ import React, { Component } from "react";
 import StoryPanel from "../../components/StoryPanel";
 import API from "../../utils/api-axios";
 import googleApi from "../../utils/googleApi";
-import { MailBtn } from '../Buttons/MailBtn';
-// import DeleteBtn from '../Buttons';
-
+import MailBtn from '../Buttons/MailBtn';
+import DeleteBtn from '../Buttons/DeleteBtn';
+import DriveBtn from '../Buttons/DriveBtn';
 import { Button, Icon } from "react-materialize";
+
 class AllStories extends Component {
 
     constructor(props) {
@@ -77,28 +78,6 @@ class AllStories extends Component {
             .catch(err => console.log(err));
     };
 
-    render() {
-        const allStoryPanels = this.state.stories.map(story => {
-            return (
-
-                <StoryPanel
-                    key={story._id}
-                    title={story.title}
-                    words={story.words}
-
-                />
-            );
-        });
-
-
-        return (
-            <div>
-                {/* {allStoryPanels} */}
-                My Stories:
-                {StoryPanel}
-            </div>
-        )
-    }
 
     render() {
         const theStories = this.state.stories.map(story => {
@@ -109,15 +88,8 @@ class AllStories extends Component {
                         {story.title}:
                     </h4>
 
-                    {/* <DeleteBtn onClick={() => this.delStory(story._id)} /> */}
-                    {/* <a className="btn-floating btn-large waves-effect waves-light" onClick={() => this.delStory(story._id)}>
-                        <i className="material-icons">delete</i>
-                    </a> */}
-
-                    <Button onClick={() =>
-                        this.gdUploadStory(story._id, story.words)}
-                    ><Icon>backup</Icon>
-                    </Button>
+                    <DeleteBtn onClick={() => this.delStory(story._id)} />
+                    <DriveBtn onClick={() => this.ddUploadStory(story._id, story.words)} />
                     <MailBtn subject={story.title} text={story.words} />
                     <p>
                         {story.words}
