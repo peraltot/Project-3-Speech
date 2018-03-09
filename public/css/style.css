@@ -14,11 +14,16 @@ margin-left: 45%;
 border: none;
 font-size: 50px;
 font-family: 'Gochi Hand', cursive;
-color: #FF9F1C;
+color: #FF9F1C !important;
 }
 
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     display: inline !important;
+    color: black;
+}
+
+nav a {
+    color: black !important;
 }
 
 .base--button_clear, button #title_2 {
