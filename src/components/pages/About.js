@@ -8,14 +8,12 @@ class About extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        title: ["Language", "Record speach to text"],
-        text: ["Choose the language to record in.", "Click the Record Audio button to start and stop recording."],
-        img: ['"./images/record-audio.png"', '"./images/record-audio.png"'],
-        card: [1,2]
-        
+      cards: [ 
+        { title: "Language", text: "Choose the language to record in.", img:"./images/record-audio.png" }, 
+        { title: "Record speach to text", text: "Click the Record Audio button to start and stop recording.", img: "./images/record-audio.png"  }
+      ]   
     }
 }
-
 
 
 
@@ -31,26 +29,27 @@ class About extends Component {
     <p>
       ChatterDoX is very simple to use.  With the click of a few buttons you will have a great story saved to your medium of choice in no time at all.  
     </p>
+
     
-    
-    { this.state.card.map(card => {
-      return
-      <div className="row" key={card}>
+    { this.state.cards.map(card => {
+      return (
+      <div className="row" key={card.title}>
       <div className="col s12 m12">
         <div className="card-panel orange z-depth-4">
           <div className="card-content white-text">
-            <div className="card-title left">Test</div>
+              <div className="card-title left">{card.title}</div>
             <br />
             <br />
             <div className="divider"></div>
             <div className="section">
-              <p className="left">Test</p>
-              <img className="right" src="{this.state.img}" />
+              <p className="left">{card.text}</p>
+              <img className="right" src={card.img} />
             </div>
           </div>
         </div>
       </div>
     </div>
+      )
     })}
 
   </div>
