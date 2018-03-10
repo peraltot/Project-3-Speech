@@ -22,10 +22,6 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     color: black;
 }
 
-nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons:hover {
-    color: #FF9F1C;
-}
-
 nav a {
     color: black !important;
 }
