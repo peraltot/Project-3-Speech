@@ -58,6 +58,7 @@
     "express-secure-only": "^0.2.1",
     "google-client-api": "^1.0.4",
     "helmet": "^3.9.0",
+    "material-ui": "^0.20.0",
     "mongoose": "^5.0.3",
     "prop-types": "^15.6.0",
     "react": "^15.6.2",

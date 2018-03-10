@@ -1,5 +1,7 @@
 import React from "react";
-import CollapsibleItem from "react-materialize";
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 
 const PopoutList = props => {
     return (
