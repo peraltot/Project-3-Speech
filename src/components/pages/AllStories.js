@@ -88,6 +88,7 @@ class AllStories extends Component {
                     <MuiThemeProvider>
                         <Card>
                             <CardHeader
+                                id="storyCardHeader"
                                 title={story.title}
                                 actAsExpander={true}
                                 showExpandableButton={true}
@@ -97,8 +98,8 @@ class AllStories extends Component {
                             </CardText>
                             <CardActions>
                                 <DeleteBtn label="delete" onClick={() => this.delStory(story._id)} />
-                                <DriveBtn labelonClick={() => this.gdUploadStory(story._id, story.words)} />
-                                <MailBtn subject={story.title} text={story.words} />
+                                <DriveBtn label="drive" onClick={() => this.gdUploadStory(story._id, story.words)} />
+                                <MailBtn label="mail" subject={story.title} text={story.words} />
                             </CardActions>
                         </Card>
                         </MuiThemeProvider>
