@@ -10,6 +10,7 @@ class About extends Component {
     this.state = {
       cards: [ 
         { title: "Language", text: "Choose the language to record in.", img:"./images/language-resize.jpg" }, 
+        { title: "Record speach to text", text: "Click the Record Audio button to start and stop recording.", img: "./images/record-audio.png"  },
         { title: "Record speach to text", text: "Click the Record Audio button to start and stop recording.", img: "./images/record-audio.png"  }
       ]   
     }
