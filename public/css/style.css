@@ -49,9 +49,22 @@ nav a {
 
 /* Story Panels */
 
-/* #storyCards {
-    background-color: #BDFFFD !important;
+.storyCards {
+    margin: 0 auto;
+}
+/* .collapsible {
+    background-color:#52DDC6;
 } */
+
+.collapsible-header {
+    display: block;
+    cursor: pointer;
+    min-height: 3rem;
+    line-height: 2rem !important;
+    padding: 0 5rem !important;
+    border-bottom: 1px solid #ddd;
+    /* background-color:#52DDC6 !important; */
+}
 
 .btn-floating.btn-large {
     width: 56px;
