@@ -10,8 +10,16 @@ class About extends Component {
     this.state = {
       cards: [ 
         { title: "Language", text: "Choose the language to record in.", img:"./images/language-resize.jpg" }, 
-        { title: "Record speach to text", text: "Click the Record Audio button to start and stop recording.", img: "./images/record-audio.png"  },
-        { title: "Record speach to text", text: "Click the Record Audio button to start and stop recording.", img: "./images/record-audio.png"  }
+        { title: "Record speach to text", text: "Click the Record Audio button to start and stop recording.", img: "./images/record-audio.png" },
+        { title: "Recorded Text", text: "Where recorded text is displayed.", img: "./images/mystory-resize.png" },
+        { title: "Download Story", text: "Click to Download locally to a text file.", img: "./images/download.png" },
+        { title: "Save Story", text: "Click to Save story to the database to view in My Stories.", img: "./images/save.png" },
+        { title: "MyStories Page", text: "Click to go to saved stories page to view your stories.", img: "./images/mystories.png"  },
+        { title: "Delete Story", text: "Delete a story.", img: "./images/delete.png"  },
+        { title: "Google Drive", text: "Upload your story to Google Drive.", img: "./images/google.png"  },
+        { title: "Mail Story", text: "Email your story to yourself or someone else.", img: "./images/email.png"  },
+        
+
       ]   
     }
 }
