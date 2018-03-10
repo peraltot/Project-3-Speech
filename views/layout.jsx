@@ -20,6 +20,7 @@ export default function Layout(props) {
 
         <link rel="stylesheet" href="/css/watson-react-components.min.css" />
         <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/aboutstyle.css" />
 
         {/* Import Google Fonts */}
         <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet" />

@@ -1,0 +1,23 @@
+body {
+    font-family: 'Gochi Hand', cursive;
+}
+
+p {
+    font-size: 20px;
+}
+
+.card-title {
+    font-size: 25px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.text-left {
+    margin-top: 10px;
+}
+
+.img-right {
+    margin: 0;
+}
