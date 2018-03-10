@@ -14,7 +14,7 @@ const Navbar = props =>
 		</button>
 		<button id="title_2" className="base--button_clear">
 			<span className="nav navbar-nav navbar-left"></span>
-				<Link to="/About">
+				<Link to="/about">
 					<span>
 						<i className="material-icons" id="navIcons">info</i>
 					About</span>
@@ -22,7 +22,7 @@ const Navbar = props =>
 		</button>
 		<button id="title_2" className="base--button_clear">
 			<span className="nav navbar-nav navbar-left"></span>
-				<Link to="/AllStories">
+				<Link to="/allstories">
 					<span>
 						<i className="material-icons" id="navIcons">library_books</i>
 					My Stories</span>

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Modal, Button } from 'react-materialize';
-import API from '../utils/api-axios'
-
-class MailButton extends Component {
+// import { Modal, Button } from 'react-materialize';
+import API from '../../utils/api-axios'
+ 
+class MailBtn extends Component {
     constructor(props) {
         super(props)
         this.mailStory = this.mailStory.bind(this);
@@ -30,9 +30,12 @@ class MailButton extends Component {
 
     render() {
         return (
-            <Button onClick={()=>this.promptForEmail()}>Test</Button>
+            <a className="btn-floating btn-large waves-effect waves-light" onClick={()=>this.promptForEmail()}>
+            <i className="material-icons">mail</i>
+        </a>
         )
     }
 }
 
-export default MailButton;
+export default MailBtn;
+
