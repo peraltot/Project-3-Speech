@@ -6,8 +6,10 @@ import MailBtn from '../Buttons/MailBtn';
 import DeleteBtn from '../Buttons/DeleteBtn';
 import DriveBtn from '../Buttons/DriveBtn';
 import PopoutList from '../List/PopoutList';
-import ListItem from '../List/ListItem';
-
+// import ListItem from '../List/ListItem';
+// import Collapsible from "react-materialize";
+// import CollapsibleItem from "react-materialize";
+import {Row, Col} from "react-materialize";
 
 class AllStories extends Component {
 
@@ -83,23 +85,22 @@ class AllStories extends Component {
     render() {
         const theStories = this.state.stories.map(story => {
             return (
-
+                <Row>
+                    <Col l={8}>
                 <StoryPanel key={story._id}>
                     <PopoutList>
-                        <ListItem key={story._id}>
+                        {/* <ListItem key={story._id}> */}
                             <div className="collapsible-header">{story.title}</div>
-                            <div class="collapsible-body"><span>{story.words}</span></div>
-                        </ListItem>
+                            <div className="collapsible-body"><span>{story.words}</span></div>
+                        {/* </ListItem> */}
                     </PopoutList>
 
                     <DeleteBtn onClick={() => this.delStory(story._id)} />
                     <DriveBtn onClick={() => this.gdUploadStory(story._id, story.words)} />
                     <MailBtn subject={story.title} text={story.words} />
-                    <p>
-                        {story.words}
-                    </p>
-
                 </StoryPanel>
+                </Col>
+                </Row>
             )
         });
         return (
