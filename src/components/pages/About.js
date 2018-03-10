@@ -15,6 +15,7 @@ class About extends Component {
         { title: "Download Story", text: "Click to Download locally to a text file.", img: "./images/download.png" },
         { title: "Save Story", text: "Click to Save story to the database to view in My Stories.", img: "./images/save.png" },
         { title: "MyStories Page", text: "Click to go to saved stories page to view your stories.", img: "./images/mystories.png"  },
+        { title: "View Story", text: "Click the expand button to view your story.", img: "./images/story-card-resize.png" },
         { title: "Delete Story", text: "Delete a story.", img: "./images/delete.png"  },
         { title: "Google Drive", text: "Upload your story to Google Drive.", img: "./images/google.png"  },
         { title: "Mail Story", text: "Email your story to yourself or someone else.", img: "./images/email.png"  },
