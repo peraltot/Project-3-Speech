@@ -5,3 +5,4 @@ uploads/
 logs/
 *.log
 coverage/
+.env

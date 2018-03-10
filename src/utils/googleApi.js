@@ -49,6 +49,14 @@ export default {
               // Listen for sign-in state changes.
               if (this.gapi.auth2.getAuthInstance().isSignedIn.get()) {
                 console.log('User is logged in');
+                var request = this.gapi.client.drive.about.get({
+                  fields: "user"
+                });
+                request.execute(function (resp) {
+                  const userEmail = resp.user.emailAddress;
+                  console.log('Current email address: ' + resp.user.emailAddress);
+                })
+                          
                 resolve()
               } else {
                 console.log('User is not logged in');

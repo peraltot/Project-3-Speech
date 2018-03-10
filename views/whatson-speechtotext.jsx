@@ -141,31 +141,31 @@ export default React.createClass({
       var phrase = [];
       let msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
       var fullmsg = this.state.formattedMessages;
-      fullmsg.forEach(function (msg,index) {
+      fullmsg.forEach(function (msg, index) {
         // phrase.push(msg.) = fullmsg[index].results[0].alternatives[0].transcript;
-       if ( msg.results[0].final){
-        phrase.push(msg.results[0].alternatives[0].transcript);
-        
+        if (msg.results[0].final) {
+          phrase.push(msg.results[0].alternatives[0].transcript);
+
           finalmsg = finalmsg + " " + msg.results[0].alternatives[0].transcript;
-      
-       }
+
+        }
       });
       console.log("Save locally");
       // confirm("User inputs title via modal!");
       let usertitle = "userinputtedtitle";
-      
-            // var txt;
-            var storytitle = prompt("Please enter your Story Title:", "My Story");
-            if (storytitle == null || storytitle == "") {
-                usertitle = "User cancelled the prompt.";
-            } else {
-                usertitle = storytitle ;
-            }
-    //   <Modal
-    //   id='sample-1'
-    //   header='Modal Header'>
-    //   <p>Input Title:</p>
-    // </Modal>
+
+      // var txt;
+      var storytitle = prompt("Please enter your Story Title:", "My Story");
+      if (storytitle == null || storytitle == "") {
+        usertitle = "User cancelled the prompt.";
+      } else {
+        usertitle = storytitle;
+      }
+      //   <Modal
+      //   id='sample-1'
+      //   header='Modal Header'>
+      //   <p>Input Title:</p>
+      // </Modal>
 
       exportJson();
 
@@ -219,30 +219,24 @@ export default React.createClass({
 
       console.log("Google Drive Upload clicked");
       googleApi.init()
-          .then(() => {
-            console.log("user logged in");
-                  });
+        .then(() => {
+          console.log("user logged in");
+         
+        });
+
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
-
-      // data.Events.forEach(function (event, index) {
-      //   // console.log(index);
-      //   data.Events[index]['formattedStartDate'] = convertDate(data.Events[index]['start_date']);
-      //   data.Events[index]['formattedEndDate'] = convertDate(data.Events[index]['end_date']);
-
-      // })
-      
 
       var fullmsg = this.state.formattedMessages;
       var msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
       var finalmsg = '';
       var phrase = [];
-      fullmsg.forEach(function (msg,index) {
-        // phrase.push(msg.) = fullmsg[index].results[0].alternatives[0].transcript;
-       if (msg.results[0].final) {
-        phrase.push(msg.results[0].alternatives[0].transcript);
-        
+      fullmsg.forEach(function (msg, index) {
+
+        if (msg.results[0].final) {
+          phrase.push(msg.results[0].alternatives[0].transcript);
+
           finalmsg = finalmsg + " " + msg.results[0].alternatives[0].transcript;
-       }
+        }
       });
 
 
@@ -252,20 +246,26 @@ export default React.createClass({
       // var txt;
       var storytitle = prompt("Please enter your Story Title:", "My Story");
       if (storytitle == null || storytitle == "") {
-          usertitle = "User cancelled the prompt.";
+        usertitle = "User cancelled the prompt.";
       } else {
-          usertitle = storytitle ;
+        usertitle = storytitle;
       }
 
       exportJson();
 
       function exportJson() {
         console.log("Post to database");
+      
         console.log(finalmsg);
+        const userEmail = "peraltot@gmail.com";    
+        console.log(userEmail);
         let message = {
           title: usertitle,
-          words: finalmsg
+          words: finalmsg,
+          // userid:"peraltot@gmail.com"
+          userid:userEmail
         };
+        console.log(message);
         $.ajax({
           method: 'POST',
           url: "/saved",
@@ -276,40 +276,6 @@ export default React.createClass({
           // location.reload();
         });
 
-      }
-      // function saveTextFile(filename, text) {
-      //   console.log("insert post here");
-      //   var element = document.createElement('a');
-      //   element.setAttribute('hidden', '')
-      //   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-      //   element.setAttribute('download', filename);
-      //   document.body.appendChild(element);
-      //   element.click();
-      //   document.body.removeChild(element);
-      // }
-      function createAndSendDocument() {
-        // Create a new Google Doc named 'Hello, world!'
-        var doc = DocumentApp.create('Hello, world!');
-
-        // Access the body of the document, then add a paragraph.
-        doc.getBody().appendParagraph('This document was created by Google Apps Script.');
-
-        // Get the URL of the document.
-        var url = doc.getUrl();
-
-        // Get the email address of the active user - that's you.
-        var email = Session.getActiveUser().getEmail();
-
-        // Get the name of the document to use as an email subject line.
-        var subject = doc.getName();
-
-        // Append a new string to the "url" variable to use as an email body.
-        var body = 'Link to your doc: ' + url;
-
-        // Send yourself an email with a link to the document.
-        GmailApp.sendEmail(email, subject, body);
-        console.log("Send to google docs");
-        this.dropzone.open();
       }
     }
   },
@@ -553,12 +519,7 @@ export default React.createClass({
 
           <button className={buttonClass} onClick={this.handleSample2Click}>
             <Icon type={this.state.audioSource === 'sample-2' ? 'stop' : 'plus'} /> Save Story
-            {/* <Icon type={this.state.audioSource === 'sample-2' } /> Save Story */}
           </button>
-
-          {/* <button className={buttonClass} onClick={this.handleUploadClick}>
-            <Icon type={this.state.audioSource === 'upload' ? 'stop' : 'upload'} /> Upload Audio File
-          </button> */}
 
         </div>
 

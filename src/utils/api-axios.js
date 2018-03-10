@@ -2,12 +2,18 @@ import axios from "axios";
 
 export default {
   // Gets all stories
-  getStories: function () {
-    return axios.get("/stories");
-  },
-  //   // Gets the story with the given id
-  //   getStory: function(id) {
-  //     return axios.get("/stories/" + id);
+  // getStories: function () {
+  //   return axios.get("/stories");
+  // },
+  //   // Gets the story with the userid
+    getStories: function(userid) {
+      return axios.get("/stories/" , {
+    params: {
+      userid: "tom.peralto@yahoo.com"
+    }
+  })
+},
+ 
   //   },
   // Deletes the story with the given id
   deleteStory: function (id) {

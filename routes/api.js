@@ -49,8 +49,13 @@ api.get('/googledrive', (req, res) => {
 
 api.get("/stories", function (req, res) {
   // Find all Notes
+  console.log("Here is some data" + (req.params));
   db.Story
-    .find({})
+    .find({
+      // userid:resp.user.emailAddress
+      userid:"peraltot@gmail.com"
+      
+    })
     .then(function (dbStory) {
       // If all Notes are successfully found, send them back to the client
       res.json(dbStory);

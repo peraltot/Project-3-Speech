@@ -6,7 +6,7 @@ import { Button, Card, Row, Col } from 'react-materialize';
 // import { Header, Jumbotron } from 'watson-react-components';
 // eslint-disable-mnext-lin =
 const DESCRIPTION = 'Using IBM API to provide speech into text.';
- 
+
 export default function Layout(props) {
   return (
     <html lang="en">
@@ -24,32 +24,34 @@ export default function Layout(props) {
         {/* Import Google Fonts */}
         <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet" />
         {/* Import Google Icon Font */}
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         {/* Import materialize.css */}
-	      <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet" />
       </head>
-      <body>
 
+      <body>
         <div id="root">
-     
-        {props.children}
+          {props.children}
         </div>
+
         <div id="googledrive">
         </div>
+
         <script type="text/javascript" src="scripts/bundle.js" />
-        { props.bluemixAnalytics ? <script type="text/javascript" src="scripts/analytics.js" /> : null }
+        {/* { props.bluemixAnalytics ? <script type="text/javascript" src="scripts/analytics.js" /> : null } */}
 
         {/* Import jQuery before materialize.js */}
-	      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-	      {/* And then your bundled jsx */}
-	      <script src="../public/scripts/bundle.jsx"></script>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+        {/* And then your bundled jsx */}
+        <script src="../public/scripts/bundle.jsx"></script>
       </body>
+      
     </html>
   );
 }
 
-Layout.propTypes = {
-  // children: PropTypes.object.isRequired, // eslint-disable-line
-  bluemixAnalytics: PropTypes.bool.isRequired,
-};
+// Layout.propTypes = {
+//   // children: PropTypes.object.isRequired, // eslint-disable-line
+//   bluemixAnalytics: PropTypes.bool.isRequired,
+// };

@@ -18,7 +18,14 @@ var StorySchema = new Schema({
     // type: String
     // unique: true
     required: true
-  }
+  },
+  userid: {
+    type: String,
+  // type: String
+  // unique: true
+  required: true
+}
+  
 });
 
 // This creates our model from the above schema, using mongoose's model method
