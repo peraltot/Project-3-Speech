@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//Import the presentational component
 import StoryPanel from "../../components/StoryPanel";
 import API from "../../utils/api-axios";
 import googleApi from "../../utils/googleApi";
