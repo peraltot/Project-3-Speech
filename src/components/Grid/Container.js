@@ -1,7 +1,7 @@
 import React from "react";
 
-// function Container(props) {
-export const Container = props =>
+
+export const Container = ({children}) =>
   <div className="Container">
-    {...props}
+    {children}
   </div>;

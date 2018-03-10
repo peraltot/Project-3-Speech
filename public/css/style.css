@@ -14,11 +14,16 @@ margin-left: 45%;
 border: none;
 font-size: 50px;
 font-family: 'Gochi Hand', cursive;
-color: #FF9F1C;
+color: #FF9F1C !important;
 }
 
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     display: inline !important;
+    color: black;
+}
+
+nav a {
+    color: black !important;
 }
 
 .base--button_clear, button #title_2 {
@@ -29,6 +34,10 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     font-family: 'Gochi Hand', cursive;
 }
 
+.base--button_clear, button #title_2:hover {
+    color: #FF9F1C;
+}
+
 .material-icons {
     font-size: 2.5rem !important;
 }
@@ -37,6 +46,39 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     color: #FF9F1C !important;
     border-bottom: 2px solid #FF9F1C;
 }
+
+/* Story Panels */
+
+/* #storyCards {
+    background-color: #BDFFFD !important;
+} */
+
+.btn-floating.btn-large {
+    width: 56px;
+    height: 56px;
+    margin-left: 20px;
+    background-color: #FDE74C;    
+}
+
+.btn-floating.btn-large:hover {
+    background-color: #7BDFF2;
+    border-bottom: 2px solid gray;
+}
+
+.btn-floating.btn-large i {
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

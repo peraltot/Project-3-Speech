@@ -1,12 +1,14 @@
-// CONTAINER COMPONENT
-
 import React, { Component } from "react";
-//Import the presentational component
 import StoryPanel from "../../components/StoryPanel";
 import API from "../../utils/api-axios";
 import googleApi from "../../utils/googleApi";
-import MailButton from '../mail-button';
-import {Button, Icon} from "react-materialize";
+import MailBtn from '../Buttons/MailBtn';
+import DeleteBtn from '../Buttons/DeleteBtn';
+import DriveBtn from '../Buttons/DriveBtn';
+import PopoutList from '../List/PopoutList';
+import ListItem from '../List/ListItem';
+
+
 class AllStories extends Component {
 
     constructor(props) {
@@ -70,63 +72,39 @@ class AllStories extends Component {
             from: 'test@example.com',
             subject: 'Sending with SendGrid is Fun',
             text: 'and easy to do anywhere, even with Node.js',
-          };
+        };
 
         API.mail(msg)
             .then(res => console.log(res))
             .catch(err => console.log(err));
     };
 
-    render() {
-        const allStoryPanels = this.state.stories.map(story => {
-            return (
-
-                <StoryPanel
-                    key={story._id}
-                    title={story.title}
-                    words={story.words}
-
-                />
-            );
-        });
-
-
-        return (
-            <div>
-                {/* {allStoryPanels} */}
-                My Stories:
-                {StoryPanel}
-            </div>
-        )
-    }
 
     render() {
-        const theButtons = this.state.stories.map(storyBtns => {
+        const theStories = this.state.stories.map(story => {
             return (
-                
-                <div key={storyBtns._id}>
-                    <h4>
-                        {storyBtns.title}:
-                    </h4>
-                    <Button onClick={() => this.delStory(storyBtns._id)}
-                    ><Icon>delete</Icon>
-                  </Button>
 
-                    <Button onClick={() =>
-                        this.gdUploadStory(storyBtns._id, storyBtns.words)}
-                    ><Icon>backup</Icon>
-                  </Button>
-                  <MailButton subject={storyBtns.title} text={storyBtns.words}/>
-                  <p>
-                   {storyBtns.words}
-                   </p>
+                <StoryPanel key={story._id}>
+                    <PopoutList>
+                        <ListItem key={story._id}>
+                            <div className="collapsible-header">{story.title}</div>
+                            <div class="collapsible-body"><span>{story.words}</span></div>
+                        </ListItem>
+                    </PopoutList>
 
-                </div>
+                    <DeleteBtn onClick={() => this.delStory(story._id)} />
+                    <DriveBtn onClick={() => this.gdUploadStory(story._id, story.words)} />
+                    <MailBtn subject={story.title} text={story.words} />
+                    <p>
+                        {story.words}
+                    </p>
+
+                </StoryPanel>
             )
         });
         return (
             <div>
-                {theButtons}
+                {theStories}
             </div>
         )
     }
