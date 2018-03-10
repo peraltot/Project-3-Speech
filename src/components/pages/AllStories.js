@@ -5,11 +5,18 @@ import googleApi from "../../utils/googleApi";
 import MailBtn from '../Buttons/MailBtn';
 import DeleteBtn from '../Buttons/DeleteBtn';
 import DriveBtn from '../Buttons/DriveBtn';
+<<<<<<< HEAD
 import PopoutList from '../List/PopoutList';
 // import ListItem from '../List/ListItem';
 // import Collapsible from "react-materialize";
 // import CollapsibleItem from "react-materialize";
 import {Row, Col} from "react-materialize";
+=======
+// import PopoutList from '../List/PopoutList';
+import { Row, Col } from "react-materialize";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
+>>>>>>> c88f40b351df31572f20b8cc7d2b1fe775da88a4
 
 class AllStories extends Component {
 
@@ -65,7 +72,6 @@ class AllStories extends Component {
                 alert(err);
                 console.log('error uploading to google drive ' + err);
             });
-
     };
 
     mailStory() {
@@ -87,6 +93,7 @@ class AllStories extends Component {
             return (
                 <Row>
                     <Col l={8}>
+<<<<<<< HEAD
                 <StoryPanel key={story._id}>
                     <PopoutList>
                         {/* <ListItem key={story._id}> */}
@@ -100,6 +107,26 @@ class AllStories extends Component {
                     <MailBtn subject={story.title} text={story.words} />
                 </StoryPanel>
                 </Col>
+=======
+                    <MuiThemeProvider>
+                        <Card>
+                            <CardHeader
+                                title={story.title}
+                                actAsExpander={true}
+                                showExpandableButton={true}
+                            />
+                            <CardText expandable={true}>
+                                {story.words}
+                            </CardText>
+                            <CardActions>
+                                <DeleteBtn label="delete" onClick={() => this.delStory(story._id)} />
+                                <DriveBtn labelonClick={() => this.gdUploadStory(story._id, story.words)} />
+                                <MailBtn subject={story.title} text={story.words} />
+                            </CardActions>
+                        </Card>
+                        </MuiThemeProvider>
+                    </Col>
+>>>>>>> c88f40b351df31572f20b8cc7d2b1fe775da88a4
                 </Row>
             )
         });
