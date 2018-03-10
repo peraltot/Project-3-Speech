@@ -9,7 +9,7 @@ class About extends Component {
     super(props)
     this.state = {
       cards: [ 
-        { title: "Language", text: "Choose the language to record in.", img:"./images/record-audio.png" }, 
+        { title: "Language", text: "Choose the language to record in.", img:"./images/language-resize.jpg" }, 
         { title: "Record speach to text", text: "Click the Record Audio button to start and stop recording.", img: "./images/record-audio.png"  }
       ]   
     }
@@ -42,8 +42,8 @@ class About extends Component {
             <br />
             <div className="divider"></div>
             <div className="section">
-              <p className="left">{card.text}</p>
-              <img className="right" src={card.img} />
+              <p className="left text-left">{card.text}</p>
+              <img className="right img-right" src={card.img} />
             </div>
           </div>
         </div>

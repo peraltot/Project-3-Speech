@@ -13,3 +13,11 @@ p {
 .bold {
     font-weight: bold;
 }
+
+.text-left {
+    margin-top: 10px;
+}
+
+.img-right {
+    margin: 0;
+}
