@@ -2,8 +2,12 @@
     font-family: 'Gochi Hand', cursive;
 } */
 
+.about-title {
+    font-family: 'Gochi Hand', cursive;
+}
+
 p {
-    font-size: 20px;
+    font-size: 30px;
 }
 
 
@@ -12,7 +16,8 @@ p {
 }
 
 .about-text {
-    font-size: 25px;
+    font-size: 30px;
+    font-family: 'Gochi Hand', cursive;
 }
 
 .bold {

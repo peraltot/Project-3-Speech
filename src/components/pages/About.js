@@ -31,11 +31,11 @@ class About extends Component {
     return (
 
       <div className="container">
-      <h1 className="center-align">About ChatterDoX</h1>
+      <h1 className="about-title center-align">About ChatterDoX</h1>
        <p className="about-text">
-         ChatterDoX is enabled by IBM's WATSON API for speech to text, it also provides an story management system and allows for export to various tools for editing.  The [IBM Bluemix](https://www.bluemix.net/) service site uses IBM's speech recognition capabilities to convert speech in multiple languages into text. The transcription of incoming audio is continuously sent back to the client with minimal delay, and it is corrected as more speech is heard.
+         ChatterDoX is enabled by IBM's WATSON API for speech to text, it also provides an story management system and allows for export to various tools for editing.  The <a target="_blank" href="https://www.bluemix.net/">IBM Bluemix</a> service site uses IBM's speech recognition capabilities to convert speech in multiple languages into text. The transcription of incoming audio is continuously sent back to the client with minimal delay, and it is corrected as more speech is heard.
         </p>
-     <h3 className="center-align">How to use ChatterDoX!</h3>
+     <h3 className="about-title center-align">How to use ChatterDoX!</h3>
     <p className="about-text">
       ChatterDoX is very simple to use.  With the click of a few buttons you will have a great story saved to your medium of choice in no time at all.  
     </p>
