@@ -468,13 +468,13 @@ export default React.createClass({
       ? 'base--button'
       : 'base--button base--button_black';
 
-    let micIconFill = '#000000';
+    let micIconFill = '#ffffff';
     let micButtonClass = buttonClass;
     if (this.state.audioSource === 'mic') {
       micButtonClass += ' mic-active';
-      micIconFill = '#FFFFFF';
+      micIconFill = '#ffffff';
     } else if (!recognizeMicrophone.isSupported) {
-      micButtonClass += ' base--button_black';
+      micButtonClass += ' base--button_red';
     }
 
     const err = this.state.error
@@ -487,8 +487,8 @@ export default React.createClass({
 
     const messages = this.getFinalAndLatestInterimResult();
     const micBullet = (typeof window !== 'undefined' && recognizeMicrophone.isSupported) ?
-      <h3 className="useMicH3">Use your microphone to record audio!</h3> :
-      <h3 className="useMicH3" >Use your microphone to record audio! (Not supported in current browser)</h3>;// eslint-disable-line
+      <h3 className="useMicH3">Reading and sharing your stories is now easier than ever in the <span className="chatterdoxOrange">ChatterDox</span> recording laboratory!</h3> :
+      <h3 className="useMicH3" >Reading and sharing your stories is now easier than ever in the ChatterDox recording laboratory! (Use of microphone is not supported in current browser)</h3>;// eslint-disable-line
 
     return (
 
@@ -539,15 +539,15 @@ export default React.createClass({
         <div className="flex buttons">
 
           <button className={micButtonClass} onClick={this.handleMicClick}>
-            <Icon type={this.state.audioSource === 'mic' ? 'stop' : 'microphone'} fill={micIconFill} /> Record Audio
+            <Icon fill={micIconFill} type={this.state.audioSource === 'mic' ? 'stop' : 'microphone'} /> Record Audio
           </button>
 
           <button className={buttonClass} onClick={this.handleSample1Click}>
-            <Icon type={this.state.audioSource === 'sample-1' ? 'stop' : 'link-out'} /> Download Story
+            <Icon fill="#ffffff" type={this.state.audioSource === 'sample-1' ? 'stop' : 'link-out'} /> Download Story
           </button>
 
           <button className={buttonClass} onClick={this.handleSample2Click}>
-            <Icon type={this.state.audioSource === 'sample-2' ? 'stop' : 'plus'} /> Save Story
+            <Icon fill="#ffffff" type={this.state.audioSource === 'sample-2' ? 'stop' : 'plus'} /> Save Story
           </button>
 
           {/* <button className={buttonClass} onClick={this.handleUploadClick}>
@@ -559,7 +559,7 @@ export default React.createClass({
         {err}
 
         <Tabs selected={0}>
-          <Pane label="My Story">
+          <Pane label="Use your microphone to record audio!">
             {this.state.settingsAtStreamStart.speakerLabels
               ? <SpeakersView messages={messages} />
               : <Transcript messages={messages} />}
