@@ -1,14 +1,32 @@
-/* body {
+
+body {
+    background-image: url("../images/classroom_about_bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    
+ }
+
+.about-title {
     font-family: 'Gochi Hand', cursive;
-} */
+}
 
 p {
-    font-size: 20px;
+    font-size: 30px;
 }
 
 
 .card-title {
-    font-size: 25px;
+    font-size: 30px;
+}
+
+.card-info {
+    opacity: 0.9;
+}
+
+
+.about-text {
+    font-size: 30px;
+    font-family: 'Gochi Hand', cursive;
 }
 
 .bold {
