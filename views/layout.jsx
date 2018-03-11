@@ -24,6 +24,7 @@ export default function Layout(props) {
 
         {/* Import Google Fonts */}
         <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
         {/* Import Google Icon Font */}
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         {/* Import materialize.css */}

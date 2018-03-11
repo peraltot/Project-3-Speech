@@ -69,48 +69,26 @@ button:active {
     border-bottom: 2px solid #FF9F1C;
 }
 
-
-/* Story Panels */
-.storyCardHeader {
-    text-align: center !important;
-    font-size: 30px !important;
+/* Watson Recorder */
+.useMicH3 {
+    margin-top: 75px;
+    margin-bottom: 50px;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;   
+    font-weight: bold;
+    line-height: 2; 
 }
 
-
-.collapsible-header {
-    display: block;
-    cursor: pointer;
-    min-height: 3rem;
-    line-height: 2rem !important;
-    padding: 0 5rem !important;
-    border-bottom: 1px solid #ddd;
-    /* background-color:#52DDC6 !important; */
+.selectVoiceModel {
+    font-family: 'Raleway', sans-serif;
+    font-size: 19px;
+    font-weight: bold;
 }
 
-.btn-floating.btn-large {
-    width: 56px;
-    height: 56px;
-    margin-left: 20px;
-    background-color: #FDE74C;    
+#voiceModelDropdown {
+    font-family: 'Raleway', sans-serif;        
 }
-
-.btn-floating.btn-large:hover {
-    background-color: #7BDFF2;
-    border-bottom: 2px solid gray;
-}
-
-.btn-floating.btn-large i {
-    color: black;
-}
-
-
-
-
-
-
-
-
-
 
 .base--hr {
     margin-top: 1em;
@@ -136,8 +114,6 @@ dialog, dd, dt {
     border: 0;
     padding: 0;
 }
-
-
 
 /* drag-drop styles */
 ._container {
@@ -179,7 +155,6 @@ dialog, dd, dt {
 }
 
 /* settings */
-
 .base--input {
     border: 2px solid #464646;
 }
@@ -214,7 +189,6 @@ dialog, dd, dt {
 .base--button:focus {
   outline: 0;
 }
-
 
 .base--button.mic-active {
     background-color: #E71D32;
@@ -260,5 +234,37 @@ dialog, dd, dt {
 .smalltext { font-size: 10pt; }
 
 
+/* Story Panels */
+.storyCardHeader {
+    text-align: center !important;
+    font-size: 30px !important;
+}
 
-.material-icons.md-48 { font-size: 48px; }
+.collapsible-header {
+    display: block;
+    cursor: pointer;
+    min-height: 3rem;
+    line-height: 2rem !important;
+    padding: 0 5rem !important;
+    border-bottom: 1px solid #ddd;
+    /* background-color:#52DDC6 !important; */
+}
+
+.btn-floating.btn-large {
+    width: 56px;
+    height: 56px;
+    margin-left: 20px;
+    background-color: #FDE74C;    
+}
+
+.btn-floating.btn-large:hover {
+    background-color: #7BDFF2;
+    border-bottom: 2px solid gray;
+}
+
+.btn-floating.btn-large i {
+    color: black;
+}
+
+
+/* .material-icons.md-48 { font-size: 48px; } */
