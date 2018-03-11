@@ -493,8 +493,8 @@ export default React.createClass({
 
     const messages = this.getFinalAndLatestInterimResult();
     const micBullet = (typeof window !== 'undefined' && recognizeMicrophone.isSupported) ?
-      <li className="base--li">Use your microphone to record audio.</li> :
-      <li className="base--li base--p_light">Use your microphone to record audio. (Not supported in current browser)</li>;// eslint-disable-line
+      <h3 className="useMicH3">Use your microphone to record audio!</h3> :
+      <h3 className="useMicH3" >Use your microphone to record audio! (Not supported in current browser)</h3>;// eslint-disable-line
 
     return (
 
@@ -528,8 +528,9 @@ export default React.createClass({
         <div className="flex setup">
           <div className="column">
 
-            <p>Voice Model:
+            <p className="selectVoiceModel">Select a Voice Model :
               <ModelDropdown
+                id="voiceModelDropdown"
                 model={this.state.model}
                 token={this.state.token}
                 onChange={this.handleModelChange}
