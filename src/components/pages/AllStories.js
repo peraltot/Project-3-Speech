@@ -88,6 +88,7 @@ class AllStories extends Component {
                     <MuiThemeProvider>
                         <Card>
                             <CardHeader
+                                className="orange-text"
                                 id="storyCardHeader"
                                 title={story.title}
                                 actAsExpander={true}
