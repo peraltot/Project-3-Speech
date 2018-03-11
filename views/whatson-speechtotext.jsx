@@ -2,21 +2,15 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 import { Icon, Tabs, Pane, Alert, JsonLink } from 'watson-react-components';
-// import {Button, Icon} from "react-materialize";
 import recognizeMicrophone from 'watson-speech/speech-to-text/recognize-microphone';
 import recognizeFile from 'watson-speech/speech-to-text/recognize-file';
-
 import ModelDropdown from './model-dropdown.jsx';
 import Transcript from './transcript.jsx';
 import SpeakersView from './speaker.jsx';
-// import JSONView from './json-view.jsx';
 import cachedModels from '../src/data/models.json';
 import googleApi from "../src/utils/googleApi";
-
 import { request } from 'https';
 
-// Native components
-// import Stories from './stories.js';
 
 const ERR_MIC_NARROWBAND = 'Microphone transcription cannot accommodate narrowband voice models, please select a broadband one.';
 
@@ -141,31 +135,31 @@ export default React.createClass({
       var phrase = [];
       let msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
       var fullmsg = this.state.formattedMessages;
-      fullmsg.forEach(function (msg,index) {
+      fullmsg.forEach(function (msg, index) {
         // phrase.push(msg.) = fullmsg[index].results[0].alternatives[0].transcript;
-       if ( msg.results[0].final){
-        phrase.push(msg.results[0].alternatives[0].transcript);
-        
+        if (msg.results[0].final) {
+          phrase.push(msg.results[0].alternatives[0].transcript);
+
           finalmsg = finalmsg + " " + msg.results[0].alternatives[0].transcript;
-      
-       }
+
+        }
       });
       console.log("Save locally");
       // confirm("User inputs title via modal!");
       let usertitle = "userinputtedtitle";
-      
-            // var txt;
-            var storytitle = prompt("Please enter your Story Title:", "My Story");
-            if (storytitle == null || storytitle == "") {
-                usertitle = "User cancelled the prompt.";
-            } else {
-                usertitle = storytitle ;
-            }
-    //   <Modal
-    //   id='sample-1'
-    //   header='Modal Header'>
-    //   <p>Input Title:</p>
-    // </Modal>
+
+      // var txt;
+      var storytitle = prompt("Please enter your Story Title:", "My Story");
+      if (storytitle == null || storytitle == "") {
+        usertitle = "User cancelled the prompt.";
+      } else {
+        usertitle = storytitle;
+      }
+      //   <Modal
+      //   id='sample-1'
+      //   header='Modal Header'>
+      //   <p>Input Title:</p>
+      // </Modal>
 
       exportJson();
 
@@ -219,9 +213,9 @@ export default React.createClass({
 
       console.log("Google Drive Upload clicked");
       googleApi.init()
-          .then(() => {
-            console.log("user logged in");
-                  });
+        .then(() => {
+          console.log("user logged in");
+        });
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
 
       // data.Events.forEach(function (event, index) {
@@ -230,19 +224,19 @@ export default React.createClass({
       //   data.Events[index]['formattedEndDate'] = convertDate(data.Events[index]['end_date']);
 
       // })
-      
+
 
       var fullmsg = this.state.formattedMessages;
       var msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
       var finalmsg = '';
       var phrase = [];
-      fullmsg.forEach(function (msg,index) {
+      fullmsg.forEach(function (msg, index) {
         // phrase.push(msg.) = fullmsg[index].results[0].alternatives[0].transcript;
-       if (msg.results[0].final) {
-        phrase.push(msg.results[0].alternatives[0].transcript);
-        
+        if (msg.results[0].final) {
+          phrase.push(msg.results[0].alternatives[0].transcript);
+
           finalmsg = finalmsg + " " + msg.results[0].alternatives[0].transcript;
-       }
+        }
       });
 
 
@@ -252,9 +246,9 @@ export default React.createClass({
       // var txt;
       var storytitle = prompt("Please enter your Story Title:", "My Story");
       if (storytitle == null || storytitle == "") {
-          usertitle = "User cancelled the prompt.";
+        usertitle = "User cancelled the prompt.";
       } else {
-          usertitle = storytitle ;
+        usertitle = storytitle;
       }
 
       exportJson();
@@ -474,13 +468,13 @@ export default React.createClass({
       ? 'base--button'
       : 'base--button base--button_black';
 
-    let micIconFill = '#000000';
+    let micIconFill = '#ffffff';
     let micButtonClass = buttonClass;
     if (this.state.audioSource === 'mic') {
       micButtonClass += ' mic-active';
-      micIconFill = '#FFFFFF';
+      micIconFill = '#ffffff';
     } else if (!recognizeMicrophone.isSupported) {
-      micButtonClass += ' base--button_black';
+      micButtonClass += ' base--button_red';
     }
 
     const err = this.state.error
@@ -493,8 +487,8 @@ export default React.createClass({
 
     const messages = this.getFinalAndLatestInterimResult();
     const micBullet = (typeof window !== 'undefined' && recognizeMicrophone.isSupported) ?
-      <li className="base--li">Use your microphone to record audio.</li> :
-      <li className="base--li base--p_light">Use your microphone to record audio. (Not supported in current browser)</li>;// eslint-disable-line
+      <h3 className="useMicH3">Reading and sharing your stories is now easier than ever in the <span className="chatterdoxOrange">ChatterDox</span> recording laboratory!</h3> :
+      <h3 className="useMicH3" >Reading and sharing your stories is now easier than ever in the ChatterDox recording laboratory! (Use of microphone is not supported in current browser)</h3>;// eslint-disable-line
 
     return (
 
@@ -528,8 +522,9 @@ export default React.createClass({
         <div className="flex setup">
           <div className="column">
 
-            <p>Voice Model:
+            <p className="selectVoiceModel">Select a Voice Model :
               <ModelDropdown
+                id="voiceModelDropdown"
                 model={this.state.model}
                 token={this.state.token}
                 onChange={this.handleModelChange}
@@ -544,16 +539,15 @@ export default React.createClass({
         <div className="flex buttons">
 
           <button className={micButtonClass} onClick={this.handleMicClick}>
-            <Icon type={this.state.audioSource === 'mic' ? 'stop' : 'microphone'} fill={micIconFill} /> Record Audio
+            <Icon fill={micIconFill} type={this.state.audioSource === 'mic' ? 'stop' : 'microphone'} /> Record Audio
           </button>
 
           <button className={buttonClass} onClick={this.handleSample1Click}>
-            <Icon type={this.state.audioSource === 'sample-1' ? 'stop' : 'link-out'} /> Download Story
+            <Icon fill="#ffffff" type={this.state.audioSource === 'sample-1' ? 'stop' : 'link-out'} /> Download Story
           </button>
 
           <button className={buttonClass} onClick={this.handleSample2Click}>
-            <Icon type={this.state.audioSource === 'sample-2' ? 'stop' : 'plus'} /> Save Story
-            {/* <Icon type={this.state.audioSource === 'sample-2' } /> Save Story */}
+            <Icon fill="#ffffff" type={this.state.audioSource === 'sample-2' ? 'stop' : 'plus'} /> Save Story
           </button>
 
           {/* <button className={buttonClass} onClick={this.handleUploadClick}>
@@ -565,14 +559,11 @@ export default React.createClass({
         {err}
 
         <Tabs selected={0}>
-          <Pane label="My Story">
+          <Pane label="Use your microphone to record audio!">
             {this.state.settingsAtStreamStart.speakerLabels
               ? <SpeakersView messages={messages} />
               : <Transcript messages={messages} />}
           </Pane>
-          {/* <Pane label="JSON">
-            <JSONView raw={this.state.rawMessages} formatted={this.state.formattedMessages} />
-          </Pane> */}
         </Tabs>
 
       </Dropzone>
