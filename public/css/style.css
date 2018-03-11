@@ -20,6 +20,7 @@ color: #FF9F1C !important;
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
     display: inline !important;
     color: black;
+    border: none;
 }
 
 nav a {
@@ -38,6 +39,27 @@ nav a {
     color: #FF9F1C;
 }
 
+button #title_2 {
+    font-family: 'Gochi Hand', cursive;
+}
+
+.base--button, button {
+    border: none !important;
+    border-radius: none !important;
+}
+
+button:focus {
+    outline: none;
+    border: none !important;
+    background-color: transparent !important;   
+    border-color: none !important;
+    color: none !important;
+}
+
+button:active {
+    transform: none;
+}
+
 .material-icons {
     font-size: 2.5rem !important;
 }
@@ -47,14 +69,13 @@ nav a {
     border-bottom: 2px solid #FF9F1C;
 }
 
+
 /* Story Panels */
-.storyCards {
-    margin: 0 auto;
+.storyCardHeader {
+    text-align: center !important;
+    font-size: 30px !important;
 }
 
-/* .collapsible {
-    background-color:#52DDC6;
-} */
 
 .collapsible-header {
     display: block;
