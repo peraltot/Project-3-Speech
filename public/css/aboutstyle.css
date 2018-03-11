@@ -1,6 +1,8 @@
 
 body {
-    background-image: url("../images/classroom_about_bg.jpg");
+    background-image: url("../images/classroom_bg_2.jpg");
+    background-size: cover;
+    background-attachment: fixed;
     
  }
 
