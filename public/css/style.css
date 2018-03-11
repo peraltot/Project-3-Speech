@@ -9,7 +9,11 @@
     height: 100px;
 }
 
-nav #title_1 {
+.nav-wrapper {
+    padding-top: 10px;
+}
+
+nav #chatterdoxLogo {
 margin-left: 45%;
 border: none;
 font-size: 50px;
@@ -27,26 +31,29 @@ nav a {
     color: black !important;
 }
 
-.base--button_clear, button #title_2 {
+#navbarLinkSpans {
     border: none;
     padding: .24em 1em;
-    margin-top: 15px;
     font-size: 30px;
-    font-family: 'Gochi Hand', cursive;
 }
 
-.base--button_clear, button #title_2:hover {
+#navbarLinks {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 30px;    
+}
+
+/* .base--button_clear, button #title_2:hover {
     color: #FF9F1C;
 }
 
 button #title_2 {
     font-family: 'Gochi Hand', cursive;
-}
+} */
 
-.base--button, button {
-    border: none !important;
-    border-radius: none !important;
-}
+/* .base--button, button { */
+    /* border: none !important; */
+    /* border-radius: none !important; */
+/* } */
 
 button:focus {
     outline: none;
@@ -77,17 +84,17 @@ button:active {
     text-align: center;
     font-family: 'Raleway', sans-serif;   
     font-weight: bold;
-    line-height: 2; 
 }
 
 .selectVoiceModel {
     font-family: 'Raleway', sans-serif;
-    font-size: 19px;
+    font-size: 17px;
     font-weight: bold;
+    line-height: 2; 
 }
 
 #voiceModelDropdown {
-    font-family: 'Raleway', sans-serif;        
+    font-family: 'Raleway', sans-serif !important;        
 }
 
 .base--hr {
