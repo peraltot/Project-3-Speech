@@ -1,14 +1,21 @@
-/* body {
+
+
+.about-title {
     font-family: 'Gochi Hand', cursive;
-} */
+}
 
 p {
-    font-size: 20px;
+    font-size: 30px;
 }
 
 
 .card-title {
-    font-size: 25px;
+    font-size: 30px;
+}
+
+.about-text {
+    font-size: 30px;
+    font-family: 'Gochi Hand', cursive;
 }
 
 .bold {
