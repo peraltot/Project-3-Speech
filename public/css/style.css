@@ -42,29 +42,26 @@ nav a {
     font-size: 30px;    
 }
 
-/* .base--button_clear, button #title_2:hover {
-    color: #FF9F1C;
-}
-
-button #title_2 {
-    font-family: 'Gochi Hand', cursive;
-} */
-
 .base--button, button {
     border-color: #354579;
     background-color: #354579;
     font-family: 'Gochi Hand', cursive;
     font-size: 24px;    
     color: white;
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.8);    
 }
 
-button:focus {
-    outline: none;
-    border: none !important;
-    background-color: transparent !important;   
-    border-color: none !important;
-    color: none !important;
+.base--button:hover, .base--button:focus, button:focus, button:hover {
+    background-color: #FF9F1C;
+    color: white;
+    border-color: #FF9F1C;
 }
+
+/* .buttonClass:hover, .buttonClass:focus, button:focus, button:hover {
+    background-color: #FF9F1C;
+    color: white;
+    border-color: #FF9F1C;
+} */
 
 button:active {
     transform: none;
@@ -89,6 +86,9 @@ button:active {
     font-family: 'Raleway', sans-serif;   
     font-weight: bold;
     color: #354579;
+    background-color: white;
+    border: black solid 2px;
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.8);
 }
 
 .chatterdoxOrange {
@@ -98,14 +98,38 @@ button:active {
 }
 
 .selectVoiceModel {
+    text-indent: 20px;
     font-family: 'Raleway', sans-serif;
     font-size: 17px;
     font-weight: bold;
     line-height: 2; 
+    background-color: white;
+    border: black solid 2px;
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.8);
 }
 
-#voiceModelDropdown {
-    font-family: 'Raleway', sans-serif !important;        
+.base--select {
+    border: none;
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.8);
+}
+
+select:focus {
+    outline: none !important;
+    border-color: none !important;
+}
+
+option {
+    font-weight: normal;
+    display: block;
+    white-space: pre;
+    min-height: 1.2em;
+    /* padding: 0px 2px 1px; */
+    padding-left: 10px;
+    border: none;
+}
+
+.voiceModelDropdown {
+    font-family: 'Raleway', sans-serif !important;      
 }
 
 .base--hr {
@@ -115,6 +139,9 @@ button:active {
 .tab-panels--tab-list {
     border-bottom: 1px solid #7BDFF2;
     background-color: #7BDFF2;
+    border-top: black solid 2px;
+    border-left: black solid 2px;
+    border-right: black solid 2px;
 }
 
 .tab-panels--tab.active {
@@ -125,8 +152,23 @@ button:active {
     font-weight: bold;
 }
 
+.tab-panels--tab.active:hover {
+    color: #354579 !important;
+}
+
+.tab-panels--tab.active:focus {
+    color: #354579 !important;
+    border-left: none;
+    border-right: none;
+}
+
 .tab-panels--tab-content {
     min-height: 250px;
+    border: black solid 2px;
+    border-top: none;
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.8);   
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;    
 }
 
 .arrow-box-container {
@@ -222,9 +264,9 @@ dialog, dd, dt {
 }
 
 .base--button.mic-active {
-    background-color: #E71D32;
-    color: white;
-    border-color: #E71D32
+    background-color: white;
+    color: #E71D32;
+    border-color: #E71D32;
 }
 
 .speaker-labels {
