@@ -83,6 +83,7 @@ class AllStories extends Component {
     render() {
         const theStories = this.state.stories.map(story => {
             return (
+                
                 <Row>
                     <Col l={8}>
                     <MuiThemeProvider>
@@ -106,6 +107,7 @@ class AllStories extends Component {
                         </MuiThemeProvider>
                     </Col>
                 </Row>
+            
             )
         });
         return (
