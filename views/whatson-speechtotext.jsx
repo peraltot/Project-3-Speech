@@ -472,7 +472,7 @@ export default React.createClass({
     let micButtonClass = buttonClass;
     if (this.state.audioSource === 'mic') {
       micButtonClass += ' mic-active';
-      micIconFill = '#ffffff';
+      micIconFill = 'red';
     } else if (!recognizeMicrophone.isSupported) {
       micButtonClass += ' base--button_red';
     }
