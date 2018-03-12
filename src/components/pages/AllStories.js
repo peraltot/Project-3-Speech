@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import StoryPanel from "../../components/StoryPanel";
 import API from "../../utils/api-axios";
 import googleApi from "../../utils/googleApi";
+import { Row, Col } from "react-materialize";
+import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import MailBtn from '../Buttons/MailBtn';
 import DeleteBtn from '../Buttons/DeleteBtn';
 import DriveBtn from '../Buttons/DriveBtn';
-// import PopoutList from '../List/PopoutList';
-import { Row, Col } from "react-materialize";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 
+// THE STORY CARDS
 class AllStories extends Component {
 
     constructor(props) {
