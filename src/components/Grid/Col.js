@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Col = ({size, children}) =>
-  <div className="col">
+export const Col = ({children}) =>
+  <div className="col l8">
     {children}
   </div>;
