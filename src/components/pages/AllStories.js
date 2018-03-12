@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/api-axios";
 import googleApi from "../../utils/googleApi";
-import { Row, Col } from "react-materialize";
+import { Container, Row, Col } from '../Grid';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import MailBtn from '../Buttons/MailBtn';
 import DeleteBtn from '../Buttons/DeleteBtn';
@@ -82,29 +82,31 @@ class AllStories extends Component {
     render() {
         const theStories = this.state.stories.map(story => {
             return (
-                <Row>
-                    <Col l={8}>
-                    <MuiThemeProvider>
-                        <Card>
-                            <CardHeader
-                                className="orange-text"
-                                id="storyCardHeader"
-                                title={story.title}
-                                actAsExpander={true}
-                                showExpandableButton={true}
-                            />
-                            <CardText expandable={true}>
-                                {story.words}
-                            </CardText>
-                            <CardActions>
-                                <DeleteBtn label="delete" onClick={() => this.delStory(story._id)} />
-                                <DriveBtn label="drive" onClick={() => this.gdUploadStory(story._id, story.words)} />
-                                <MailBtn label="mail" subject={story.title} text={story.words} />
-                            </CardActions>
-                        </Card>
-                        </MuiThemeProvider>
-                    </Col>
-                </Row>
+                <Container>
+                    <Row>
+                        <Col>
+                            <MuiThemeProvider>
+                                <Card>
+                                    <CardHeader
+                                        className="orange-text"
+                                        id="storyCardHeader"
+                                        title={story.title}
+                                        actAsExpander={true}
+                                        showExpandableButton={true}
+                                    />
+                                    <CardText expandable={true}>
+                                        {story.words}
+                                    </CardText>
+                                    <CardActions>
+                                        <DeleteBtn label="delete" onClick={() => this.delStory(story._id)} />
+                                        <DriveBtn label="drive" onClick={() => this.gdUploadStory(story._id, story.words)} />
+                                        <MailBtn label="mail" subject={story.title} text={story.words} />
+                                    </CardActions>
+                                </Card>
+                            </MuiThemeProvider>
+                        </Col>
+                    </Row>
+                </Container>
             )
         });
         return (

@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import {Button, Icon, Card, CardHeader, CardTitle} from "react-materialize";
-
-
 
 class About extends Component {
 
