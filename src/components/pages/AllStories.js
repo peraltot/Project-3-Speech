@@ -50,15 +50,19 @@ class AllStories extends Component {
             .catch(err => console.log(err));
     };
 
-    gdUploadStory(id, words) {
+    gdUploadStory(title, words) {
         console.log("Google Drive Upload clicked");
         googleApi.init()
             .then(() => {
-                googleApi.saveFile(id, words)
+                googleApi.saveFile(title, words)
                     .then(() => {
                         alert('File uploaded');
                         console.log('File uploaded');
-                    });
+                    })
+                    // .then(()=> {
+                    //     console.log("logging out");
+                    //     googleApi.logOut();
+                    // });
             })
             .catch(err => {
                 alert(err);
@@ -99,7 +103,7 @@ class AllStories extends Component {
                             </CardText>
                             <CardActions>
                                 <DeleteBtn label="delete" onClick={() => this.delStory(story._id)} />
-                                <DriveBtn label="drive" onClick={() => this.gdUploadStory(story._id, story.words)} />
+                                <DriveBtn label="drive" onClick={() => this.gdUploadStory(story.title, story.words)} />
                                 <MailBtn label="mail" subject={story.title} text={story.words} />
                             </CardActions>
                         </Card>

@@ -146,7 +146,7 @@ export default React.createClass({
       });
       console.log("Save locally");
       // confirm("User inputs title via modal!");
-      let usertitle = "userinputtedtitle";
+      let usertitle = "";
 
       // var txt;
       var storytitle = prompt("Please enter your Story Title:", "My Story");
@@ -211,37 +211,42 @@ export default React.createClass({
     }
     else {
 
-      console.log("Google Drive Upload clicked");
+      console.log("Saving the Story ");
+      //log in the user using google Oauth2 for email
       googleApi.init()
         .then(() => {
+
           console.log("user logged in");
+        })
+        .catch(err => {
+          console.log("error calling googleAPI.init" + err);
         });
+
+       
+
+  
+
+        
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
 
-      // data.Events.forEach(function (event, index) {
-      //   // console.log(index);
-      //   data.Events[index]['formattedStartDate'] = convertDate(data.Events[index]['start_date']);
-      //   data.Events[index]['formattedEndDate'] = convertDate(data.Events[index]['end_date']);
-
-      // })
-
-
       var fullmsg = this.state.formattedMessages;
-      var msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
+      // var msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
       var finalmsg = '';
-      var phrase = [];
+      // var phrase = [];
       fullmsg.forEach(function (msg, index) {
         // phrase.push(msg.) = fullmsg[index].results[0].alternatives[0].transcript;
         if (msg.results[0].final) {
-          phrase.push(msg.results[0].alternatives[0].transcript);
+          // phrase.push(msg.results[0].alternatives[0].transcript);
 
           finalmsg = finalmsg + " " + msg.results[0].alternatives[0].transcript;
         }
+
+        //story is stored now as JSON of AUDIO in finalmsg LH
       });
 
 
       // confirm("User inputs title via modal!");
-      let usertitle = "userinputtedtitle";
+      let usertitle = "";
 
       // var txt;
       var storytitle = prompt("Please enter your Story Title:", "My Story");
@@ -251,62 +256,55 @@ export default React.createClass({
         usertitle = storytitle;
       }
 
-      exportJson();
+      saveStory();
 
-      function exportJson() {
-        console.log("Post to database");
-        console.log(finalmsg);
-        let message = {
-          title: usertitle,
-          words: finalmsg
-        };
-        $.ajax({
-          method: 'POST',
-          url: "/saved",
-          contentType: "application/json",
-          data: JSON.stringify(message)
-        }).done(function (data) {
-          console.log(data + "saving");
-          // location.reload();
+      function saveStory() {
+        let userEmail = "";
+        //call googleApi to extract email of user
+        googleApi.init()
+        .then(() => {
+          userEmail = googleApi.getEmail()
+          .then(userEmail => {
+            console.log('Email extracted' + userEmail);
+            console.log("Post to database");
+            console.log(finalmsg);
+            
+            let message = {
+              title: usertitle,
+              words: finalmsg,
+              userEmail: userEmail
+            };
+  
+            $.ajax({
+              method: 'POST',
+              url: "/saved",
+              contentType: "application/json",
+              data: JSON.stringify(message)
+            }).done(function (data) {
+              console.log(data + "saving");
+              // location.reload();
+            });
+          })
+        })
+
+        .catch(err => {
+            alert(err);
+            console.log('error extracting user Email ingoogleAPI.getEmail' + err);
         });
+      // })
+      // .catch(err => {
+      //   alert(err);
+      //    console.log("error in googleAPI.init " + err);
+      // })
 
-      }
-      // function saveTextFile(filename, text) {
-      //   console.log("insert post here");
-      //   var element = document.createElement('a');
-      //   element.setAttribute('hidden', '')
-      //   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-      //   element.setAttribute('download', filename);
-      //   document.body.appendChild(element);
-      //   element.click();
-      //   document.body.removeChild(element);
-      // }
-      function createAndSendDocument() {
-        // Create a new Google Doc named 'Hello, world!'
-        var doc = DocumentApp.create('Hello, world!');
+        
+        
 
-        // Access the body of the document, then add a paragraph.
-        doc.getBody().appendParagraph('This document was created by Google Apps Script.');
+      } //saveStory
 
-        // Get the URL of the document.
-        var url = doc.getUrl();
 
-        // Get the email address of the active user - that's you.
-        var email = Session.getActiveUser().getEmail();
-
-        // Get the name of the document to use as an email subject line.
-        var subject = doc.getName();
-
-        // Append a new string to the "url" variable to use as an email body.
-        var body = 'Link to your doc: ' + url;
-
-        // Send yourself an email with a link to the document.
-        GmailApp.sendEmail(email, subject, body);
-        console.log("Send to google docs");
-        this.dropzone.open();
-      }
-    }
-  },
+  }  //Save story click
+  }, //end handleSample2Click
 
   handleUserFile(files) {
     const file = files[0];

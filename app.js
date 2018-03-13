@@ -7,6 +7,7 @@ import Navbar from "./src/components/Navbar";
 import Home from "./src/components/pages/Home";
 import About from "./src/components/pages/About";
 import AllStories from "./src/components/pages/AllStories";
+import LogOut from "./src/components/pages/LogOut";
 
 
 const App = () =>
@@ -18,6 +19,8 @@ const App = () =>
         <Route exact path="/watson" component={Home} />
         <Route exact path="/about" component={About} />
         <Route exact path="/allstories" component={AllStories} />
+        <Route exact path="/logOut" component={LogOut} />
+        
       </Switch>
     </div>
   </Router>;
