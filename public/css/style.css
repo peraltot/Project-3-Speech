@@ -58,12 +58,6 @@ nav a {
     border-color: #FF9F1C;
 }
 
-/* .buttonClass:hover, .buttonClass:focus, button:focus, button:hover {
-    background-color: #FF9F1C;
-    color: white;
-    border-color: #FF9F1C;
-} */
-
 button:active {
     transform: none;
 }
@@ -124,7 +118,6 @@ option {
     display: block;
     white-space: pre;
     min-height: 1.2em;
-    /* padding: 0px 2px 1px; */
     padding-left: 10px;
     border: none;
 }
@@ -300,7 +293,7 @@ dialog, dd, dt {
 
 /* Word Timings and Alternatives view styles */
 .word-timings-alternatives .word {
-    padding-right: 1ex; /*I tried just putting a space in the HTML, but chrome and safari hide it :( */
+    padding-right: 1ex;
     display: inline-block;
     margin-top: 0;
 }
@@ -312,6 +305,7 @@ dialog, dd, dt {
 /* Story Panels */
 .theStoryCards {
     margin-bottom: 50px;
+    box-shadow: 4px 4px 6px rgba(0,0,0,1) !important;
 }
 
 #storyCardHeader span {
@@ -322,16 +316,15 @@ dialog, dd, dt {
 }
 
 #storyCardHeader div {
-    padding-right: 0px !important;
+    padding-right: 0px !important; 
 }
 
 #storyCardHeader {
-    background-color: #FDE74C;  
+    background-color: #FDE74C;
 }
 
 .cardText {
-    font-size: 25px !important;
-    font-family: 'Gochi Hand', cursive;
+    font-size: 18px !important;
 }
 
 .btn-floating.btn-large {
