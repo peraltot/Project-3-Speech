@@ -7,8 +7,8 @@ class About extends Component {
     this.state = {
       cards: [ 
         { title: "Language", text: "Choose a language.", img:"./images/language-resize.jpg" }, 
-        { title: "Record speach to text", text: "Start recording.", img: "./images/record-audio.png" },
-        { title: "Recorded Text", text: "Displays recorded text.", img: "./images/mystory-resize.png" },
+        { title: "Record speach to text", text: "Start recording.", img: "./images/record-audio.jpg" },
+        { title: "Recorded Text", text: "Displays recorded text.", img: "./images/mystory-resize.jpg" },
         { title: "Download Story", text: "Download story locally.", img: "./images/download.png" },
         { title: "Save Story", text: "Save story to view in My Stories.", img: "./images/save.png" },
         { title: "MyStories Page", text: "Go to saved stories page to view your stories.", img: "./images/mystories.png"  },
