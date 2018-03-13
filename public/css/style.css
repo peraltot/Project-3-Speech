@@ -305,7 +305,9 @@ dialog, dd, dt {
     margin-top: 0;
 }
 
-.smalltext { font-size: 10pt; }
+.smalltext { 
+    font-size: 10pt; 
+}
 
 /* Story Panels */
 .theStoryCards {
@@ -314,8 +316,9 @@ dialog, dd, dt {
 
 #storyCardHeader span {
     text-align: center !important;
-    font-size: 30px !important;
+    font-size: 35px !important;
     padding-right: 0px !important;
+    font-family: 'Gochi Hand', cursive;
 }
 
 #storyCardHeader div {
@@ -323,7 +326,12 @@ dialog, dd, dt {
 }
 
 #storyCardHeader {
-    background-color: #FDE74C;    
+    background-color: #FDE74C;  
+}
+
+.cardText {
+    font-size: 25px !important;
+    font-family: 'Gochi Hand', cursive;
 }
 
 .btn-floating.btn-large {
