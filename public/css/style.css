@@ -7,6 +7,7 @@
 #chatterdoxNav {
     background-color: #7BDFF2;
     height: 100px;
+    margin-bottom: 50px;
 }
 
 .nav-wrapper {
@@ -306,11 +307,23 @@ dialog, dd, dt {
 
 .smalltext { font-size: 10pt; }
 
-
 /* Story Panels */
+.theStoryCards {
+    margin-bottom: 50px;
+}
+
+#storyCardHeader span {
+    text-align: center !important;
+    font-size: 30px !important;
+    padding-right: 0px !important;
+}
+
+#storyCardHeader div {
+    padding-right: 0px !important;
+}
+
 #storyCardHeader {
-    text-align: center;
-    background-color: #FDE74C;
+    background-color: #FDE74C;    
 }
 
 .btn-floating.btn-large {

@@ -81,13 +81,12 @@ class AllStories extends Component {
     render() {
         const theStories = this.state.stories.map(story => {
             return (
-                <div className="container">
+                <div className="container center-align">
                     <div className="row">
                       <div className="col s12 m12">
                             <MuiThemeProvider>
-                                <Card>
+                                <Card className="theStoryCards">
                                     <CardHeader
-                                        className="orange-text"
                                         id="storyCardHeader"
                                         title={story.title}
                                         actAsExpander={true}
