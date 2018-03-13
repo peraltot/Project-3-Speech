@@ -7,7 +7,6 @@
 #chatterdoxNav {
     background-color: #7BDFF2;
     height: 100px;
-    margin-bottom: 50px;
 }
 
 .nav-wrapper {
@@ -304,6 +303,7 @@ dialog, dd, dt {
 
 /* Story Panels */
 .theStoryCards {
+    margin-top: 100px;
     margin-bottom: 50px;
     box-shadow: 4px 4px 6px rgba(0,0,0,1) !important;
 }
@@ -331,7 +331,7 @@ dialog, dd, dt {
     width: 56px;
     height: 56px;
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 12px;
     background-color: #FDE74C;    
 }
 
