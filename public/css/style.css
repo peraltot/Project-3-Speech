@@ -7,6 +7,7 @@
 #chatterdoxNav {
     background-color: #7BDFF2;
     height: 100px;
+    margin-bottom: 50px;
 }
 
 .nav-wrapper {
@@ -308,8 +309,11 @@ dialog, dd, dt {
     font-size: 10pt; 
 }
 
-
 /* Story Panels */
+.theStoryCards {
+    margin-bottom: 50px;
+}
+
 #storyCardHeader span {
     text-align: center !important;
     font-size: 35px !important;
@@ -321,19 +325,13 @@ dialog, dd, dt {
     padding-right: 0px !important;
 }
 
+#storyCardHeader {
+    background-color: #FDE74C;  
+}
+
 .cardText {
     font-size: 25px !important;
     font-family: 'Gochi Hand', cursive;
-}
-
-.collapsible-header {
-    display: block;
-    cursor: pointer;
-    min-height: 3rem;
-    line-height: 2rem !important;
-    padding: 0 5rem !important;
-    border-bottom: 1px solid #ddd;
-    /* background-color:#52DDC6 !important; */
 }
 
 .btn-floating.btn-large {

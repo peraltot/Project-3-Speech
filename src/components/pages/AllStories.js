@@ -85,7 +85,7 @@ class AllStories extends Component {
                     <div className="row">
                       <div className="col s12 m12">
                             <MuiThemeProvider>
-                                <Card>
+                                <Card className="theStoryCards">
                                     <CardHeader
                                         id="storyCardHeader"
                                         title={story.title}
