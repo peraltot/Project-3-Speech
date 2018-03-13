@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/api-axios";
 import googleApi from "../../utils/googleApi";
-import { Container, Row, Col } from '../Grid';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import MailBtn from '../Buttons/MailBtn';
 import DeleteBtn from '../Buttons/DeleteBtn';
@@ -82,9 +81,9 @@ class AllStories extends Component {
     render() {
         const theStories = this.state.stories.map(story => {
             return (
-                <Container>
-                    <Row>
-                        <Col>
+                <div className="container">
+                    <div className="row">
+                      <div className="col s12 m12">
                             <MuiThemeProvider>
                                 <Card>
                                     <CardHeader
@@ -104,9 +103,9 @@ class AllStories extends Component {
                                     </CardActions>
                                 </Card>
                             </MuiThemeProvider>
-                        </Col>
-                    </Row>
-                </Container>
+                       </div>
+                    </div>
+                </div>
             )
         });
         return (
