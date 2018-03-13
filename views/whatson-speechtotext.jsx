@@ -1,6 +1,7 @@
 /* eslint no-param-reassign: 0 */
 import React from 'react';
 import Dropzone from 'react-dropzone';
+import DownloadBtn from "../Buttons/DownloadBtn";
 import { Icon, Tabs, Pane, Alert, JsonLink } from 'watson-react-components';
 import recognizeMicrophone from 'watson-speech/speech-to-text/recognize-microphone';
 import recognizeFile from 'watson-speech/speech-to-text/recognize-file';
@@ -542,18 +543,16 @@ export default React.createClass({
             <Icon fill={micIconFill} type={this.state.audioSource === 'mic' ? 'stop' : 'microphone'} /> Record Audio
           </button>
 
-          <button className={buttonClass} onClick={this.handleSample1Click}>
+          {/* <button className={buttonClass} onClick={this.handleSample1Click}>
             <Icon fill="#ffffff" type={this.state.audioSource === 'sample-1' ? 'stop' : 'link-out'} /> Download Story
-          </button>
+          </button> */}
+          <DownloadBtn/>
 
           <button className={buttonClass} onClick={this.handleSample2Click}>
             <Icon fill="#ffffff" type={this.state.audioSource === 'sample-2' ? 'stop' : 'plus'} /> Save Story
           </button>
 
-          {/* <button className={buttonClass} onClick={this.handleUploadClick}>
-            <Icon type={this.state.audioSource === 'upload' ? 'stop' : 'upload'} /> Upload Audio File
-          </button> */}
-
+  
         </div>
 
         {err}
