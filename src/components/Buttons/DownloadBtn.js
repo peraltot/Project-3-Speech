@@ -39,6 +39,7 @@ class DownloadBtn extends Component {
                 onClick={this.handleClose}
             />,
             <FlatButton
+                type="submit"
                 label="Submit"
                 primary={true}
                 keyboardFocused={true}
@@ -55,15 +56,20 @@ class DownloadBtn extends Component {
 
                 <Dialog
                     title="Enter the name of this story:"
-                    actions={actions}
-                    modal={false}
+                    modal={true}
                     open={this.state.open}
                     onRequestClose={this.handleClose}
                 >
-                    {/* can add text to the modal here if desired. uncomment to preview */}
+                    <form>
+                    {/* <form action="/" method="POST" onSubmit={(e) => { e.preventDefault(); alert('Submitted form!'); this.handleClose(); } }> */}
+                        <TextField name="title" hintText="My Story" />
+                        <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
+                            {actions}
+                        </div>
+                    </form>
                 </Dialog>
             </div>
-        );
+                );
     }
 }
 
