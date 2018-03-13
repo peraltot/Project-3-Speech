@@ -327,6 +327,7 @@ dialog, dd, dt {
     width: 56px;
     height: 56px;
     margin-left: 20px;
+    margin-top: 10px;
     background-color: #FDE74C;    
 }
 
