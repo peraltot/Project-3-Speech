@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 
 class About extends Component {
@@ -41,36 +42,8 @@ class About extends Component {
      <h3 className="about-title center-align">How to use ChatterDoX!</h3>
     <p className="about-text">
       ChatterDoX is very simple to use.  With the click of a few buttons you will have a great story saved to your medium of choice in no time at all.  
-    </p>
-    </div>
-    </div>
-    </div>
-    
-    
-    { this.state.cards.map(card => {
-      return (
-      <div className="row" key={card.title}>
-      <div className="col s12 m12">
-        <div className="card-panel orange z-depth-4">
-          <div className="card-content white-text">
-              <div className="card-title left">{card.title}</div>
-            <br />
-            <br />
-            <div className="divider"></div>
-            <div className="section">
-              <p className="left text-left about-text">{card.text}</p>
-              <img className="right img-right" src={card.img} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-      )
-    })}
 
-  </div>
-    );
-  }
-}
+    </p>
+  </div>;
 
 export default About;

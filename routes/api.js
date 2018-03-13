@@ -19,33 +19,14 @@ const express = require("express");
 const api = express.Router();
 const db = require('../models/')
 const sgMail = require('@sendgrid/mail');
-// Axios is a promised-based http library, similar to jQuery's Ajax method
-// It works on the client and on the server
-var axios = require("axios");
-// Route for retrieving all stories from the db
 
-
+// deliver home page
 
 api.get('/', (req, res) => {
   res.render('index', {});
 });
 
-api.get('/googledrive', (req, res) => {
-  res.render('googledrive', {});
-});
-
-//sample: to test search to external api if we need this later
-
-// const BASEURL = "https://www.omdbapi.com/?t=";
-// const APIKEY = "&apikey=trilogy";
-
-// export default {
-//   search: function(query) {
-//     return axios.get(BASEURL + query + APIKEY);
-//   }
-// };
-
-
+// Route for retrieving all stories from the db
 
 api.get("/stories", function (req, res) {
   // Find all Notes

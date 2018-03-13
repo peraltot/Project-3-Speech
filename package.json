@@ -33,8 +33,6 @@
     "test-integration-runner": "NODE_ENV=test node casper-runner.js",
     "test": "npm run lint && npm run test-unit && npm run test-integration-runner",
     "test-unit": "istanbul cover ./node_modules/mocha/bin/_mocha test/unit",
-    "lint": "eslint .",
-    "autofix": "eslint --fix .",
     "codecov": "npm run test && (codecov || true)"
   },
   "dependencies": {
@@ -58,7 +56,6 @@
     "express-secure-only": "^0.2.1",
     "google-client-api": "^1.0.4",
     "helmet": "^3.9.0",
-    "material-ui": "^0.20.0",
     "mongoose": "^5.0.3",
     "prop-types": "^15.6.0",
     "react": "^15.6.2",
@@ -75,11 +72,6 @@
   "devDependencies": {
     "casperjs": "^1.1.4",
     "codecov": "^2.3.1",
-    "eslint": "^4.15.0",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.5.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.5.3",
     "nock": "^9.1.6",

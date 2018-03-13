@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import googleApi from "../utils/googleApi";
 
 const Navbar = props =>
 	<nav id="chatterdoxNav" role="navigation">
@@ -22,6 +23,14 @@ const Navbar = props =>
 						<i className="material-icons" id="navIcons">library_books</i>
 					My Stories</span>
 				</Link>
+				<Link to="/logOut" id="navbarLinks">
+					<span>
+						<i className="material-icons" id="navIcons">exit</i>
+					logOut</span>
+				</Link>
+
+				
+
 		<span className="icon-bar"></span>
 		<a id="chatterdoxLogo" className="nav navbar-nav navbar-center" href="/">ChatterDoX</a>
 		</div>

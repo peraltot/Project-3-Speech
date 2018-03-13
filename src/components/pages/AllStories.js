@@ -48,15 +48,19 @@ class AllStories extends Component {
             .catch(err => console.log(err));
     };
 
-    gdUploadStory(id, words) {
+    gdUploadStory(title, words) {
         console.log("Google Drive Upload clicked");
         googleApi.init()
             .then(() => {
-                googleApi.saveFile(id, words)
+                googleApi.saveFile(title, words)
                     .then(() => {
                         alert('File uploaded');
                         console.log('File uploaded');
-                    });
+                    })
+                    // .then(()=> {
+                    //     console.log("logging out");
+                    //     googleApi.logOut();
+                    // });
             })
             .catch(err => {
                 alert(err);
@@ -81,6 +85,7 @@ class AllStories extends Component {
     render() {
         const theStories = this.state.stories.map(story => {
             return (
+
                 <div className="container center-align">
                     <div className="row">
                       <div className="col s12 m12">
@@ -105,6 +110,7 @@ class AllStories extends Component {
                        </div>
                     </div>
                 </div>
+
             )
         });
         return (
