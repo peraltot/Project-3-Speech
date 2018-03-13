@@ -308,9 +308,14 @@ dialog, dd, dt {
 
 
 /* Story Panels */
-.storyCardHeader {
+#storyCardHeader span {
     text-align: center !important;
-    font-size: 35px !important;
+    font-size: 30px !important;
+    padding-right: 0px !important;
+}
+
+#storyCardHeader div {
+    padding-right: 0px !important;
 }
 
 .collapsible-header {
