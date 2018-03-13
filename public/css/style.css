@@ -57,12 +57,6 @@ nav a {
     border-color: #FF9F1C;
 }
 
-/* .buttonClass:hover, .buttonClass:focus, button:focus, button:hover {
-    background-color: #FF9F1C;
-    color: white;
-    border-color: #FF9F1C;
-} */
-
 button:active {
     transform: none;
 }
@@ -123,7 +117,6 @@ option {
     display: block;
     white-space: pre;
     min-height: 1.2em;
-    /* padding: 0px 2px 1px; */
     padding-left: 10px;
     border: none;
 }
@@ -167,7 +160,7 @@ option {
     border: black solid 2px;
     border-top: none;
     box-shadow: 4px 4px 6px rgba(0,0,0,0.8);   
-    font-size: 16px;
+    font-size: 20px;
     font-family: 'Raleway', sans-serif;    
 }
 
@@ -299,34 +292,46 @@ dialog, dd, dt {
 
 /* Word Timings and Alternatives view styles */
 .word-timings-alternatives .word {
-    padding-right: 1ex; /*I tried just putting a space in the HTML, but chrome and safari hide it :( */
+    padding-right: 1ex;
     display: inline-block;
     margin-top: 0;
 }
 
-.smalltext { font-size: 10pt; }
-
-
-/* Story Panels */
-.storyCardHeader {
-    text-align: center !important;
-    font-size: 30px !important;
+.smalltext { 
+    font-size: 10pt; 
 }
 
-.collapsible-header {
-    display: block;
-    cursor: pointer;
-    min-height: 3rem;
-    line-height: 2rem !important;
-    padding: 0 5rem !important;
-    border-bottom: 1px solid #ddd;
-    /* background-color:#52DDC6 !important; */
+/* Story Panels */
+.theStoryCards {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    box-shadow: 4px 4px 6px rgba(0,0,0,1) !important;
+}
+
+#storyCardHeader span {
+    text-align: center !important;
+    font-size: 35px !important;
+    padding-right: 0px !important;
+    font-family: 'Gochi Hand', cursive;
+}
+
+#storyCardHeader div {
+    padding-right: 0px !important; 
+}
+
+#storyCardHeader {
+    background-color: #FDE74C;
+}
+
+.cardText {
+    font-size: 18px !important;
 }
 
 .btn-floating.btn-large {
     width: 56px;
     height: 56px;
     margin-left: 20px;
+    margin-top: 12px;
     background-color: #FDE74C;    
 }
 
