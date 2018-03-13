@@ -92,7 +92,7 @@ class AllStories extends Component {
                                         actAsExpander={true}
                                         showExpandableButton={true}
                                     />
-                                    <CardText expandable={true}>
+                                    <CardText expandable={true} className="cardText">
                                         {story.words}
                                     </CardText>
                                     <CardActions>
