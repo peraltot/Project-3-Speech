@@ -57,10 +57,6 @@ class AllStories extends Component {
                         alert('File uploaded');
                         console.log('File uploaded');
                     })
-                    // .then(()=> {
-                    //     console.log("logging out");
-                    //     googleApi.logOut();
-                    // });
             })
             .catch(err => {
                 alert(err);
