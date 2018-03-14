@@ -15,6 +15,7 @@ class LogOut extends Component {
             .then(() => {
                 console.log("in logOut component");
                 googleApi.logOut();
+                //redirect to home
             })
             .catch(err => {
                 alert(err);

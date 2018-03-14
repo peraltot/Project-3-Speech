@@ -31,7 +31,7 @@ api.get('/', (req, res) => {
 api.get("/stories", function (req, res) {
   // Find all Notes
   db.Story
-    .find({})
+    .find({userEmail: req.body.userEmail})
     .then(function (dbStory) {
       // If all Notes are successfully found, send them back to the client
       res.json(dbStory);

@@ -54,7 +54,6 @@ class AllStories extends Component {
             .then(() => {
                 googleApi.saveFile(title, words)
                     .then(() => {
-                        alert('File uploaded');
                         console.log('File uploaded');
                     })
                     // .then(()=> {
@@ -63,7 +62,6 @@ class AllStories extends Component {
                     // });
             })
             .catch(err => {
-                alert(err);
                 console.log('error uploading to google drive ' + err);
             });
     };
