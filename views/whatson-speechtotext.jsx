@@ -140,22 +140,50 @@ export default React.createClass({
     this.handleStream(recognizeMicrophone(this.getRecognizeOptions()));
   },
 
+  handleClick(){
+if (this.state.click === "downloadStory") {
+    handleSample1Click();
+} else
+if (this.state.click === "saveStory"){
+    handleSample2Click();
+}
+  
+},
+
   handleSample1Click() {
     this.handleSampleClick(1);
   },
+
   handleSample2Click() {
     this.handleSampleClick(2);
   },
 
-  handleSample1Click() {
+  downloadStory(){
     if (this.state.audioSource === 'sample-1') {
       this.stopTranscription();
     }
     else {// LH to do : loop through the this.state.formattedMessages array to get all, currently gets last line of speech(length-1)
      this.setState({
       toggleModal: true,
-
+      click: downloadStory,
     });
+  }
+  },
+
+  saveStory(){
+    if (this.state.audioSource === 'sample-1') {
+      this.stopTranscription();
+    }
+    else {// LH to do : loop through the this.state.formattedMessages array to get all, currently gets last line of speech(length-1)
+     this.setState({
+      toggleModal: true,
+      click: saveStory,
+    });
+  }
+  },
+
+  handleSample1Click() {
+    this.onExit();
 
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
       var finalmsg = "";
@@ -176,7 +204,7 @@ export default React.createClass({
       let usertitle = "";
 
       // var txt;
-      var storytitle = prompt("Please enter your Story Title:", "My Story");
+      var storytitle = this.state.text;
       if (storytitle == null || storytitle == "") {
         usertitle = "User cancelled the prompt.";
       } else {
@@ -224,7 +252,7 @@ export default React.createClass({
         console.log("Send to google docs");
         this.dropzone.open();
       }
-    }
+    
   },
 
   handleSample2Click() {
@@ -233,7 +261,7 @@ export default React.createClass({
     }
     else {
 
-      console.log("Saving the Story ");
+      console.log("Saving the Story to DB");
       //log in the user using google Oauth2 for email
       googleApi.init()
         .then(() => {
@@ -407,11 +435,6 @@ export default React.createClass({
       .then(token => this.setState({ token })).catch(this.handleError);
   },
 
-  handleModalChange(text) {
-    console.log("in model click " + text);
-    toggleModal: true;
-  },
-
   handleModelChange(model) {
     this.reset();
     this.setState({
@@ -565,18 +588,18 @@ export default React.createClass({
             <Icon fill={micIconFill} type={this.state.audioSource === 'mic' ? 'stop' : 'microphone'} /> Record Audio
           </button>
 
-          <button className={buttonClass} onClick={this.handleSample1Click}>
+          <button className={buttonClass} onClick={this.downloadStory}>
             <Icon fill="#ffffff" type={this.state.audioSource === 'sample-1' ? 'stop' : 'link-out'} /> Download Story
           </button>
 
           {/* <button className={buttonClass} onClick={this.handleSample2Click}> */}
-          <button className={buttonClass} onClick={this.onEnter}>
+          <button className={buttonClass} onClick={this.saveStory}>
             <Icon fill="#ffffff" type={this.state.audioSource === 'sample-2' ? 'stop' : 'plus'} /> Save Story
           </button>
 
           <Modal
             isOpen={this.state.toggleModal} // boolean
-            onExit={this.state.onExit}
+            onExit={this.onExit}
             onEnter={this.state.onEnter}
             
           >
@@ -589,7 +612,7 @@ export default React.createClass({
               this.setState({ text: e.target.value });
             }}
           />
-            
+            <button className={buttonClass} onClick={this.handleClick}></button>
           </Modal>
 
 
