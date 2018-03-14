@@ -22,22 +22,43 @@ class AllStories extends Component {
         this.gdUploadStory = this.gdUploadStory.bind(this);
     }
 
+    componentWillMount() {
+        this.loadStories();
+    };
+
     componentDidMount() {
         this.loadStories();
     };
 
     // Loads all stories
     loadStories() {
-        API.getStories()
-            .then(res =>
+    let userEmail = "";
+        //call googleApi to extract email of user
+        googleApi.init()
+        .then(() => {
+          userEmail = googleApi.getEmail()
+          .then(userEmail => {
+            console.log('Email extracted' + userEmail);
+        
+            API.getStories(userEmail)
+             .then(res =>
                 // to do add in error checking here if no stories display heading and no stories
                 // if (!res.data) {
                 //   console.log("no stories");
 
                 // }
                 this.setState({ stories: res.data })
-            )
-            .catch(err => console.log(err));
+                )
+             .catch(err => console.log(err));
+            })
+            .catch(err => {
+                console.log("error extracting email from googleAPI.getEmail " + err);
+            });
+        })
+        .catch(err => {
+            console.log("error calling googleAPI.init while loading user stories" + err);
+        });
+     
     };
 
     // Deletes a story from the database with a given id, then reloads stories from the db

@@ -10,7 +10,6 @@ import SpeakersView from './speaker.jsx';
 import cachedModels from '../src/data/models.json';
 import googleApi from "../src/utils/googleApi";
 import { request } from 'https';
-import { RingLoader } from 'react-spinners';
 
 const ERR_MIC_NARROWBAND = 'Microphone transcription cannot accommodate narrowband voice models, please select a broadband one.';
 

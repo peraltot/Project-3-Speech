@@ -18,8 +18,7 @@ class LogOut extends Component {
                 //redirect to home
             })
             .catch(err => {
-                alert(err);
-                console.log("error with init and logout");
+                console.log("error with init and logout" + err);
             });
         } 
 
