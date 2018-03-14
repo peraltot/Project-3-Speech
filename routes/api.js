@@ -9,29 +9,28 @@ api.get('/', (req, res) => {
 });
 
 // Route for retrieving all stories from the db
-api.get("/stories", function (req, res) {
-  // Find all Stories
-  db.Story
-    .find({})
-    .then(function (dbStory) {
-      // Send them back to the client
-      res.json(dbStory);
-      // res.render('stories', dbStory);
-
-    })
-    .catch(function (err) {
-      // If an error occurs, send the error back to the client
-      res.json(err);
-      //SEND BACK HERE
-    });
-});
+// api.get("/stories/:, function (req, res) {
+//   // Find all Notes
+//   db.Story
+//     .find({userEmail: req.params.userEmail})
+//     .then(function (dbStory) {
+//       // If all Notes are successfully found, send them back to the client
+//       res.json(dbStory);
+//       // res.render('stories', dbStory);
+//     })
+//     .catch(function (err) {
+//       // If an error occurs, send the error back to the client
+//       res.json(err);
+//       //SEND BACK HERE
+//     });
+// });
 
 //find one story - to do - add in .populate (user)
-api.get("/stories/:id", function (req, res) {
+api.get("/stories/:userEmail", function (req, res) {
   // Find all Stories
   db.Story
-    .findOne({
-      _id: req.params.id
+    .find({
+      userEmail: req.params.userEmail
     })
     .then(function (dbStory) {
       // If all Stories are successfully found, send them back to the client

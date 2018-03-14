@@ -5,3 +5,5 @@ uploads/
 logs/
 *.log
 coverage/
+.env
+.vscode/
