@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Row, Col } from 'react-materialize';
 
 
 // import { Header, Jumbotron } from 'watson-react-components';

@@ -5339,14 +5339,6 @@ react-dropzone@^4.2.5:
     attr-accept "^1.0.3"
     prop-types "^15.5.7"
 
-react-materialize@1.0.2:
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/react-materialize/-/react-materialize-1.0.18.tgz#359752b3cd2517064e705e1c47fbee40c49df3eb"
-  dependencies:
-    classnames "^2.2.5"
-    react "^15.4.2"
-    react-dom "^15.4.2"
-
 react-overlays@^0.8.0:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.8.3.tgz#fad65eea5b24301cca192a169f5dddb0b20d3ac5"

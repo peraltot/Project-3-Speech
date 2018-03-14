@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/api-axios";
 import googleApi from "../../utils/googleApi";
-import { Row, Col } from "react-materialize";
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import MailBtn from '../Buttons/MailBtn';
 import DeleteBtn from '../Buttons/DeleteBtn';

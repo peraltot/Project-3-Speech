@@ -1,7 +1,6 @@
 /* eslint no-param-reassign: 0 */
 import React from 'react';
 import Dropzone from 'react-dropzone';
-import DownloadBtn from "../Buttons/DownloadBtn";
 import { Icon, Tabs, Pane, Alert, JsonLink } from 'watson-react-components';
 import recognizeMicrophone from 'watson-speech/speech-to-text/recognize-microphone';
 import recognizeFile from 'watson-speech/speech-to-text/recognize-file';
@@ -366,13 +365,22 @@ export default React.createClass({
     this.setState({ audioSource: null });
   },
 
+  // Handling modals for user input for the story title
+  onExit() {
+    console.log('on exit');
+    this.setState({
+      toggleModal: false,
+    });
+  },
+
+  onEnter() {
+    console.log('on enter');
+  },
+
   componentDidMount() {
     this.fetchToken();
     // tokens expire after 60 minutes, so automatcally fetch a new one ever 50 minutes
-    // Not sure if this will work properly if a computer goes to sleep for > 50 minutes
-    // and then wakes back up
     // react automatically binds the call to this
-    // eslint-disable-next-line
     this.setState({ tokenInterval: setInterval(this.fetchToken, 50 * 60 * 1000) });
   },
 
@@ -543,16 +551,27 @@ export default React.createClass({
             <Icon fill={micIconFill} type={this.state.audioSource === 'mic' ? 'stop' : 'microphone'} /> Record Audio
           </button>
 
-          {/* <button className={buttonClass} onClick={this.handleSample1Click}>
+          <button className={buttonClass} onClick={this.toggleModal}>
             <Icon fill="#ffffff" type={this.state.audioSource === 'sample-1' ? 'stop' : 'link-out'} /> Download Story
-          </button> */}
-          <DownloadBtn/>
+          </button>
 
           <button className={buttonClass} onClick={this.handleSample2Click}>
             <Icon fill="#ffffff" type={this.state.audioSource === 'sample-2' ? 'stop' : 'plus'} /> Save Story
           </button>
 
-  
+          <Modal
+            isOpen={this.state.toggleModal} // boolean
+            onExit={onExit}
+            onEnter={onEnter}
+          >
+            <h2 className="base--h2" style={{ textAlign: 'center' }}>Hello World</h2>
+            <Alert type="error" color="red">This is an <b>error</b> message!</Alert>
+            <p className="base--p">
+              This is an example Error Message. Lorem ipsum dolor sit amet,
+            </p>
+          </Modal>
+
+
         </div>
 
         {err}
