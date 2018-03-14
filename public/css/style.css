@@ -6,7 +6,7 @@
 /* Navbar */
 #chatterdoxNav {
     background-color: #7BDFF2;
-    height: 100px;
+    height: 100px;   
 }
 
 .nav-wrapper {
@@ -14,7 +14,9 @@
 }
 
 nav #chatterdoxLogo {
-/* margin-left: 45%; */
+position: absolute;
+margin-right: 10px;
+right: 200px;
 border: none;
 font-size: 50px;
 font-family: 'Gochi Hand', cursive;
@@ -39,14 +41,24 @@ nav a {
 
 #navbarLinks {
     font-family: 'Gochi Hand', cursive;
-    font-size: 30px;    
+    font-size: 30px;
 }
 
 .logoutBtn {
+    position: absolute;
+    margin-top: 10px;
+    right: 40px;
     font-size: 26px;
     padding: 0px 30px;
     color: white;
     height: 60px;
+    font-family: 'Gochi Hand', cursive; 
+}
+
+.logoutBtn:focus {
+    background-color: #FF9F1C;
+    color: white;
+    border-color: #FF9F1C;
 }
 
 .logoutSpan {
