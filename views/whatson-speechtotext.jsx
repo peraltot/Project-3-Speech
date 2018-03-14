@@ -139,17 +139,6 @@ export default React.createClass({
     // manages the actual WebSocket connection.
     this.handleStream(recognizeMicrophone(this.getRecognizeOptions()));
   },
-
-  handleClick(){
-if (this.state.click === "downloadStory") {
-    handleSample1Click();
-} else
-if (this.state.click === "saveStory"){
-    handleSample2Click();
-}
-  
-},
-
   handleSample1Click() {
     this.handleSampleClick(1);
   },
@@ -158,6 +147,17 @@ if (this.state.click === "saveStory"){
     this.handleSampleClick(2);
   },
 
+  handleClick(){
+if (this.state.click === "downloadStory") {
+    this.handleSample1Click();
+} else
+if (this.state.click === "saveStory"){
+    this.handleSample2Click();
+}
+  
+},
+
+  
   downloadStory(){
     if (this.state.audioSource === 'sample-1') {
       this.stopTranscription();
@@ -165,7 +165,7 @@ if (this.state.click === "saveStory"){
     else {// LH to do : loop through the this.state.formattedMessages array to get all, currently gets last line of speech(length-1)
      this.setState({
       toggleModal: true,
-      click: downloadStory,
+      click: "downloadStory",
     });
   }
   },
@@ -177,7 +177,7 @@ if (this.state.click === "saveStory"){
     else {// LH to do : loop through the this.state.formattedMessages array to get all, currently gets last line of speech(length-1)
      this.setState({
       toggleModal: true,
-      click: saveStory,
+      click: "saveStory",
     });
   }
   },
