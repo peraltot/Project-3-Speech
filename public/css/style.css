@@ -14,7 +14,7 @@
 }
 
 nav #chatterdoxLogo {
-margin-left: 45%;
+/* margin-left: 45%; */
 border: none;
 font-size: 50px;
 font-family: 'Gochi Hand', cursive;
@@ -40,6 +40,18 @@ nav a {
 #navbarLinks {
     font-family: 'Gochi Hand', cursive;
     font-size: 30px;    
+}
+
+.logoutBtn {
+    font-size: 26px;
+    padding: 0px 30px;
+    color: white;
+    height: 60px;
+}
+
+.logoutSpan {
+    text-align: center;
+    margin: 0 auto;
 }
 
 .base--button, button {
