@@ -11,7 +11,6 @@ import cachedModels from '../src/data/models.json';
 import googleApi from "../src/utils/googleApi";
 import { request } from 'https';
 
-
 const ERR_MIC_NARROWBAND = 'Microphone transcription cannot accommodate narrowband voice models, please select a broadband one.';
 
 export default React.createClass({

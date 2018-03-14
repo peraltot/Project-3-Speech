@@ -2,8 +2,8 @@ import axios from "axios";
 
 export default {
   // Gets all stories
-  getStories: function () {
-    return axios.get("/stories");
+  getStories: function (userEmail) {
+    return axios.get("/stories/" + userEmail);
   },
   //   // Gets the story with the given id
   //   getStory: function(id) {

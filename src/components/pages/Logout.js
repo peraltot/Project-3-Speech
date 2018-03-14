@@ -15,10 +15,10 @@ class LogOut extends Component {
             .then(() => {
                 console.log("in logOut component");
                 googleApi.logOut();
+                //redirect to home
             })
             .catch(err => {
-                alert(err);
-                console.log("error with init and logout");
+                console.log("error with init and logout" + err);
             });
         } 
 

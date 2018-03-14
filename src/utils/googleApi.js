@@ -107,8 +107,9 @@ export default {
 
       //start of create file
       // first grab user email info from Oauth2 login
-      var user = this.gapi.client.auth2.getId();
-      console.log ("user details " + user);
+      // var user = this.gapi.client.auth2.getId();
+
+      // console.log ("user details " + user);
       var request = this.gapi.client.drive.about.get({
         fields: "user"
       });
