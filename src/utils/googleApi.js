@@ -67,19 +67,56 @@ export default {
 
 
   },
-  saveFile: function (id, words) {
+
+//method to grab email from google Oauth2 LH
+  getEmail: function (cb) {
+    return new Promise((resolve, reject) => {
+    //here we will grab the email from googleOauth2 , for now hard coding it
+    var userEmail = "";
+    // return userEmail;
+    // var user = this.gapi.client.auth2.getId();
+    // console.log ("user details " + user);
+    console.log("getting email from Oauth2");
+
+    var request = this.gapi.client.drive.about.get({
+      fields: "user"
+    });
+
+    request.execute(function (resp) {
+      userEmail = resp.user.emailAddress;
+      console.log('Current email address: ' + resp.user.emailAddress);
+      resolve(userEmail);
+    });
+
+
+  })
+
+    
+  },
+
+  logOut: function (){
+    console.log('User is being logged out');
+    this.gapi.auth2.getAuthInstance()
+      .signOut()
+    },
+  
+  
+  
+    saveFile: function (title, words) {
     return new Promise((resolve, reject) => {
 
       //start of create file
-      // first grab user email info from Oauth login
+      // first grab user email info from Oauth2 login
+      // var user = this.gapi.client.auth2.getId();
+
+      // console.log ("user details " + user);
       var request = this.gapi.client.drive.about.get({
         fields: "user"
       });
+
       request.execute(function (resp) {
         const userEmail = resp.user.emailAddress;
-        const userDocLink = resp.user.alternateLink;
         console.log('Current email address: ' + resp.user.emailAddress);
-        console.log('Link to google doc is ' + resp.user.alternateLink);
 
       });
 
@@ -97,7 +134,7 @@ export default {
       };
       //call the google drice API
       // const storyTitle = window.sessionStorage.getItem('id');
-      const storyTitle = id; //to be reaplced with prop.title
+      const storyTitle = title; //to be reaplced with prop.title
 
       this.gapi.client.drive.files.create({
         name: storyTitle,

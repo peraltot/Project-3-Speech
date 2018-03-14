@@ -10,7 +10,7 @@ class MailBtn extends Component {
 
     promptForEmail() {
         var sendee = prompt("Enter the address you would like to send your note to.")
-        alert(sendee)
+        // alert(sendee)
         this.mailStory(sendee);
     }
 

@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-// import { Header, Jumbotron } from 'watson-react-components';
-// eslint-disable-mnext-lin =
 const DESCRIPTION = 'Using IBM API to provide speech into text.';
  
 export default function Layout(props) {
@@ -24,7 +21,7 @@ export default function Layout(props) {
         {/* Import Google Fonts */}
         <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
-        {/* Import Google Icon Font */}
+        {/* Import Icons */}
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         {/* Import materialize.css */}
 	      <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet"/>
@@ -51,6 +48,5 @@ export default function Layout(props) {
 }
 
 Layout.propTypes = {
-  // children: PropTypes.object.isRequired, // eslint-disable-line
   bluemixAnalytics: PropTypes.bool.isRequired,
 };
