@@ -1,7 +1,7 @@
 /* eslint no-param-reassign: 0 */
 import React from 'react';
 import Dropzone from 'react-dropzone';
-import { Icon, Tabs, Pane, Alert, JsonLink } from 'watson-react-components';
+import { Icon, Tabs, Pane, Alert, JsonLink, Modal } from 'watson-react-components';
 import recognizeMicrophone from 'watson-speech/speech-to-text/recognize-microphone';
 import recognizeFile from 'watson-speech/speech-to-text/recognize-file';
 import ModelDropdown from './model-dropdown.jsx';
@@ -35,6 +35,21 @@ export default React.createClass({
     };
   },
 
+    // Handling modals for user input for the story title
+    onExit() {
+    console.log('on exit');
+    this.setState({
+      toggleModal: false,
+    });
+  },
+
+  onEnter() {
+    console.log('on enter');
+    this.setState({
+      toggleModal: true,
+    });
+  },
+  
   reset() {
     if (this.state.audioSource) {
       this.stopTranscription();
@@ -362,18 +377,6 @@ export default React.createClass({
     this.setState({ audioSource: null });
   },
 
-  // Handling modals for user input for the story title
-  onExit() {
-    console.log('on exit');
-    this.setState({
-      toggleModal: false,
-    });
-  },
-
-  onEnter() {
-    console.log('on enter');
-  },
-
   componentDidMount() {
     this.fetchToken();
     // tokens expire after 60 minutes, so automatcally fetch a new one ever 50 minutes
@@ -548,18 +551,19 @@ export default React.createClass({
             <Icon fill={micIconFill} type={this.state.audioSource === 'mic' ? 'stop' : 'microphone'} /> Record Audio
           </button>
 
-          <button className={buttonClass} onClick={this.toggleModal}>
+          <button className={buttonClass} onClick={this.handleSample1Click}>
             <Icon fill="#ffffff" type={this.state.audioSource === 'sample-1' ? 'stop' : 'link-out'} /> Download Story
           </button>
 
-          <button className={buttonClass} onClick={this.handleSample2Click}>
+          {/* <button className={buttonClass} onClick={this.handleSample2Click}> */}
+          <button className={buttonClass} onClick={this.onEnter}>
             <Icon fill="#ffffff" type={this.state.audioSource === 'sample-2' ? 'stop' : 'plus'} /> Save Story
           </button>
 
           <Modal
             isOpen={this.state.toggleModal} // boolean
-            onExit={onExit}
-            onEnter={onEnter}
+            onExit={this.state.onExit}
+            onEnter={this.state.onEnter}
           >
             <h2 className="base--h2" style={{ textAlign: 'center' }}>Hello World</h2>
             <Alert type="error" color="red">This is an <b>error</b> message!</Alert>
