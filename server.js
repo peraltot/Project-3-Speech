@@ -21,7 +21,6 @@ app.use(bodyParser.json());
 app.use('/', api);
 
 // Get token using your credentials
-
 require('./config/express')(app);
 
 const stt = new watson.SpeechToTextV1({

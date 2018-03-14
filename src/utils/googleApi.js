@@ -113,6 +113,7 @@ export default {
       var request = this.gapi.client.drive.about.get({
         fields: "user"
       });
+
       request.execute(function (resp) {
         const userEmail = resp.user.emailAddress;
         console.log('Current email address: ' + resp.user.emailAddress);

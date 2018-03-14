@@ -20,6 +20,9 @@ const expressBrowserify = require('express-browserify');
 const path = require('path');
 
 
+//Set the view engine to jsx and require the express-react-views node package:
+// This is an Express view engine which renders React components on server.
+// It renders static markup and *does not* support mounting those views on the client.
 module.exports = (app) => {
   app.enable('trust proxy');
   app.set('view engine', 'jsx');
