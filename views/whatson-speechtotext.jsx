@@ -1,7 +1,7 @@
 /* eslint no-param-reassign: 0 */
 import React from 'react';
 import Dropzone from 'react-dropzone';
-import { Icon, Tabs, Pane, Alert, JsonLink, Modal } from 'watson-react-components';
+import { Icon, Tabs, Pane, Alert, JsonLink, Modal, InputWithButton, TextInput } from 'watson-react-components/dist/components';
 import recognizeMicrophone from 'watson-speech/speech-to-text/recognize-microphone';
 import recognizeFile from 'watson-speech/speech-to-text/recognize-file';
 import ModelDropdown from './model-dropdown.jsx';
@@ -31,17 +31,23 @@ export default React.createClass({
         keywords: [],
         speakerLabels: false,
       },
+      toggleModal: false,
+      text: "",
       error: null,
     };
   },
 
     // Handling modals for user input for the story title
     onExit() {
-    console.log('on exit');
+    console.log('on exit' + this.state.text);
     this.setState({
       toggleModal: false,
     });
   },
+
+
+
+  
 
   onEnter() {
     console.log('on enter');
@@ -68,6 +74,8 @@ export default React.createClass({
         // keywords: this.getKeywordsArr(),
         speakerLabels: this.state.speakerLabels,
       },
+        toggleModal: false,
+        text: "",
     });
   },
 
@@ -144,6 +152,11 @@ export default React.createClass({
       this.stopTranscription();
     }
     else {// LH to do : loop through the this.state.formattedMessages array to get all, currently gets last line of speech(length-1)
+     this.setState({
+      toggleModal: true,
+
+    });
+
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
       var finalmsg = "";
       var phrase = [];
@@ -169,12 +182,7 @@ export default React.createClass({
       } else {
         usertitle = storytitle;
       }
-      //   <Modal
-      //   id='sample-1'
-      //   header='Modal Header'>
-      //   <p>Input Title:</p>
-      // </Modal>
-
+  
       exportJson();
 
       function exportJson() {
@@ -264,6 +272,7 @@ export default React.createClass({
 
       // var txt;
       var storytitle = prompt("Please enter your Story Title:", "My Story");
+      console.log("title from modal is " + this.state.text);
       if (storytitle == null || storytitle == "") {
         usertitle = "User cancelled the prompt.";
       } else {
@@ -396,6 +405,11 @@ export default React.createClass({
       return res.text();
     }) // todo: throw here if non-200 status
       .then(token => this.setState({ token })).catch(this.handleError);
+  },
+
+  handleModalChange(text) {
+    console.log("in model click " + text);
+    toggleModal: true;
   },
 
   handleModelChange(model) {
@@ -564,12 +578,18 @@ export default React.createClass({
             isOpen={this.state.toggleModal} // boolean
             onExit={this.state.onExit}
             onEnter={this.state.onEnter}
+            
           >
-            <h2 className="base--h2" style={{ textAlign: 'center' }}>Hello World</h2>
-            <Alert type="error" color="red">This is an <b>error</b> message!</Alert>
-            <p className="base--p">
-              This is an example Error Message. Lorem ipsum dolor sit amet,
-            </p>
+            <h2 className="base--h2" style={{ textAlign: 'center' }}>Saving Story</h2>
+            
+            <TextInput
+            id="text-input-1"
+            placeholder="Story Title here"
+            onInput={(e) => {
+              this.setState({ text: e.target.value });
+            }}
+          />
+            
           </Modal>
 
 
