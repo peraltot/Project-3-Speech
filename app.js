@@ -2,12 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // define import paths
-
 import Navbar from "./src/components/Navbar";
 import Home from "./src/components/pages/Home";
 import About from "./src/components/pages/About";
 import AllStories from "./src/components/pages/AllStories";
-import LogOut from "./src/components/pages/LogOut";
+import LogOut from "./src/components/LogOut";
 
 
 const App = () =>

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import googleApi from "../../utils/googleApi";
-
-
+import googleApi from "../utils/googleApi";
+import { Card, CardText } from 'material-ui/Card';
 
 class LogOut extends Component {
 
@@ -10,7 +9,7 @@ class LogOut extends Component {
         this.logOut = this.logOut.bind(this);
     }
 
-    logOut(){
+    logOut() {
         googleApi.init()
             .then(() => {
                 console.log("in logOut component");
@@ -20,15 +19,22 @@ class LogOut extends Component {
                 alert(err);
                 console.log("error with init and logout");
             });
-        } 
+    }
 
     render() {
-    return (
-        <div>
-      {this.logOut()}
-      </div>
-    )
-  }
+        return (
+            <div>
+                <div>
+                    {this.logOut()}
+                </div>
+                {/* <Card>
+                    <CardText>
+                        <p>You have logged out</p>
+                    </CardText>
+                </Card> */}
+            </div>
+        )
+    }
 }
 
 export default LogOut;

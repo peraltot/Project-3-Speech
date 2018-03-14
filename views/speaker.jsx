@@ -32,5 +32,5 @@ export default function SpeakersView(props) {
 }
 
 SpeakersView.propTypes = {
-  messages: PropTypes.array.isRequired, // eslint-disable-line
+  messages: PropTypes.array.isRequired,
 };
