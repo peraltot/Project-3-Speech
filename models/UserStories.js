@@ -9,14 +9,10 @@ var StorySchema = new Schema({
   // `name` must be unique and of type String
   title: {
     type: String,
-    // type: String
-    // unique: true
     required: true
   },
   words: {
     type: String,
-    // type: String
-    // unique: true
     required: true
   },
   userEmail: {

@@ -287,7 +287,7 @@ export default React.createClass({
         })
 
         .catch(err => {
-            alert(err);
+            // alert(err);
             console.log('error extracting user Email ingoogleAPI.getEmail' + err);
         });
       // })

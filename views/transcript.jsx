@@ -21,5 +21,5 @@ export default function Transcript(props) {
 }
 
 Transcript.propTypes = {
-  messages: PropTypes.array.isRequired, // eslint-disable-line
+  messages: PropTypes.array.isRequired,
 };
