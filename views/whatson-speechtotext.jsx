@@ -604,16 +604,16 @@ if (this.state.click === "saveStory"){
             onEnter={this.state.onEnter}
             
           >
-            <h2 className="base--h2" style={{ textAlign: 'center' }}>Saving Story</h2>
+            <h3 className="modalHeader" style={{ textAlign: 'center' }}>Enter your story's title:</h3>
             
             <TextInput
             id="text-input-1"
-            placeholder="Story Title here"
+            placeholder="My Story..."
             onInput={(e) => {
               this.setState({ text: e.target.value });
             }}
           />
-            <button className={buttonClass} onClick={this.handleClick}></button>
+            <button className={buttonClass} id="modalSubmitBtn" onClick={this.handleClick}>Submit</button>
           </Modal>
 
 
