@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import googleApi from "../utils/googleApi";
 import { Card, CardText } from 'material-ui/Card';
 
+
 class LogOut extends Component {
 
     constructor(props) {
