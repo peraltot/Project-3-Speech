@@ -206,7 +206,7 @@ if (this.state.click === "saveStory"){
       // var txt;
       var storytitle = this.state.text;
       if (storytitle == null || storytitle == "") {
-        usertitle = "User cancelled the prompt.";
+        usertitle = "My Story";
       } else {
         usertitle = storytitle;
       }
@@ -303,7 +303,7 @@ if (this.state.click === "saveStory"){
       var storytitle = this.state.text;
       console.log("title from modal is " + this.state.text);
       if (storytitle == null || storytitle == "") {
-        usertitle = "User cancelled the modal.";
+        usertitle = "My Story.";
       } else {
         usertitle = storytitle;
       }
