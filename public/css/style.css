@@ -337,6 +337,7 @@ dialog, dd, dt {
     font-size: 35px !important;
     padding-right: 0px !important;
     font-family: 'Gochi Hand', cursive;
+    margin-top: 10px;
 }
 
 #storyCardHeader div {
@@ -348,7 +349,7 @@ dialog, dd, dt {
 }
 
 .cardText {
-    font-size: 18px !important;
+    font-size: 20px !important;
 }
 
 .btn-floating.btn-large {
@@ -369,16 +370,38 @@ dialog, dd, dt {
 }
 
 /* Modals */
+#storyTitleModal {
+    /* display: none; */
+    position: absolute !important;
+    left: -9999px !important;
+    right: -9999px !important;
+    background-color: #fff !important;
+    padding: 1rem !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    width: 100% !important;
+    margin: auto !important;
+    overflow: auto !important;
+    border-radius: none !important;
+    will-change: top, opacity !important;
+}
+
 .modalHeader {
     font-family: 'Raleway', sans-serif;
     color: #FF9F1C;  
-    font-weight: bold;  
+    font-weight: bold; 
+    font-size: 24px; 
+}
+
+.text-input {
+    border-bottom: none;
 }
 
 #text-input-1 {
     margin-top: 50px;
     font-family: 'Raleway', sans-serif;
-    font-weight: bold; 
+    font-weight: bold;
+    height: 3rem;
 }
 
 #modalSubmitBtn {
@@ -387,10 +410,24 @@ dialog, dd, dt {
 }
 
 .text-input--input[type=text] {
-    box-shadow: 0 3px 0 0 #FF9F1C; 
+    box-shadow: 0 3px 0 0 black;
+}
+
+.text-input--input[type=text]:focus {
+    border-bottom: 2px solid #FF9F1C !important;
+    box-shadow: 0 2px 0 0 #FF9F1C !important;
+    color: black;
+}
+
+.text-input--input[type=text].empty {
+    box-shadow: 0 3px 0 0 black;
 }
 
 .text-input--dummy {
     font-family: 'Raleway', sans-serif !important;
     font-weight: bold !important;    
+}
+
+.modal--x:focus {
+    background-color: #FF9F1C;
 }
