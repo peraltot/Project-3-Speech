@@ -183,7 +183,7 @@ if (this.state.click === "saveStory"){
   },
 
   handleSample1Click() {
-    this.onExit();
+    this.onExit();//closes modal
 
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
       var finalmsg = "";
@@ -260,6 +260,7 @@ if (this.state.click === "saveStory"){
       this.stopTranscription();
     }
     else {
+      this.onExit();//closes modal
 
       console.log("Saving the Story to DB");
       //log in the user using google Oauth2 for email
@@ -299,10 +300,10 @@ if (this.state.click === "saveStory"){
       let usertitle = "";
 
       // var txt;
-      var storytitle = prompt("Please enter your Story Title:", "My Story");
+      var storytitle = this.state.text;
       console.log("title from modal is " + this.state.text);
       if (storytitle == null || storytitle == "") {
-        usertitle = "User cancelled the prompt.";
+        usertitle = "User cancelled the modal.";
       } else {
         usertitle = storytitle;
       }
