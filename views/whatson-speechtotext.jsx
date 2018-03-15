@@ -1,7 +1,7 @@
 /* eslint no-param-reassign: 0 */
 import React from 'react';
 import Dropzone from 'react-dropzone';
-import { Icon, Tabs, Pane, Alert, JsonLink, Modal, InputWithButton, TextInput } from 'watson-react-components/dist/components';
+import { Icon, Tabs, Pane, Alert, JsonLink, Modal, TextInput } from 'watson-react-components/dist/components';
 import recognizeMicrophone from 'watson-speech/speech-to-text/recognize-microphone';
 import recognizeFile from 'watson-speech/speech-to-text/recognize-file';
 import ModelDropdown from './model-dropdown.jsx';
