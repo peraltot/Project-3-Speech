@@ -29,6 +29,7 @@ p {
 .about-text {
     font-size: 30px;
     font-family: 'Gochi Hand', cursive;
+    text-align: center;
 }
 
 .bold {
