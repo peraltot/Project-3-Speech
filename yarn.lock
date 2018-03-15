@@ -4589,7 +4589,10 @@ react-dropzone@^4.2.5:
     attr-accept "^1.0.3"
     prop-types "^15.5.7"
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 58ccbdb7744bcb55da5de9ae566b65ad33e7ece6
 react-overlays@^0.8.0:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.8.3.tgz#fad65eea5b24301cca192a169f5dddb0b20d3ac5"

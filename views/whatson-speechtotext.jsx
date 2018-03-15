@@ -1,7 +1,7 @@
 /* eslint no-param-reassign: 0 */
 import React from 'react';
 import Dropzone from 'react-dropzone';
-import { Icon, Tabs, Pane, Alert, JsonLink } from 'watson-react-components';
+import { Icon, Tabs, Pane, Alert, JsonLink, Modal, TextInput } from 'watson-react-components/dist/components';
 import recognizeMicrophone from 'watson-speech/speech-to-text/recognize-microphone';
 import recognizeFile from 'watson-speech/speech-to-text/recognize-file';
 import ModelDropdown from './model-dropdown.jsx';
@@ -31,10 +31,31 @@ export default React.createClass({
         keywords: [],
         speakerLabels: false,
       },
+      toggleModal: false,
+      text: "",
       error: null,
     };
   },
 
+    // Handling modals for user input for the story title
+    onExit() {
+    console.log('on exit' + this.state.text);
+    this.setState({
+      toggleModal: false,
+    });
+  },
+
+
+
+  
+
+  onEnter() {
+    console.log('on enter');
+    this.setState({
+      toggleModal: true,
+    });
+  },
+  
   reset() {
     if (this.state.audioSource) {
       this.stopTranscription();
@@ -53,6 +74,8 @@ export default React.createClass({
         // keywords: this.getKeywordsArr(),
         speakerLabels: this.state.speakerLabels,
       },
+        toggleModal: false,
+        text: "",
     });
   },
 
@@ -116,19 +139,52 @@ export default React.createClass({
     // manages the actual WebSocket connection.
     this.handleStream(recognizeMicrophone(this.getRecognizeOptions()));
   },
-
   handleSample1Click() {
     this.handleSampleClick(1);
   },
+
   handleSample2Click() {
     this.handleSampleClick(2);
   },
 
-  handleSample1Click() {
+  handleClick(){
+if (this.state.click === "downloadStory") {
+    this.handleSample1Click();
+} else
+if (this.state.click === "saveStory"){
+    this.handleSample2Click();
+}
+  
+},
+
+  
+  downloadStory(){
     if (this.state.audioSource === 'sample-1') {
       this.stopTranscription();
     }
     else {// LH to do : loop through the this.state.formattedMessages array to get all, currently gets last line of speech(length-1)
+     this.setState({
+      toggleModal: true,
+      click: "downloadStory",
+    });
+  }
+  },
+
+  saveStory(){
+    if (this.state.audioSource === 'sample-1') {
+      this.stopTranscription();
+    }
+    else {// LH to do : loop through the this.state.formattedMessages array to get all, currently gets last line of speech(length-1)
+     this.setState({
+      toggleModal: true,
+      click: "saveStory",
+    });
+  }
+  },
+
+  handleSample1Click() {
+    this.onExit();//closes modal
+
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
       var finalmsg = "";
       var phrase = [];
@@ -148,18 +204,13 @@ export default React.createClass({
       let usertitle = "";
 
       // var txt;
-      var storytitle = prompt("Please enter your Story Title:", "My Story");
+      var storytitle = this.state.text;
       if (storytitle == null || storytitle == "") {
         usertitle = "User cancelled the prompt.";
       } else {
         usertitle = storytitle;
       }
-      //   <Modal
-      //   id='sample-1'
-      //   header='Modal Header'>
-      //   <p>Input Title:</p>
-      // </Modal>
-
+  
       exportJson();
 
       function exportJson() {
@@ -201,7 +252,7 @@ export default React.createClass({
         console.log("Send to google docs");
         this.dropzone.open();
       }
-    }
+    
   },
 
   handleSample2Click() {
@@ -209,8 +260,9 @@ export default React.createClass({
       this.stopTranscription();
     }
     else {
+      this.onExit();//closes modal
 
-      console.log("Saving the Story ");
+      console.log("Saving the Story to DB");
       //log in the user using google Oauth2 for email
       googleApi.init()
         .then(() => {
@@ -248,9 +300,10 @@ export default React.createClass({
       let usertitle = "";
 
       // var txt;
-      var storytitle = prompt("Please enter your Story Title:", "My Story");
+      var storytitle = this.state.text;
+      console.log("title from modal is " + this.state.text);
       if (storytitle == null || storytitle == "") {
-        usertitle = "User cancelled the prompt.";
+        usertitle = "User cancelled the modal.";
       } else {
         usertitle = storytitle;
       }
@@ -365,10 +418,7 @@ export default React.createClass({
   componentDidMount() {
     this.fetchToken();
     // tokens expire after 60 minutes, so automatcally fetch a new one ever 50 minutes
-    // Not sure if this will work properly if a computer goes to sleep for > 50 minutes
-    // and then wakes back up
     // react automatically binds the call to this
-    // eslint-disable-next-line
     this.setState({ tokenInterval: setInterval(this.fetchToken, 50 * 60 * 1000) });
   },
 
@@ -539,17 +589,35 @@ export default React.createClass({
             <Icon fill={micIconFill} type={this.state.audioSource === 'mic' ? 'stop' : 'microphone'} /> Record Audio
           </button>
 
-          <button className={buttonClass} onClick={this.handleSample1Click}>
+          <button className={buttonClass} onClick={this.downloadStory}>
             <Icon fill="#ffffff" type={this.state.audioSource === 'sample-1' ? 'stop' : 'link-out'} /> Download Story
           </button>
 
-          <button className={buttonClass} onClick={this.handleSample2Click}>
+          {/* <button className={buttonClass} onClick={this.handleSample2Click}> */}
+          <button className={buttonClass} onClick={this.saveStory}>
             <Icon fill="#ffffff" type={this.state.audioSource === 'sample-2' ? 'stop' : 'plus'} /> Save Story
           </button>
 
-          {/* <button className={buttonClass} onClick={this.handleUploadClick}>
-            <Icon type={this.state.audioSource === 'upload' ? 'stop' : 'upload'} /> Upload Audio File
-          </button> */}
+          <Modal
+            id="storyTitleModal"
+            isOpen={this.state.toggleModal} // boolean
+            onExit={this.onExit}
+            onEnter={this.state.onEnter}
+            
+          >
+            <h3 className="modalHeader" style={{ textAlign: 'center' }}>Enter your story's title:</h3>
+            
+            <TextInput
+            style={{ textAlign: 'center' }}
+            id="text-input-1"
+            placeholder="My Story Title"
+            onInput={(e) => {
+              this.setState({ text: e.target.value });
+            }}
+          />
+            <button className={buttonClass} id="modalSubmitBtn" onClick={this.handleClick}>Submit</button>
+          </Modal>
+
 
         </div>
 
