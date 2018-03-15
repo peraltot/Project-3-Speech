@@ -409,20 +409,24 @@ dialog, dd, dt {
 }
 
 .text-input--input[type=text] {
-    box-shadow: 0 2px 0 0 #7BDFF2;
+    box-shadow: 0 3px 0 0 black;
 }
 
 .text-input--input[type=text]:focus {
-    border-bottom: 1px solid #FF9F1C !important;
-    box-shadow: 0 1px 0 0 #FF9F1C !important;
+    border-bottom: 2px solid #FF9F1C !important;
+    box-shadow: 0 2px 0 0 #FF9F1C !important;
     color: black;
 }
 
 .text-input--input[type=text].empty {
-    box-shadow: 0 2px 0 0 #7BDFF2;
+    box-shadow: 0 3px 0 0 black;
 }
 
 .text-input--dummy {
     font-family: 'Raleway', sans-serif !important;
     font-weight: bold !important;    
+}
+
+.modal--x:focus {
+    background-color: #FF9F1C;
 }
