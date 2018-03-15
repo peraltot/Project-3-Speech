@@ -115,7 +115,7 @@ class AllStories extends Component {
                                     <CardText expandable={true} className="cardText">
                                         {story.words}
                                     </CardText>
-                                    <CardActions>
+                                    <CardActions className="storyCardButtonsDiv">
                                         <DeleteBtn label="delete" onClick={() => this.delStory(story._id)} />
                                         <DriveBtn label="drive" onClick={() => this.gdUploadStory(story._id, story.words)} />
                                         <MailBtn label="mail" subject={story.title} text={story.words} />
