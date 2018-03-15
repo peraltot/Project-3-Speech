@@ -369,6 +369,22 @@ dialog, dd, dt {
 }
 
 /* Modals */
+#storyTitleModal {
+    /* display: none; */
+    position: absolute !important;
+    left: -9999px !important;
+    right: -9999px !important;
+    background-color: #fff !important;
+    padding: 1rem !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    width: 100% !important;
+    margin: auto !important;
+    overflow: auto !important;
+    border-radius: none !important;
+    will-change: top, opacity !important;
+}
+
 .modalHeader {
     font-family: 'Raleway', sans-serif;
     color: #FF9F1C;  

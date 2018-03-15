@@ -599,6 +599,7 @@ if (this.state.click === "saveStory"){
           </button>
 
           <Modal
+            id="storyTitleModal"
             isOpen={this.state.toggleModal} // boolean
             onExit={this.onExit}
             onEnter={this.state.onEnter}
@@ -607,8 +608,9 @@ if (this.state.click === "saveStory"){
             <h3 className="modalHeader" style={{ textAlign: 'center' }}>Enter your story's title:</h3>
             
             <TextInput
+            style={{ textAlign: 'center' }}
             id="text-input-1"
-            placeholder="My Story..."
+            placeholder="My Story Title"
             onInput={(e) => {
               this.setState({ text: e.target.value });
             }}
