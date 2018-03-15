@@ -76,9 +76,9 @@ nav a {
 }
 
 .base--button:hover, .base--button:focus, button:focus, button:hover {
-    background-color: #FF9F1C;
+    background-color: #FF9F1C !important;
     color: white;
-    border-color: #FF9F1C;
+    border-color: #FF9F1C !important;
 }
 
 button:active {

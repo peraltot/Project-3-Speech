@@ -42,11 +42,6 @@ class AllStories extends Component {
         
             API.getStories(userEmail)
              .then(res =>
-                // to do add in error checking here if no stories display heading and no stories
-                // if (!res.data) {
-                //   console.log("no stories");
-
-                // }
                 this.setState({ stories: res.data })
                 )
              .catch(err => console.log(err));
@@ -69,6 +64,7 @@ class AllStories extends Component {
             .catch(err => console.log(err));
     };
 
+    // Uploads a story to a user's Google Drive account.
     gdUploadStory(title, words) {
         console.log("Google Drive Upload clicked");
         googleApi.init()
@@ -83,6 +79,7 @@ class AllStories extends Component {
             });
     };
 
+    // Mails a story to a chosen email address
     mailStory() {
         const msg = {
             to: 'connorjohnmelnick@gmail.com',
