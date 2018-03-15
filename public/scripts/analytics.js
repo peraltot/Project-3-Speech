@@ -1,6 +1,3 @@
-/* global ga */
-/* eslint no-underscore-dangle: off, no-var: off, vars-on-top: off */
-
 function loadAnalytics() {
   var SERVICE_NAME = 'speech-to-text-demo';
   var GOOGLE_ANALYTICS = 'UA-59827755-13';

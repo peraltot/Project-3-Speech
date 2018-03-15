@@ -1,22 +1,47 @@
 import React, { Component } from "react";
 import API from '../../utils/api-axios'
+import {  Modal, TextInput } from 'watson-react-components/dist/components';
  
 class MailBtn extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            toggleModal : false,
+            email : ""
+        }
+        
+        // this.modalShow = this.modalShow.bind(this);
+        this.onExit = this.onExit.bind(this);
+        this.onEnter = this.onEnter.bind(this);
         this.mailStory = this.mailStory.bind(this);
-        this.promptForEmail = this.promptForEmail.bind(this);
     }
+    
+    onExit() {
+        console.log('on exit' + this.state.email);
+        this.setState({
+          toggleModal: false,
+        });
+      }
 
-    promptForEmail() {
-        var sendee = prompt("Enter the address you would like to send your note to.")
-        // alert(sendee)
-        this.mailStory(sendee);
-    }
+      onEnter() {
+        console.log('on enter');
+        this.setState({
+          toggleModal: true,
+        });
+      }
 
-    mailStory(sendee) {
+    // modalShow() {
+    //     this.onEnter();
+    //     // var sendee = this.email;
+    //     // prompt("Enter the address you would like to send your note to.")
+    //     // alert(sendee)
+    //     // this.mailStory(sendee);
+    // }
+
+    mailStory() {
+        this.onExit();//closes modal
         const msg = {
-            to: sendee,
+            to: this.state.email,
             from: 'mystory@chatterdox.com',
             subject: this.props.subject,
             text: this.props.text,
@@ -29,9 +54,29 @@ class MailBtn extends Component {
 
     render() {
         return (
-            <a className="btn-floating btn-large waves-effect waves-light" onClick={()=>this.promptForEmail()}>
-            <i className="material-icons">mail</i>
-        </a>
+        <div>
+            <a className="btn-floating btn-large waves-effect waves-light" onClick={this.onEnter}>
+            <i className="material-icons">mail</i></a>
+ 
+
+        <Modal
+        isOpen={this.state.toggleModal} // boolean
+         onExit={this.onExit}
+        onEnter={this.onEnter}
+        >
+        <h3 className="modalHeader" style={{ textAlign: 'center' }}>Enter the address you would like to send your note to.</h3>
+        
+        <TextInput
+        id="text-input-1"
+        placeholder="Sendee"
+        onInput={(e) => {
+        this.setState({ email: e.target.value });
+        }}
+        />
+        <button id="modalSubmitBtn" onClick={this.mailStory}>Submit</button>
+        </Modal>
+        </div>
+ 
         )
     }
 }
