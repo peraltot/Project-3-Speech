@@ -34,10 +34,6 @@ class MailBtn extends Component {
         this.setState({
             toggleModal: true,
         });
-        // var sendee = this.email;
-        // prompt("Enter the address you would like to send your note to.")
-        // alert(sendee)
-        // this.mailStory(sendee);
     }
 
     mailStory() {
@@ -56,7 +52,7 @@ class MailBtn extends Component {
 
     render() {
         return (
-        <div>
+        <div className="mailBtnDiv">
             <a className="btn-floating btn-large waves-effect waves-light" onClick={this.modalShow}>
             <i className="material-icons">mail</i></a>
  

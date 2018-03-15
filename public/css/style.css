@@ -369,6 +369,12 @@ dialog, dd, dt {
     color: black;
 }
 
+.mailBtnDiv {
+    height: 56px;
+    width: 56px;
+    display: inline-block;
+}
+
 /* Modals */
 #storyTitleModal {
     /* display: none; */
