@@ -10,7 +10,7 @@ class MailBtn extends Component {
             email : ""
         }
         
-        this.modalShow = this.modalShow.bind(this);
+        // this.modalShow = this.modalShow.bind(this);
         this.onExit = this.onExit.bind(this);
         this.onEnter = this.onEnter.bind(this);
         this.mailStory = this.mailStory.bind(this);
@@ -30,15 +30,13 @@ class MailBtn extends Component {
         });
       }
 
-    modalShow() {
-        this.setState({
-            toggleModal: true,
-        });
-        // var sendee = this.email;
-        // prompt("Enter the address you would like to send your note to.")
-        // alert(sendee)
-        // this.mailStory(sendee);
-    }
+    // modalShow() {
+    //     this.onEnter();
+    //     // var sendee = this.email;
+    //     // prompt("Enter the address you would like to send your note to.")
+    //     // alert(sendee)
+    //     // this.mailStory(sendee);
+    // }
 
     mailStory() {
         this.onExit();//closes modal
@@ -57,14 +55,14 @@ class MailBtn extends Component {
     render() {
         return (
         <div>
-            <a className="btn-floating btn-large waves-effect waves-light" onClick={this.modalShow}>
+            <a className="btn-floating btn-large waves-effect waves-light" onClick={this.onEnter}>
             <i className="material-icons">mail</i></a>
  
 
         <Modal
         isOpen={this.state.toggleModal} // boolean
          onExit={this.onExit}
-        onEnter={this.state.onEnter}
+        onEnter={this.onEnter}
         >
         <h3 className="modalHeader" style={{ textAlign: 'center' }}>Enter the address you would like to send your note to.</h3>
         
