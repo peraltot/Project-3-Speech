@@ -54,7 +54,7 @@ class MailBtn extends Component {
 
     render() {
         return (
-        <div>
+        <div className="mailBtnDiv">
             <a className="btn-floating btn-large waves-effect waves-light" onClick={this.onEnter}>
             <i className="material-icons">mail</i></a>
  
