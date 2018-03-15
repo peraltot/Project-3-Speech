@@ -388,13 +388,19 @@ dialog, dd, dt {
 .modalHeader {
     font-family: 'Raleway', sans-serif;
     color: #FF9F1C;  
-    font-weight: bold;  
+    font-weight: bold; 
+    font-size: 24px; 
+}
+
+.text-input {
+    border-bottom: none;
 }
 
 #text-input-1 {
     margin-top: 50px;
     font-family: 'Raleway', sans-serif;
-    font-weight: bold; 
+    font-weight: bold;
+    height: 3rem;
 }
 
 #modalSubmitBtn {
@@ -403,7 +409,17 @@ dialog, dd, dt {
 }
 
 .text-input--input[type=text] {
-    box-shadow: 0 3px 0 0 #FF9F1C; 
+    box-shadow: 0 2px 0 0 #7BDFF2;
+}
+
+.text-input--input[type=text]:focus {
+    border-bottom: 1px solid #FF9F1C !important;
+    box-shadow: 0 1px 0 0 #FF9F1C !important;
+    color: black;
+}
+
+.text-input--input[type=text].empty {
+    box-shadow: 0 2px 0 0 #7BDFF2;
 }
 
 .text-input--dummy {
