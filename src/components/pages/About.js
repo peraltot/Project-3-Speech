@@ -11,11 +11,11 @@ class About extends Component {
         { title: "Recorded Text", text: "Displays recorded text.", img: "./images/mystory-resize.jpg" },
         { title: "Download Story", text: "Download story locally.", img: "./images/download.png" },
         { title: "Save Story", text: "Save story to view in My Stories.", img: "./images/save.png" },
-        { title: "MyStories Page", text: "Go to saved stories page to view your stories.", img: "./images/mystories.png"  },
-        { title: "View Story", text: "Expand to view your story.", img: "./images/story-card-resize.png" },
+        { title: "MyStories Page", text: "To view your stories go to the My Stories page.", img: "./images/mystories.png"  },
+        { title: "View Story", text: "Expand to view a story's text.", img: "./images/story-card-resize.png" },
         { title: "Delete Story", text: "Delete a story.", img: "./images/delete.png"  },
-        { title: "Google Drive", text: "Upload your story to Google Drive.", img: "./images/google.png"  },
-        { title: "Mail Story", text: "Email your story to yourself or someone else.", img: "./images/email.png"  },
+        { title: "Google Drive", text: "Upload a story to Google Drive.", img: "./images/google.png"  },
+        { title: "Mail Story", text: "Email a story to yourself or someone else.", img: "./images/email.png"  },
         
 
       ]   
