@@ -26,7 +26,7 @@ const Navbar = props =>
 			<span className="icon-bar"></span>
 			<a id="chatterdoxLogo" className="nav navbar-nav navbar-center hide-on-med-and-down" href="/">ChatterDoX</a>
 			<Link to="/logOut">
-				<button className="logoutBtn">Logout</button>
+				<button className="logoutBtn hide-on-med-and-down">Logout</button>
 			</Link>
 		</div>
 	</nav>
