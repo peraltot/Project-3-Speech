@@ -24,7 +24,7 @@ const Navbar = props =>
 					My Stories</span>
 			</Link>
 			<span className="icon-bar"></span>
-			<a id="chatterdoxLogo" className="nav navbar-nav navbar-center" href="/">ChatterDoX</a>
+			<a id="chatterdoxLogo" className="nav navbar-nav navbar-center hide-on-med-and-down" href="/">ChatterDoX</a>
 			<Link to="/logOut">
 				<button className="logoutBtn">Logout</button>
 			</Link>
