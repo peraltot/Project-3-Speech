@@ -23,7 +23,7 @@ export default function Layout(props) {
         <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
         {/* Import Icons */}
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         {/* Import materialize.css */}
 	      <link href="/css/materialize.css" rel="stylesheet"/>
       </head>
