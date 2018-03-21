@@ -1,5 +1,4 @@
 import React from "react";
-import MediaQuery from "react-responsive";
 import { Link } from "react-router-dom";
 import googleApi from "../utils/googleApi";
 

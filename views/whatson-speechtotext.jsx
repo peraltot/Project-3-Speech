@@ -37,17 +37,13 @@ export default React.createClass({
     };
   },
 
-    // Handling modals for user input for the story title
-    onExit() {
+  // Handling modals for user input for the story title
+  onExit() {
     console.log('on exit' + this.state.text);
     this.setState({
       toggleModal: false,
     });
   },
-
-
-
-  
 
   onEnter() {
     console.log('on enter');
@@ -55,7 +51,7 @@ export default React.createClass({
       toggleModal: true,
     });
   },
-  
+
   reset() {
     if (this.state.audioSource) {
       this.stopTranscription();
@@ -74,8 +70,8 @@ export default React.createClass({
         // keywords: this.getKeywordsArr(),
         speakerLabels: this.state.speakerLabels,
       },
-        toggleModal: false,
-        text: "",
+      toggleModal: false,
+      text: "",
     });
   },
 
@@ -147,112 +143,112 @@ export default React.createClass({
     this.handleSampleClick(2);
   },
 
-  handleClick(){
-if (this.state.click === "downloadStory") {
-    this.handleSample1Click();
-} else
-if (this.state.click === "saveStory"){
-    this.handleSample2Click();
-}
-  
-},
+  handleClick() {
+    if (this.state.click === "downloadStory") {
+      this.handleSample1Click();
+    } else
+      if (this.state.click === "saveStory") {
+        this.handleSample2Click();
+      }
 
-  
-  downloadStory(){
-    if (this.state.audioSource === 'sample-1') {
-      this.stopTranscription();
-    }
-    else {// LH to do : loop through the this.state.formattedMessages array to get all, currently gets last line of speech(length-1)
-     this.setState({
-      toggleModal: true,
-      click: "downloadStory",
-    });
-  }
   },
 
-  saveStory(){
+
+  downloadStory() {
     if (this.state.audioSource === 'sample-1') {
       this.stopTranscription();
     }
-    else {// LH to do : loop through the this.state.formattedMessages array to get all, currently gets last line of speech(length-1)
-     this.setState({
-      toggleModal: true,
-      click: "saveStory",
-    });
-  }
+    else {
+      this.setState({
+        toggleModal: true,
+        click: "downloadStory",
+      });
+    }
+  },
+
+  saveStory() {
+    if (this.state.audioSource === 'sample-1') {
+      this.stopTranscription();
+    }
+    else {
+      this.setState({
+        toggleModal: true,
+        click: "saveStory",
+      });
+    }
   },
 
   handleSample1Click() {
     this.onExit();//closes modal
 
-      console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
-      var finalmsg = "";
-      var phrase = [];
-      let msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
-      var fullmsg = this.state.formattedMessages;
-      fullmsg.forEach(function (msg, index) {
-        // phrase.push(msg.) = fullmsg[index].results[0].alternatives[0].transcript;
-        if (msg.results[0].final) {
-          phrase.push(msg.results[0].alternatives[0].transcript);
+    console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
+    var finalmsg = "";
+    var phrase = [];
+    let msg = this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript;
+    var fullmsg = this.state.formattedMessages;
+    fullmsg.forEach(function (msg, index) {
+      // phrase.push(msg.) = fullmsg[index].results[0].alternatives[0].transcript;
+      if (msg.results[0].final) {
+        phrase.push(msg.results[0].alternatives[0].transcript);
 
-          finalmsg = finalmsg + " " + msg.results[0].alternatives[0].transcript;
+        finalmsg = finalmsg + " " + msg.results[0].alternatives[0].transcript;
 
-        }
-      });
-      console.log("Save locally");
-      // confirm("User inputs title via modal!");
-      let usertitle = "";
-
-      // var txt;
-      var storytitle = this.state.text;
-      if (storytitle == null || storytitle == "") {
-        usertitle = "My Story";
-      } else {
-        usertitle = storytitle;
       }
-  
-      exportJson();
+    });
+    console.log("Save locally");
+    // confirm("User inputs title via modal!");
+    let usertitle = "";
 
-      function exportJson() {
-        downloadTextFile(usertitle + '.txt', finalmsg)
-      }
+    // var txt;
+    var storytitle = this.state.text;
+    if (storytitle == null || storytitle == "") {
+      usertitle = "My Story";
+    } else {
+      usertitle = storytitle;
+    }
 
-      function downloadTextFile(filename, text) {
-        var element = document.createElement('a');
-        element.setAttribute('hidden', '')
-        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-        element.setAttribute('download', filename);
-        document.body.appendChild(element);
-        element.click();
-        document.body.removeChild(element);
-      }
+    exportJson();
 
-      function createAndSendDocument() {
-        // Create a new Google Doc named 'Hello, world!'
+    function exportJson() {
+      downloadTextFile(usertitle + '.txt', finalmsg)
+    }
 
-        var doc = DocumentApp.create('Hello, world!');
+    function downloadTextFile(filename, text) {
+      var element = document.createElement('a');
+      element.setAttribute('hidden', '')
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+      element.setAttribute('download', filename);
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
 
-        // Access the body of the document, then add a paragraph.
-        doc.getBody().appendParagraph('This document was created by Google Apps Script.');
+    function createAndSendDocument() {
+      // Create a new Google Doc named 'Hello, world!'
 
-        // Get the URL of the document.
-        var url = doc.getUrl();
+      var doc = DocumentApp.create('Hello, world!');
 
-        // Get the email address of the active user - that's you.
-        var email = Session.getActiveUser().getEmail();
+      // Access the body of the document, then add a paragraph.
+      doc.getBody().appendParagraph('This document was created by Google Apps Script.');
 
-        // Get the name of the document to use as an email subject line.
-        var subject = doc.getName();
+      // Get the URL of the document.
+      var url = doc.getUrl();
 
-        // Append a new string to the "url" variable to use as an email body.
-        var body = 'Link to your doc: ' + url;
+      // Get the email address of the active user - that's you.
+      var email = Session.getActiveUser().getEmail();
 
-        // Send yourself an email with a link to the document.
-        GmailApp.sendEmail(email, subject, body);
-        console.log("Send to google docs");
-        this.dropzone.open();
-      }
-    
+      // Get the name of the document to use as an email subject line.
+      var subject = doc.getName();
+
+      // Append a new string to the "url" variable to use as an email body.
+      var body = 'Link to your doc: ' + url;
+
+      // Send yourself an email with a link to the document.
+      GmailApp.sendEmail(email, subject, body);
+      console.log("Send to google docs");
+      this.dropzone.open();
+    }
+
   },
 
   handleSample2Click() {
@@ -273,11 +269,11 @@ if (this.state.click === "saveStory"){
           console.log("error calling googleAPI.init" + err);
         });
 
-       
 
-  
 
-        
+
+
+
       console.log(this.state.formattedMessages[this.state.formattedMessages.length - 1].results[0].alternatives[0].transcript);
 
       var fullmsg = this.state.formattedMessages;
@@ -314,48 +310,48 @@ if (this.state.click === "saveStory"){
         let userEmail = "";
         //call googleApi to extract email of user
         googleApi.init()
-        .then(() => {
-          userEmail = googleApi.getEmail()
-          .then(userEmail => {
-            console.log('Email extracted' + userEmail);
-            console.log("Post to database");
-            console.log(finalmsg);
-            
-            let message = {
-              title: usertitle,
-              words: finalmsg,
-              userEmail: userEmail
-            };
-  
-            $.ajax({
-              method: 'POST',
-              url: "/saved",
-              contentType: "application/json",
-              data: JSON.stringify(message)
-            }).done(function (data) {
-              console.log(data + "saving");
-              // location.reload();
-            });
-          })
-        })
+          .then(() => {
+            userEmail = googleApi.getEmail()
+              .then(userEmail => {
+                console.log('Email extracted' + userEmail);
+                console.log("Post to database");
+                console.log(finalmsg);
 
-        .catch(err => {
+                let message = {
+                  title: usertitle,
+                  words: finalmsg,
+                  userEmail: userEmail
+                };
+
+                $.ajax({
+                  method: 'POST',
+                  url: "/saved",
+                  contentType: "application/json",
+                  data: JSON.stringify(message)
+                }).done(function (data) {
+                  console.log(data + "saving");
+                  // location.reload();
+                });
+              })
+          })
+
+          .catch(err => {
             // alert(err);
             console.log('error extracting user Email ingoogleAPI.getEmail' + err);
-        });
-      // })
-      // .catch(err => {
-      //   alert(err);
-      //    console.log("error in googleAPI.init " + err);
-      // })
+          });
+        // })
+        // .catch(err => {
+        //   alert(err);
+        //    console.log("error in googleAPI.init " + err);
+        // })
 
-        
-        
+
+
 
       } //saveStory
 
 
-  }  //Save story click
+    }  //Save story click
   }, //end handleSample2Click
 
   handleUserFile(files) {
@@ -603,18 +599,18 @@ if (this.state.click === "saveStory"){
             isOpen={this.state.toggleModal} // boolean
             onExit={this.onExit}
             onEnter={this.state.onEnter}
-            
+
           >
             <h3 className="modalHeader" style={{ textAlign: 'center' }}>Enter your story's title:</h3>
-            
+
             <TextInput
-            style={{ textAlign: 'center' }}
-            id="text-input-1"
-            placeholder="My Story Title"
-            onInput={(e) => {
-              this.setState({ text: e.target.value });
-            }}
-          />
+              style={{ textAlign: 'center' }}
+              id="text-input-1"
+              placeholder="My Story Title"
+              onInput={(e) => {
+                this.setState({ text: e.target.value });
+              }}
+            />
             <button className={buttonClass} id="modalSubmitBtn" onClick={this.handleClick}>Submit</button>
           </Modal>
 
