@@ -94,19 +94,6 @@ button:active {
     border-bottom: 2px solid #FF9F1C;
 }
 
-@media screen and (max-width: 768px) {
-    nav .nav-wrapper {
-        text-align: center;
-    }
-    #navbarLinkSpans {
-        padding-left: 2em;
-    }
-    #navbarLinkSpans:nth-child(1) {
-        padding: 0;
-    }
-    
-}
-
 /* Watson Recorder */
 .useMicH3 {
     margin-top: 75px;
@@ -139,7 +126,7 @@ button:active {
     box-shadow: 4px 4px 6px rgba(0,0,0,0.8);
 }
 
-.base--select {
+.base--input, .base--select {
     border: none;
     box-shadow: 4px 4px 6px rgba(0,0,0,0.8);
 }
@@ -158,8 +145,9 @@ option {
     border: none;
 }
 
-.voiceModelDropdown {
-    font-family: 'Raleway', sans-serif !important;      
+#voiceModelDropdown {
+    font-family: 'Raleway', sans-serif !important;
+    max-width: 1600px;    
 }
 
 .base--hr {
@@ -285,7 +273,7 @@ dialog, dd, dt {
         margin-right: 0;
     }
     .base--input, .base--select {
-        max-width: 100%;
+        max-width: 1600px;
     }
 }
 
@@ -483,3 +471,29 @@ dialog, dd, dt {
 .modal--x:focus {
     background-color: #FF9F1C;
 }
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    nav .nav-wrapper {
+        text-align: center;
+    }
+    #navbarLinkSpans {
+        padding-left: 2em;
+    }
+    #navbarLinkSpans:nth-child(1) {
+        padding: 0;
+    }
+    .base--select {
+        max-width: 740px;
+    }
+    .base--button, button {
+        display: block;
+        width: 297px;
+        margin: 20px auto;
+    }
+    
+}
+
+
+
+/* 769 to 1023 */
