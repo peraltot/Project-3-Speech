@@ -94,6 +94,19 @@ button:active {
     border-bottom: 2px solid #FF9F1C;
 }
 
+@media screen and (max-width: 768px) {
+    nav .nav-wrapper {
+        text-align: center;
+    }
+    #navbarLinkSpans {
+        padding-left: 2em;
+    }
+    #navbarLinkSpans:nth-child(1) {
+        padding: 0;
+    }
+    
+}
+
 /* Watson Recorder */
 .useMicH3 {
     margin-top: 75px;
