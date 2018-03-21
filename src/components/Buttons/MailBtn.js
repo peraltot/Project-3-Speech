@@ -61,7 +61,7 @@ class MailBtn extends Component {
         
         <TextInput
         style={{ textAlign: 'center' }}
-        id="text-input-1"
+        id="text-input-2"
         placeholder="Sendee"
         onInput={(e) => {
         this.setState({ email: e.target.value });
