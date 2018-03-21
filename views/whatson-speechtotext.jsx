@@ -581,16 +581,15 @@ export default React.createClass({
 
         <div className="flex buttons">
 
-          <button className={micButtonClass} onClick={this.handleMicClick}>
+          <button className={micButtonClass} id="theRecorderBtns" onClick={this.handleMicClick}>
             <Icon fill={micIconFill} type={this.state.audioSource === 'mic' ? 'stop' : 'microphone'} /> Record Audio
           </button>
 
-          <button className={buttonClass} onClick={this.downloadStory}>
+          <button className={buttonClass} id="theRecorderBtns" onClick={this.downloadStory}>
             <Icon fill="#ffffff" type={this.state.audioSource === 'sample-1' ? 'stop' : 'link-out'} /> Download Story
           </button>
 
-          {/* <button className={buttonClass} onClick={this.handleSample2Click}> */}
-          <button className={buttonClass} onClick={this.saveStory}>
+          <button className={buttonClass} id="theRecorderBtns" onClick={this.saveStory}>
             <Icon fill="#ffffff" type={this.state.audioSource === 'sample-2' ? 'stop' : 'plus'} /> Save Story
           </button>
 

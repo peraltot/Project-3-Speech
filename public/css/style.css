@@ -431,6 +431,13 @@ dialog, dd, dt {
     height: 3rem;
 }
 
+#text-input-2 {
+    margin-top: 50px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    height: 3rem;
+}
+
 #modalSubmitBtn {
     margin-top: 30px;
     margin-left: 34%;
@@ -488,10 +495,32 @@ dialog, dd, dt {
     }
     .base--button, button {
         display: block;
-        width: 297px;
         margin: 20px auto;
     }
-    
+    #theRecorderBtns {
+        width: 297px;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .modal {
+        width: 552px;
+        height: 300px;
+    }
+    #text-input-1 {
+        margin-left: 50px;
+    }
+    #text-input-2 {
+        margin-left: 50px;
+        margin-top: 30px;
+    }
+    #modalSubmitBtn {
+        margin-top: 45px;
+        margin: 45px auto;
+    }
+    .emailModalSubmitBtn {
+        margin: 35px auto;
+    }
 }
 
 
