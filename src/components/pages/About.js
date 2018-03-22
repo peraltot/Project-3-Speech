@@ -16,8 +16,6 @@ class About extends Component {
         { title: "Delete Story", text: "Delete a story.", img: "./images/delete.png"  },
         { title: "Google Drive", text: "Upload a story to Google Drive.", img: "./images/google.png"  },
         { title: "Mail Story", text: "Email a story to yourself or someone else.", img: "./images/email.png"  },
-        
-
       ]   
     }
 }
