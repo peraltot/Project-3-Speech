@@ -64,7 +64,9 @@ In the teriminal run `yarn start` which runs the script inside the start field o
 └── views                       // Watson react components
 │   └── layout.js               // Main file - includes cdn libraries, stylesheets, javascript files
 └── src                         // React components
+```
 
+----
 
 ## How to start your own speech to text app using the Watson API
 
