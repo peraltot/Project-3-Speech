@@ -480,7 +480,7 @@ dialog, dd, dt {
 }
 
 /* Media Queries */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     nav .nav-wrapper {
         text-align: center;
     }
