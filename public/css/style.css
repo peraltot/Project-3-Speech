@@ -524,6 +524,14 @@ dialog, dd, dt {
 }
 
 @media screen and (max-width: 479px) {
+    body {
+        background-image: none !important;
+        background-color: #7BDFF2;
+    }
+    #chatterdoxNav {
+        background-color: #FF9F1C;
+        height: 75px;   
+    }
     .useMicH3 {
         padding: 10px;
         font-size: 20px;
@@ -570,7 +578,3 @@ dialog, dd, dt {
         font-size: 16px;
     }
 }
-
-
-
-/* 769 to 1023 */
