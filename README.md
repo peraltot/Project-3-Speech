@@ -5,9 +5,8 @@ Speech to text browser application designed to be used for children's reading la
 The Watson Speech to Text API converts audio voice into written text. This Speech to Text service uses IBM's speech recognition capabilities to convert speech in multiple languages into text. The transcription of incoming audio is continuously sent back to the client via JSON objects with minimal delay, and it is corrected as more speech is heard. The service is accessed via a WebSocket interface; a REST HTTP interface is also available. Node.js is also used to provide the browser client's authentication token.
 
 View on Heroku:
-```
 https://pure-caverns-32781.herokuapp.com/
-```
+
 
 ## Run the App Locally
 
@@ -45,44 +44,26 @@ use Stories = will display (switched to db Stories)
 db.dropDatabase(); = { "dropped" : "Stories", "ok" : 1 }
 
 In the teriminal run `yarn start` which runs the script inside the start field of the script field in package.json
-
-#File System Overview
-/Server.js -> /app.js
-
-/app.js ->  routes/api.js ->  renders 'index' (which redirects to /views/index.jsx)
-
-views/index.jsx -> imports layout.jsx
-
-views/layout.jsx -> The main file - includes cdn libraries, stylesheets, javascript files here. This is where we include materialize library links
-
-layout.jsx directs to /scripts/bundle.js which contains the main component "whatson-speechtotext"
-
-/scripts/bundle.js -> imports /views/watson-speechtotext.jsx
-
-/views/whatson-speechtotext.jsx -> imports all other views and handles the Waston functionality
-  /views/json-view.jsx
-  /views/model-dropdown.jsx (implements language drop down choices on homescreen)
-  /views/speaker.jsx
-  /views/transcript.jsx
   
-  ----
+----
 
 ### Directory structure
-
-```none
 .
-├── app.js                      // express routes
-├── config                      // express configuration
+├── app.js                      // React Router
+├── config                      // Express configuration
 │   ├── express.js
 │   └── security.js
+├── models                      // Mongoose schema defined here for the Mongo db
+├── routes                      // Api routes
 ├── manifest.yml
 ├── package.json
-├── public                      // static resources
-├── server.js                   // entry point
-├── test                        // tests
+├── public                      // Static resources
+├── server.js                   // Entry point
+├── test                        // Tests
 └── views                       // Watson react components
-└── src                         // react components
-```
+│   └── layout.js               // Main file - includes cdn libraries, stylesheets, javascript files
+└── src                         // React components
+
 
 ## How to start your own speech to text app using the Watson API
 
