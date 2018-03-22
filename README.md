@@ -1,4 +1,6 @@
-# ChatterDoX 
+# ChatterDoX
+
+![ScreenShot](public/images/ChatterDoX.png)
 
 Speech to text browser application designed to be used for children's reading lab lessons during school and at home. Students can record themselves reading stories out loud to practice literacy skills. Their speech is converted to written text and displayed on the screen in real time. The app provides a story management system for students to read and edit their recorded stories for further practice. Stories can be downloaded to their local device or saved to a database to be reviewed on the site's My Stories page. From this page students are given the options to delete unwanted stories, save them to their GoogleDrive accounts, or email them to a specified recipient.
 
@@ -149,8 +151,8 @@ For more details about developing applications that use Watson Developer Cloud s
   
 ## Authors
 
-**Tom Peralto** (https://github.com/peraltot)
-**Emma Pankey** (https://github.com/emmapankey)
-**Louise Hayes** (https://github.com/louise-hayes)
-**Mike Sherman** (https://github.com/msherman83)
-**Connor Melnick** (https://github.com/connorjohnmelnick)
+* Tom Peralto (https://github.com/peraltot)
+* Emma Pankey (https://github.com/emmapankey)
+* Louise Hayes (https://github.com/louise-hayes)
+* Mike Sherman (https://github.com/msherman83)
+* Connor Melnick (https://github.com/connorjohnmelnick)
