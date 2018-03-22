@@ -48,6 +48,7 @@ In the teriminal run `yarn start` which runs the script inside the start field o
 ----
 
 ### Directory structure
+```none
 .
 ├── app.js                      // React Router
 ├── config                      // Express configuration
