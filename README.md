@@ -1,24 +1,50 @@
-# Speech to Text Browser Application
-Watson Speech to Text API converts audio voice into written text
+# ChatterDoX 
 
-#run npm start after running mongo on terminal session
+Speech to text browser application designed to be used for children's reading lab lessons during school and at home. Students can record themsevles reading stories out loud to practice literacy skills. Their speech is converted to written text and displayed on the screen in real time. The app provides a story management system for students to download their stories to their local devices or save their stories to our database to be reviewd on the site's `My Stories` page. From this page students are given the options to delete unwanted stories, save them to their GoogleDrive accounts, or email them to a specified recipient.
 
-#DB info
-run mongod in another Terminal session:
-mongod
-run mongo in seperate Terminal session 
+The Watson Speech to Text API converts audio voice into written text. This Speech to Text service uses IBM's speech recognition capabilities to convert speech in multiple languages into text. The transcription of incoming audio is continuously sent back to the client via JSON objects with minimal delay, and it is corrected as more speech is heard. The service is accessed via a WebSocket interface; a REST HTTP interface is also available. Node.js is also used to provide the browser client's authentication token.
 
-first remove the db so it can be re-created auto within our app:
-from within mongo running in terminal session
+View on Heroku:
+```
+https://pure-caverns-32781.herokuapp.com/
+```
+
+## Run the App Locally
+
+First clone this repository:
+```
+https://github.com/peraltot/Project-3-Speech.git
+```
+
+### Prerequisites:
+#### Node.js and npm
+Go to the Node.js site:  https://nodejs.org/en. Click the download button, and run through the installation file.
+To check if you have Node.js installed, run this command in your terminal:
+```
+node -v
+```
+To confirm that you have npm installed you can run this command in your terminal:
+```
+npm -v
+```
+
+### Installing Node Packages:
+In the terminal execute the following command:
+```
+npm install
+```
+
+### DB info:
+
+Run `mongod` in a Terminal session:
+Run `mongo` in a seperate Terminal session 
+
+First remove the db so it can be re-created auto within our app
 
 use Stories = will display (switched to db Stories)
 db.dropDatabase(); = { "dropped" : "Stories", "ok" : 1 }
 
-yarn start
-
-#When adding react / npm components
-yarn add react-bootstrap --save
-this saves to dependcies to package.json (and so does not break the app after you push you master and re-pull)
+In the teriminal run `yarn start` which runs the script inside the start field of the script field in package.json
 
 #File System Overview
 /Server.js -> /app.js
@@ -27,49 +53,38 @@ this saves to dependcies to package.json (and so does not break the app after yo
 
 views/index.jsx -> imports layout.jsx
 
-views/layout.jsx -> The main html file - includes cdn libraries, stylesheets, javascript files here. This is where we include materialize library links
+views/layout.jsx -> The main file - includes cdn libraries, stylesheets, javascript files here. This is where we include materialize library links
 
 layout.jsx directs to /scripts/bundle.js which contains the main component "whatson-speechtotext"
 
 /scripts/bundle.js -> imports /views/watson-speechtotext.jsx
 
-/views/whatson-speechtotext.jsx -> imports all other views and handles the whaston functionality
+/views/whatson-speechtotext.jsx -> imports all other views and handles the Waston functionality
   /views/json-view.jsx
   /views/model-dropdown.jsx (implements language drop down choices on homescreen)
   /views/speaker.jsx
-  /views/transcript.jsx 
+  /views/transcript.jsx
   
-  To do: create componenets folder for our app componenets such as :
+  ----
 
-/components/stories
-/components/login
-/components/googledocs
-/components/email
+### Directory structure
 
+```none
+.
+├── app.js                      // express routes
+├── config                      // express configuration
+│   ├── express.js
+│   └── security.js
+├── manifest.yml
+├── package.json
+├── public                      // static resources
+├── server.js                   // entry point
+├── test                        // tests
+└── views                       // Watson react components
+└── src                         // react components
+```
 
-
-const listitem props
-list container
-  list item
-  list item
-  list item
-
-import react from react
-
-[![Build Status](https://travis-ci.org/watson-developer-cloud/speech-to-text-nodejs.svg?branch=master)](https://travis-ci.org/watson-developer-cloud/speech-to-text-nodejs)
-
-  The [Speech to Text][service_url] service uses IBM's speech recognition capabilities to convert speech in multiple languages into text. The transcription of incoming audio is continuously sent back to the client with minimal delay, and it is corrected as more speech is heard. The service is accessed via a WebSocket interface; a REST HTTP interface is also available;
-
-Node.js is also used to provide the browser client's authentication token.
-
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/speech-to-text-nodejs)
-
-## Getting started
-
-
-
-
-
+## How to start your own speech to text app using the Watson API
 
 1. You need a Bluemix account. If you don't have one, [sign up][sign_up].
 
@@ -144,64 +159,14 @@ After completing the steps above, you are ready to test your application. Start 
 For more details about developing applications that use Watson Developer Cloud services in Bluemix, see [Getting started with Watson Developer Cloud and Bluemix][getting_started].
 
 
-## Troubleshooting
-
-* The main source of troubleshooting and recovery information is the Bluemix log. To view the log, run the following command:
-
-  ```sh
-  cf logs <application-name> --recent
-  ```
-
-* For more details about the service, see the [documentation][docs] for the Speech to Text service.
-
-
-----
-
-### Directory structure
-
-```none
-.
-├── app.js                      // express routes
-├── config                      // express configuration
-│   ├── express.js
-│   └── security.js
-├── manifest.yml
-├── package.json
-├── public                      // static resources
-├── server.js                   // entry point
-├── test                        // tests
-└── views                       // react components
-```
-
 ## License
 
-  This sample code is licensed under Apache 2.0.
+  Sample code is licensed under Apache 2.0.
+  
+## Authors
 
-## Contributing
-
-  See [CONTRIBUTING](CONTRIBUTING.md).
-
-## Open Source @ IBM
-  Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
-
-## Privacy Notice
-
-Sample web applications that include this package may be configured to track deployments to [IBM Bluemix](https://www.bluemix.net/) and other Cloud Foundry platforms. The following information is sent to a [Deployment Tracker](https://github.com/IBM-Bluemix/cf-deployment-tracker-service) service on each deployment:
-
-* Node.js package version
-* Node.js repository URL
-* Application Name (`application_name`)
-* Space ID (`space_id`)
-* Application Version (`application_version`)
-* Application URIs (`application_uris`)
-* Labels of bound services
-* Number of instances for each bound service and associated plan information
-
-This data is collected from the `package.json` file in the sample application and the `VCAP_APPLICATION` and `VCAP_SERVICES` environment variables in IBM Bluemix and other Cloud Foundry platforms. This data is used by IBM to track metrics around deployments of sample applications to IBM Bluemix to measure the usefulness of our examples, so that we can continuously improve the content we offer to you. Only deployments of sample applications that include code to ping the Deployment Tracker service will be tracked.
-
-[deploy_track_url]: https://github.com/cloudant-labs/deployment-tracker
-[cloud_foundry]: https://github.com/cloudfoundry/cli
-[getting_started]: https://www.ibm.com/watson/developercloud/doc/common/index.html
-[service_url]: https://www.ibm.com/watson/services/speech-to-text/
-[docs]: http://www.ibm.com/watson/developercloud/speech-to-text/
-[sign_up]: https://console.bluemix.net/registration/
+**Tom Peralto** (https://github.com/peraltot)
+**Emma Pankey** (https://github.com/emmapankey)
+**Louise Hayes** (https://github.com/louise-hayes)
+**Mike Sherman** (https://github.com/msherman83)
+**Connor Melnick** (https://github.com/connorjohnmelnick)
