@@ -20,7 +20,7 @@ https://github.com/peraltot/Project-3-Speech.git
 ### Prerequisites:
 #### Node.js and npm
 Go to the Node.js site:  https://nodejs.org/en. Click the download button, and run through the installation file.
-To check if you have Node.js installed, run this command in your terminal:
+To check if you already have Node.js installed, run this command in your terminal:
 ```
 node -v
 ```
@@ -28,12 +28,19 @@ To confirm that you have npm installed you can run this command in your terminal
 ```
 npm -v
 ```
+#### MongoDB
+You will need MongoDB to access our document data models. Visit https://docs.mongodb.com/manual/installation/ to run through the installation.
+To test whether the installation was successful enter the following command in your command-line shell:
+```
+mongod --version
+ ```
 
 ### Installing Node Packages:
 In the terminal execute the following command:
 ```
 npm install
 ```
+This will install all of the app's node module dependencies.
 
 ### DB info:
 
