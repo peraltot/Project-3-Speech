@@ -6,8 +6,10 @@ Speech to text browser application designed to be used for children's reading la
 
 The Watson Speech to Text API converts audio voice into written text. This Speech to Text service uses IBM's speech recognition capabilities to convert speech in multiple languages into text. The transcription of incoming audio is continuously sent back to the client via JSON objects with minimal delay, and it is corrected as more speech is heard. The service is accessed via a WebSocket interface; a REST HTTP interface is also available. Node.js is also used to provide the browser client's authentication token.
 
+
+
 View on Heroku:
-https://pure-caverns-32781.herokuapp.com/
+https://chatterdox.herokuapp.com/
 
 
 ## Run the App Locally
